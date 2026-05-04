@@ -962,7 +962,7 @@ function BookingModal({onClose,preselect=''}){
     setSubmitting(true);
     setSubmitError('');
     try {
-      const formId = import.meta.env.VITE_FORMSPREE_ID;
+      const formId = import.meta.env.VITE_FORMSPREE_ID || 'xpqbpjky';
       if (!formId) throw new Error('NOT_CONFIGURED');
       const res = await fetch(`https://formspree.io/f/${formId}`, {
         method: 'POST',

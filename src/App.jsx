@@ -1286,12 +1286,97 @@ function BookingModal({onClose,preselect=''}){
   );
 }
 
+const DASH_VIEWS = {
+  'Dashboard': {
+    title: 'Global Operations Centre',
+    kpis: [{v:'147',l:'Active Shipments'},{v:'$4.2M',l:'In-Transit Value'},{v:'6',l:'Agents Running'}],
+    list: [
+      {id:'PO-9104',r:'Shanghai → Rotterdam',s:'ss-tr',sl:'In Transit'},
+      {id:'PO-9098',r:'Singapore → Los Angeles',s:'ss-ok',sl:'Cleared'},
+      {id:'PO-9091',r:'Dubai → Frankfurt',s:'ss-ho',sl:'On Hold'},
+      {id:'PO-9088',r:'Mumbai → London',s:'ss-ok',sl:'Cleared'},
+      {id:'PO-9082',r:'São Paulo → Antwerp',s:'ss-tr',sl:'In Transit'},
+    ],
+  },
+  'Shipments': {
+    title: 'Active Shipments',
+    kpis: [{v:'147',l:'In Transit'},{v:'82',l:'Cleared (7d)'},{v:'4',l:'On Hold'}],
+    list: [
+      {id:'PO-9104',r:'Shanghai → Rotterdam · Maersk',s:'ss-tr',sl:'In Transit'},
+      {id:'PO-9098',r:'Singapore → Los Angeles · COSCO',s:'ss-ok',sl:'Cleared'},
+      {id:'PO-9091',r:'Dubai → Frankfurt · DHL',s:'ss-ho',sl:'On Hold'},
+      {id:'PO-9088',r:'Mumbai → London · MSC',s:'ss-ok',sl:'Cleared'},
+      {id:'PO-9082',r:'São Paulo → Antwerp · Hapag-Lloyd',s:'ss-tr',sl:'In Transit'},
+      {id:'PO-9076',r:'Lagos → Hamburg · CMA CGM',s:'ss-tr',sl:'In Transit'},
+      {id:'PO-9069',r:'Tokyo → Seattle · ONE',s:'ss-ok',sl:'Cleared'},
+    ],
+  },
+  'Agents': {
+    title: 'Active Agents',
+    kpis: [{v:'6',l:'Running'},{v:'341',l:'Actions Today'},{v:'2',l:'Escalations'}],
+    list: [
+      {id:'AG-01',r:'Customs Watcher · 40+ jurisdictions',s:'ss-ok',sl:'Active'},
+      {id:'AG-02',r:'Payment Router · SWIFT compliance',s:'ss-ok',sl:'Active'},
+      {id:'AG-03',r:'FX Sentinel · live spread monitor',s:'ss-ok',sl:'Active'},
+      {id:'AG-04',r:'Document Generator · multi-jurisdiction',s:'ss-ok',sl:'Active'},
+      {id:'AG-05',r:'Port Congestion Monitor · global',s:'ss-tr',sl:'Scanning'},
+      {id:'AG-06',r:'Supplier Risk Scorer · daily refresh',s:'ss-ok',sl:'Active'},
+    ],
+  },
+  'Documents': {
+    title: 'Document Engine',
+    kpis: [{v:'24',l:'Generated Today'},{v:'3',l:'Pending Review'},{v:'1,247',l:'Filed (30d)'}],
+    list: [
+      {id:'DOC-3401',r:'Commercial Invoice · PO-9104 · EU',s:'ss-ok',sl:'Filed'},
+      {id:'DOC-3400',r:'SWIFT MT103 · PO-9098 · US',s:'ss-ok',sl:'Approved'},
+      {id:'DOC-3399',r:'Cert of Origin · PO-9091 · DE',s:'ss-ho',sl:'Review'},
+      {id:'DOC-3398',r:'Customs Declaration · PO-9088 · UK',s:'ss-ok',sl:'Filed'},
+      {id:'DOC-3397',r:'Letter of Credit · PO-9082 · BE',s:'ss-ok',sl:'Approved'},
+      {id:'DOC-3396',r:'Bill of Lading · PO-9076 · NG',s:'ss-tr',sl:'Drafting'},
+    ],
+  },
+  'Payments': {
+    title: 'Payment Operations',
+    kpis: [{v:'$2.1M',l:'Pending Settle'},{v:'OPEN',l:'FX Window'},{v:'$18.4M',l:'This Month'}],
+    list: [
+      {id:'PMT-921',r:'$840K · USD → EUR · Rotterdam supplier',s:'ss-tr',sl:'Queued'},
+      {id:'PMT-920',r:'$215K · USD → SGD · Singapore freight',s:'ss-ok',sl:'Settled'},
+      {id:'PMT-919',r:'$92K · USD → AED · Dubai broker',s:'ss-ok',sl:'Settled'},
+      {id:'PMT-918',r:'$1.4M · USD → CNY · Shanghai supplier',s:'ss-tr',sl:'In Flight'},
+      {id:'PMT-917',r:'$310K · USD → GBP · UK customs duty',s:'ss-ok',sl:'Settled'},
+    ],
+  },
+  'ERP Diagnostics': {
+    title: 'ERP Health',
+    kpis: [{v:'4/4',l:'Systems Connected'},{v:'2',l:'Open Issues'},{v:'2h',l:'Last Scan'}],
+    list: [
+      {id:'SAP',r:'SAP S/4HANA · Production tenant',s:'ss-ok',sl:'Healthy'},
+      {id:'ARIBA',r:'SAP Ariba · Procurement network',s:'ss-ho',sl:'2 Warnings'},
+      {id:'BTP',r:'SAP BTP · Integration layer',s:'ss-ok',sl:'Healthy'},
+      {id:'MULE',r:'MuleSoft · Anypoint API gateway',s:'ss-tr',sl:'1 Critical'},
+    ],
+  },
+  'Settings': {
+    title: 'Account Settings',
+    kpis: [],
+    list: [
+      {id:'ORG',r:'Organisation · Acme Trade Co.',s:'ss-ok',sl:'Active'},
+      {id:'REG',r:'Active Regions · Africa + Asia-Pacific',s:'ss-ok',sl:'Set'},
+      {id:'TZ',r:'Default Timezone · WAT (Lagos)',s:'ss-ok',sl:'Set'},
+      {id:'API',r:'Traxora API Keys · 3 active',s:'ss-ok',sl:'Active'},
+      {id:'ALR',r:'Alert Channels · Email + WhatsApp',s:'ss-ok',sl:'On'},
+      {id:'BIL',r:'Billing · XaeccoPS Advisor tier',s:'ss-ok',sl:'Active'},
+    ],
+  },
+};
+
 export default function XaeccoXWebsite(){
   const [scrolled,setScrolled]=useState(false);
   const [annual,setAnnual]=useState(false);
   const [pricingTab,setPricingTab]=useState('platform');
   const [booking,setBooking]=useState(false);
   const [bookPreselect,setBookPreselect]=useState('');
+  const [dashView,setDashView]=useState('Dashboard');
   const refs=useRef([]);
 
   const openBook=(id='')=>{setBookPreselect(id);setBooking(true);};
@@ -1587,35 +1672,38 @@ export default function XaeccoXWebsite(){
             <div className="dash-body">
               <div className="d-side">
                 <div className="d-side-logo">Xaecco<span>PS</span></div>
-                {[{ic:'📊',l:'Dashboard',on:true},{ic:'🚢',l:'Shipments'},{ic:'🤖',l:'Agents'},{ic:'📋',l:'Documents'},{ic:'💱',l:'Payments'},{ic:'⬡',l:'ERP Diagnostics'},{ic:'⚙️',l:'Settings'}].map(it=>(
-                  <div key={it.l} className={`d-nav-item${it.on?' on':''}`}><span>{it.ic}</span>{it.l}</div>
+                {[{ic:'📊',l:'Dashboard'},{ic:'🚢',l:'Shipments'},{ic:'🤖',l:'Agents'},{ic:'📋',l:'Documents'},{ic:'💱',l:'Payments'},{ic:'⬡',l:'ERP Diagnostics'},{ic:'⚙️',l:'Settings'}].map(it=>(
+                  <div key={it.l} className={`d-nav-item${dashView===it.l?' on':''}`} onClick={()=>setDashView(it.l)}><span>{it.ic}</span>{it.l}</div>
                 ))}
               </div>
               <div className="d-main">
-                <div className="dm-top">
-                  <div className="dm-title">Global Operations Centre</div>
-                  <div className="live-chip"><span className="lc-dot"/>Preview · Sample Data</div>
-                </div>
-                <div className="dm-kpis">
-                  {[{v:'147',l:'Active Shipments'},{v:'$4.2M',l:'In-Transit Value'},{v:'6',l:'Agents Running'}].map(m=>(
-                    <div className="dk" key={m.l}><div className="dk-v">{m.v}</div><div className="dk-l">{m.l}</div></div>
-                  ))}
-                </div>
-                <div className="ship-list">
-                  {[
-                    {id:'PO-9104',r:'Shanghai → Rotterdam',s:'ss-tr',sl:'In Transit'},
-                    {id:'PO-9098',r:'Singapore → Los Angeles',s:'ss-ok',sl:'Cleared'},
-                    {id:'PO-9091',r:'Dubai → Frankfurt',s:'ss-ho',sl:'On Hold'},
-                    {id:'PO-9088',r:'Mumbai → London',s:'ss-ok',sl:'Cleared'},
-                    {id:'PO-9082',r:'São Paulo → Antwerp',s:'ss-tr',sl:'In Transit'},
-                  ].map(s=>(
-                    <div className="ship" key={s.id}>
-                      <div className="ship-id">{s.id}</div>
-                      <div className="ship-r">{s.r}</div>
-                      <div className={`ship-s ${s.s}`}>{s.sl}</div>
-                    </div>
-                  ))}
-                </div>
+                {(()=>{
+                  const v=DASH_VIEWS[dashView];
+                  return(
+                    <>
+                      <div className="dm-top">
+                        <div className="dm-title">{v.title}</div>
+                        <div className="live-chip"><span className="lc-dot"/>Preview · Sample Data</div>
+                      </div>
+                      {v.kpis.length>0&&(
+                        <div className="dm-kpis">
+                          {v.kpis.map(m=>(
+                            <div className="dk" key={m.l}><div className="dk-v">{m.v}</div><div className="dk-l">{m.l}</div></div>
+                          ))}
+                        </div>
+                      )}
+                      <div className="ship-list">
+                        {v.list.map(s=>(
+                          <div className="ship" key={s.id}>
+                            <div className="ship-id">{s.id}</div>
+                            <div className="ship-r">{s.r}</div>
+                            <div className={`ship-s ${s.s}`}>{s.sl}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
               <div className="d-right">
                 <div className="dr-hd"><span className="dr-dot"/>Agent Activity (Sample)</div>

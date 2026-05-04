@@ -1722,13 +1722,13 @@ export default function XaeccoXWebsite(){
         </div>
 
         {pricingTab==='platform'&&(
-          <div className="pricing-grid fu" ref={r}>
+          <div className="pricing-grid">
             {PLATFORM_TIERS.map(t=><PriceCard key={t.name} tier={t} isAnnual={annual} onBook={openBook}/>)}
           </div>
         )}
 
         {pricingTab==='consulting'&&(
-          <div className="pricing-grid fu" ref={r}>
+          <div className="pricing-grid">
             {[
               {name:'Essential Advisory',badge:'Monthly',monthly:5000,color:'var(--teal)',featured:false,diagId:'snapshot',
                desc:'Ongoing AI agent monitoring, compliance support, and optimisation for active operations.',
@@ -1774,7 +1774,7 @@ export default function XaeccoXWebsite(){
         )}
 
         {pricingTab==='diagnostic'&&(
-          <div className="diag-pricing fu" ref={r}>
+          <div className="diag-pricing">
             <div className="dp-head">
               <div>
                 <div className="dp-title">Diagnostic & Assessment Pricing</div>

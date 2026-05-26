@@ -589,18 +589,18 @@ const ROUTES=[
 ];
 
 const TICKS=[
-  {l:'Baltic Dry Index',v:'1,842',d:1},
-  {l:'Rotterdam TEU',v:'2.4M',d:1},
-  {l:'Shanghai Throughput',v:'4.8M TEU',d:1},
-  {l:'LA Long Beach Wait',v:'3.2d',d:-1},
-  {l:'SWIFT Processing Avg',v:'2.1d',d:-1},
-  {l:'Brent Crude',v:'$87.4',d:-1},
-  {l:'LME Copper',v:'$9,842',d:1},
-  {l:'EUR/USD',v:'1.0842',d:1},
-  {l:'Singapore Strait',v:'NORMAL',d:0},
-  {l:'Felixstowe',v:'ELEVATED',d:1},
-  {l:'JNPT Mumbai',v:'81%',d:1},
+  {l:'USD/NGN Parallel',v:'₦1,548',d:1},
+  {l:'USD/NGN Official',v:'₦1,492',d:1},
   {l:'Apapa Port Dwell',v:'8.3d',d:1},
+  {l:'Tin Can Wait',v:'6.1d',d:-1},
+  {l:'PH–Lagos Trucking',v:'72hr',d:1},
+  {l:'NAFDAC Avg Clearance',v:'14d',d:-1},
+  {l:'CBN OMO Rate',v:'24.8%',d:1},
+  {l:'LA→Lagos 40HC',v:'$4,820',d:-1},
+  {l:'Houston→Lagos 40HC',v:'$5,140',d:1},
+  {l:'BDC Spread (avg)',v:'2.4%',d:-1},
+  {l:'Brent Crude',v:'$87.4',d:-1},
+  {l:'NGX All-Share',v:'104,892',d:1},
 ];
 
 const LOGS=[
@@ -615,31 +615,31 @@ const LOGS=[
 ];
 
 const MARKETS=[
-  {cls:'af', icon:'🌍', reg:'Africa', title:'Africa', ghost:'AFR',
+  {cls:'depth', icon:'🟢', reg:'Active · The Proof', title:'US ↔ Nigeria', ghost:'NOW',
    accent:'linear-gradient(90deg,#F5A623,#FF9500)', ghostC:'#F5A623',
-   desc:'Nigeria, Kenya, Ghana, South Africa, Egypt — the fastest-growing trade frontier. Deep compliance expertise across ECOWAS, EAC and SADC corridors.',
-   hubs:['Lagos','Nairobi','Accra','Johannesburg','Cairo']},
-  {cls:'am', icon:'🌎', reg:'The Americas', title:'Americas', ghost:'AME',
-   accent:'linear-gradient(90deg,#A259FF,#C084FC)', ghostC:'#A259FF',
-   desc:'US, Canada, Brazil, Mexico — USMCA, FDA, US CBP, FCC compliance. Cross-border Latin America trade structuring.',
-   hubs:['New York','Los Angeles','São Paulo','Miami','Houston']},
-  {cls:'eu', icon:'🌍', reg:'Europe', title:'Europe', ghost:'EUR',
+   desc:'Where we go deep. Lagos, Philadelphia, Los Angeles, Houston. CBN compliance, NAFDAC clearance, BDC routing, container consolidation, customs clearing, last-mile to Lagos. Live engagements running.',
+   hubs:['Lagos','Philadelphia','Los Angeles','Houston','Abuja']},
+  {cls:'roadmap1', icon:'🟡', reg:'12-Month Roadmap', title:'UK ↔ Nigeria', ghost:'12M',
    accent:'linear-gradient(90deg,#5282FF,#7BA3FF)', ghostC:'#5282FF',
-   desc:'UK, EU-27, Scandinavia — EU Customs Code, CE marking, REACH, GDPR, EORI management, AEO status support.',
-   hubs:['Rotterdam','London','Hamburg','Antwerp','Frankfurt']},
-  {cls:'as', icon:'🌏', reg:'Asia-Pacific', title:'Asia-Pacific', ghost:'APC',
+   desc:'London ↔ Lagos. Diaspora trade depth, FCA-aligned payment rails, EU customs interoperability for Anglo-Nigerian flows. Sequencing after US–NG operational maturity.',
+   hubs:['London','Manchester','Lagos','Abuja']},
+  {cls:'roadmap2', icon:'🟡', reg:'18-Month Roadmap', title:'EU ↔ Nigeria', ghost:'18M',
+   accent:'linear-gradient(90deg,#A259FF,#C084FC)', ghostC:'#A259FF',
+   desc:'Frankfurt, Rotterdam, Antwerp ↔ Lagos. EU Customs Code, EORI registration, SEPA payment rails, REACH compliance for goods crossing Schengen into West Africa.',
+   hubs:['Frankfurt','Rotterdam','Antwerp','Lagos']},
+  {cls:'roadmap3', icon:'🟡', reg:'24-Month Roadmap', title:'US ↔ Ghana', ghost:'24M',
    accent:'linear-gradient(90deg,#00E5C8,#00B8A3)', ghostC:'#00E5C8',
-   desc:'China, Singapore, Japan, India, UAE — Incoterms structuring, LC management, CPTPP compliance, MAS-regulated flows.',
-   hubs:['Singapore','Shanghai','Dubai','Mumbai','Tokyo']},
+   desc:'Accra, Tema ↔ US. West Africa expansion via the second-largest English-speaking market on the continent. BoG payment compliance, AfCFTA-enabled cross-border lanes.',
+   hubs:['Accra','Tema','New York','Houston']},
 ];
 
 const SOLUTIONS=[
-  {n:'01',t:'Supply Chain Transformation',d:'End-to-end operating model redesign — procurement through last-mile — engineered for global trade complexity across four continents and 120+ active corridors.',tags:['Process Reengineering','Operating Model','Trade Architecture']},
-  {n:'02',t:'AI Agentic Automation',d:'Autonomous agents deployed into your workflows — monitoring, deciding, executing across procurement, logistics, customs and payments, 24 hours a day without waiting for instruction.',tags:['Autonomous Agents','RPA','Intelligent Workflows']},
-  {n:'03',t:'Systems Integration',d:'SAP S/4HANA, Ariba, BTP, MuleSoft, and custom API middleware — connecting fragmented enterprise systems into a unified real-time intelligence layer.',tags:['SAP S/4HANA','Ariba BTP','MuleSoft','API Layer']},
-  {n:'04',t:'Trade Documentation & Compliance',d:'AI-generated, jurisdiction-correct document sets for every corridor — commercial invoices, certificates of origin, customs declarations, letters of credit, SWIFT MT103, and local regulatory filings across 40+ jurisdictions.',tags:['Multi-Jurisdiction','SWIFT MT103','EU Customs','US CBP','Letters of Credit']},
-  {n:'05',t:'Predictive Trade Intelligence',d:'Demand forecasting, FX-aware procurement signals, port congestion alerts, supplier risk scoring, and customs delay prediction — delivered as a live intelligence layer.',tags:['Demand Forecasting','Risk Sensing','FX Intelligence','Port Alerts']},
-  {n:'06',t:'Cross-Border Payments',d:'International payment routing, third-party agent compliance, SWIFT documentation, FX hedging logic, and multi-jurisdiction settlement structuring for global supplier payment flows.',tags:['Cross-Border Payments','FX Routing','SWIFT','Multi-Jurisdiction']},
+  {n:'01',t:'CBN & NAFDAC Compliance',d:'Live tracking of CBN circulars, BDC and IMTO licensing posture, NAFDAC registration and product clearance workflows — operationalised against real importer flows, not policy theatre.',tags:['CBN','NAFDAC','BDC Licensing','IMTO']},
+  {n:'02',t:'BDC & IMTO Routing',d:'Intelligent payment routing across CBN-licensed BDCs and IMTOs, with audit-grade documentation of every leg. Built for diaspora flows, business cross-border payables, and stablecoin-to-naira settlement.',tags:['BDC Routing','IMTO','Stablecoin','SWIFT MT103']},
+  {n:'03',t:'Container Consolidation',d:'US-side consolidation across diaspora suppliers in Philadelphia, LA, Houston. Mixed-cargo lanes for African grocery, restaurant supply, e-commerce imports, and individual diaspora shipments to Lagos.',tags:['LCL','FCL','Diaspora Cargo','Multi-Supplier']},
+  {n:'04',t:'Customs Clearing & HS Coding',d:'Apapa, Tin Can, MMIA cargo. HS code review against current Nigerian Customs CET, duty pre-calculation, NAFDAC and SON pre-clearance coordination, and broker oversight to reduce demurrage exposure.',tags:['Apapa','Tin Can','HS Codes','SON','NAFDAC']},
+  {n:'05',t:'Last-Mile to Lagos',d:'Container drop, deconsolidation, and last-mile delivery across Lagos and onward to Abuja, Port Harcourt, Ibadan. Visibility from US warehouse pickup to recipient signature.',tags:['Lagos Drop','Deconsolidation','Last-Mile','Track-to-Door']},
+  {n:'06',t:'FX & USD/NGN Settlement',d:'Real-time visibility into parallel vs official USD/NGN spreads, FX window timing, multi-leg settlement orchestration, and structured invoice-to-payment matching for corridor flows.',tags:['USD/NGN','FX Spread','Settlement','Invoice Match']},
 ];
 
 const ERP_SYSTEMS=[
@@ -893,10 +893,8 @@ function PriceCard({tier,isAnnual,onBook}){
 }
 
 const DIAG_TYPES=[
-  {id:'snapshot',icon:'⚡',scope:'Entry Level',name:'AI Snapshot Assessment',price:'$3,500',time:'5–7 business days',desc:'Single domain audit — customs, procurement, or payments. AI-processed gap analysis with 10-page executive report.',tags:['Single Domain','AI-Processed','10-Page Report'],dca:'linear-gradient(90deg,#00E5C8,#00B8A3)',col:'#00E5C8'},
-  {id:'full',icon:'🔍',scope:'Standard',name:'Full Supply Chain Diagnostic',price:'$15,000',time:'3–4 weeks',desc:'End-to-end audit across all supply chain nodes plus ERP health check. Full diagnostic report with agent deployment roadmap.',tags:['End-to-End','ERP Included','Agent Roadmap'],dca:'linear-gradient(90deg,#5282FF,#7BA3FF)',col:'#5282FF'},
-  {id:'erp',icon:'⬡',scope:'ERP Specialist',name:'ERP System Diagnostic',price:'$18,000',time:'3–4 weeks',desc:'Full SAP S/4HANA, Ariba, BTP or MuleSoft diagnostic. Deep analysis of configurations, data quality, workflows and integration health.',tags:['SAP S/4HANA','Ariba','BTP','MuleSoft'],dca:'linear-gradient(90deg,#A259FF,#C084FC)',col:'#A259FF'},
-  {id:'enterprise',icon:'🌐',scope:'Enterprise',name:'Multi-Corridor Enterprise',price:'$45,000',time:'6–8 weeks',desc:'Cross-continent, multi-jurisdiction diagnostic. Full ERP landscape, compliance mapping, and complete agent architecture recommendation.',tags:['Multi-Corridor','Full ERP','Compliance Mapping'],dca:'linear-gradient(90deg,#F5A623,#FF9500)',col:'#F5A623'},
+  {id:'standard',icon:'🧭',scope:'Standard',name:'Standard Corridor Diagnostic',price:'$12,500',time:'3 weeks',desc:'Structured assessment of your corridor: trade flow analysis, compliance gap review (CBN, NAFDAC, US Customs), payment routing audit, logistics cost benchmarking, prioritised 90-day action plan.',tags:['Trade Flow','Compliance','Payment Audit','Logistics Cost'],dca:'linear-gradient(90deg,#5282FF,#7BA3FF)',col:'#5282FF'},
+  {id:'deep',icon:'🔬',scope:'Deep · Hands-On',name:'Deep Corridor Diagnostic',price:'$25,000',time:'6 weeks',desc:'Everything in Standard, plus weekly working sessions with founder, hands-on partner introductions across the corridor, implementation-readiness deliverable, and 90-day async follow-up access.',tags:['Weekly Sessions','Partner Intros','Implementation','Action Plan'],dca:'linear-gradient(90deg,#A259FF,#C084FC)',col:'#A259FF'},
 ];
 const BK_CORRIDORS=['Africa (Nigeria / Kenya / Ghana)','Americas (US / Canada / Brazil)','Europe (UK / EU-27 / Scandinavia)','Asia-Pacific (Singapore / China / India / UAE)','Africa → Europe','Africa → Americas','Asia → Africa','Asia → Americas','Global (Multiple regions)'];
 const BK_TZ=['WAT – West Africa Time (Lagos)','CET – Central European Time (London/Paris)','EST – Eastern Standard Time (New York)','PST – Pacific Standard Time (Los Angeles)','GST – Gulf Standard Time (Dubai)','IST – India Standard Time (Mumbai)','SGT – Singapore Time','JST – Japan Standard Time (Tokyo)'];
@@ -1288,7 +1286,7 @@ function BookingModal({onClose,preselect=''}){
 
 const DASH_VIEWS = {
   'Dashboard': {
-    title: 'Global Operations Centre',
+    title: 'Corridor Operations Centre',
     kpis: [{v:'147',l:'Active Shipments'},{v:'$4.2M',l:'In-Transit Value'},{v:'6',l:'Agents Running'}],
     list: [
       {id:'PO-9104',r:'Shanghai → Rotterdam',s:'ss-tr',sl:'In Transit'},
@@ -1455,13 +1453,13 @@ export default function XaeccoXWebsite(){
           <span className="logo-badge">Global Intelligence Platform</span>
         </a>
         <ul className="nav-links">
-          {['Solutions','ERP','Platform','Markets','Pricing'].map(l=>(
-            <li key={l}><a onClick={()=>go(l.toLowerCase())} style={{cursor:'pointer'}}>{l}</a></li>
+          {[['Products','products'],['Diagnostics','pricing'],['Corridor','corridor'],['About','founder']].map(([l,id])=>(
+            <li key={l}><a onClick={()=>go(id)} style={{cursor:'pointer'}}>{l}</a></li>
           ))}
         </ul>
         <div className="nav-right">
-          <button className="btn-nav-ghost" onClick={()=>go('pricing')}>View Pricing</button>
-          <button className="btn-nav-cta" onClick={()=>openBook()}>Book Diagnostic</button>
+          <button className="btn-nav-ghost" onClick={()=>go('founder')}>Talk to the founder</button>
+          <button className="btn-nav-cta" onClick={()=>openBook()}>Book diagnostic</button>
         </div>
       </nav>
 
@@ -1471,23 +1469,23 @@ export default function XaeccoXWebsite(){
         <div className="hero-ring2"/>
         <div className="hero-left">
           <div className="hero-status">
-            <span className="hs-dot"/><span className="hs-txt">Now in Private Beta · By-Invitation Diagnostics Open</span>
+            <span className="hs-dot"/><span className="hs-txt">Corridor Diagnostics Open · XaePay launches June 2026</span>
           </div>
           <h1 className="hero-h">
-            Global trade,<br/>
-            <span className="arc">governed</span> by<br/>
-            intelligence.
-            <span className="serif">Your supply chain didn't get an intelligence layer. Until now.</span>
+            The cross-border<br/>
+            commerce platform for the<br/>
+            <span className="arc">US–Nigeria corridor.</span>
+            <span className="serif">Intelligence, payments, and logistics for businesses moving goods, money, and ideas between Africa and the world.</span>
           </h1>
           <p className="hero-desc">
-            XaeccoX is building autonomous AI agents for the world's most complex cross-border supply chains — integrating procurement, logistics, customs, payments and ERP systems into a single self-optimising intelligence layer. Diagnostic engagements open now; platform agents rolling out to design partners.
+            XaeccoX is built corridor-first. We start where the depth is — US ↔ Nigeria — and extend Africa-broad as the operational ground is proven. Three product layers: <strong style={{color:'var(--w)'}}>XaePay</strong> for compliant cross-border payments, <strong style={{color:'var(--w)'}}>XaePro</strong> for operations and logistics, <strong style={{color:'var(--w)'}}>XaeTrade</strong> for curated commerce.
           </p>
           <div className="hero-actions">
-            <button className="btn-primary" onClick={()=>openBook()}>Book a Supply Chain Diagnostic</button>
-            <button className="btn-secondary" onClick={()=>go('platform')}>Explore the Platform →</button>
+            <button className="btn-primary" onClick={()=>openBook()}>Book a corridor diagnostic</button>
+            <button className="btn-secondary" onClick={()=>go('products')}>Explore XaePay →</button>
           </div>
           <div className="hero-stats">
-            {[['4','Continents'],['120+','Trade Corridors'],['40+','Jurisdictions'],['24/7','Agent Coverage']].map(([n,l])=>(
+            {[['US→NG','Corridor of focus'],['3','Product layers'],['$12.5k','Diagnostic from'],['Jun 2026','XaePay live']].map(([n,l])=>(
               <div className="hstat" key={l}>
                 <div className="hstat-n">{n}</div>
                 <div className="hstat-l">{l}</div>
@@ -1499,7 +1497,7 @@ export default function XaeccoXWebsite(){
       </section>
 
       <div className="ticker-wrap" style={{position:'relative',zIndex:2}}>
-        <div className="tick-label"><span className="tick-pulse"/>SAMPLE TRADE SIGNALS</div>
+        <div className="tick-label"><span className="tick-pulse"/>CORRIDOR SIGNALS · SAMPLE</div>
         <div className="tick-scroll">
           <div className="tick-track">
             {[...TICKS,...TICKS].map((t,i)=>(
@@ -1527,7 +1525,7 @@ export default function XaeccoXWebsite(){
           {[
             {h:'Traditional Consulting',hi:false,rows:['PDF report, project ends','Analysts review data periodically','You implement the recommendations','One-time engagement only','Generic frameworks, not your market'],badge:'Yesterday'},
             {h:'Enterprise Software',hi:false,rows:['Tools you configure yourself','Dashboard you monitor manually','Workflow you define from scratch','Support ticket when something breaks','Built for Western markets, retrofitted elsewhere'],badge:'Not Enough'},
-            {h:'XaeccoX',hi:true,rows:['Diagnosis + redesign + deployed agents','Agents monitor, flag, and act 24/7','Outcomes delivered, not features handed over','Persistent intelligence relationship','Built for every corridor — Africa, Americas, Europe, Asia'],badge:'The New Standard'},
+            {h:'XaeccoX',hi:true,rows:['Diagnosis + redesign + deployed operations','Founder runs the corridor with you','Outcomes delivered, not slides handed over','Persistent intelligence relationship','Corridor-first: US ↔ NG today, Africa-broad next'],badge:'The New Standard'},
           ].map(col=>(
             <div key={col.h} className={`rf-col${col.hi?' hi':''}`}>
               <div className="rf-hd">{col.h}</div>
@@ -1542,11 +1540,22 @@ export default function XaeccoXWebsite(){
         </div>
       </section>
 
-      <section id="markets">
+      <section id="corridor">
         <div className="fu" ref={r}>
-          <div className="stag">Global Coverage</div>
-          <h2 className="sh">Four continents.<br/><span className="acc">One intelligence platform.</span></h2>
-          <p className="sdesc">XaeccoX operates across every major trade region — compliance frameworks, agent models, and market expertise built specifically for each.</p>
+          <div className="stag">The Corridor</div>
+          <h2 className="sh">Start where<br/><span className="acc">the depth is.</span></h2>
+        </div>
+        <div className="agent-split fu" ref={r} style={{marginTop:48,marginBottom:24}}>
+          <div>
+            <p className="agent-prose" style={{margin:0}}>
+              The US–Nigeria corridor moves billions of dollars annually in goods, services, and remittances — and almost none of it is supported by infrastructure built for the corridor's actual realities. <strong>CBN circulars, NAFDAC documentation, container consolidation across diaspora suppliers, BDC routing, last-mile delivery to Lagos</strong> — these are not abstractions. They are operational facts.
+            </p>
+          </div>
+          <div>
+            <p className="agent-prose" style={{margin:0}}>
+              XaeccoX is built <em>corridor-first.</em> Africa-broad is the roadmap; US ↔ Nigeria is the proof of depth. We design every product, every integration, every workflow against the specific frictions of moving capital and cargo between Lagos, Philadelphia, Los Angeles, and Houston — not against a generic "global trade" abstraction.
+            </p>
+          </div>
         </div>
         <div className="market-grid">
           {MARKETS.map((m,i)=>(
@@ -1566,14 +1575,14 @@ export default function XaeccoXWebsite(){
       <section className="alt">
         <div className="fu" ref={r}>
           <div className="stag">How It Works</div>
-          <h2 className="sh">From diagnostic to <span className="acc">deployed agents</span> in four moves.</h2>
+          <h2 className="sh">From diagnostic to <span className="acc">deployed operations</span> in four moves.</h2>
         </div>
         <div className="meth-wrap fu" ref={r}>
           {[
-            {tag:'Step 01',t:'Diagnose',d:'AI-assisted audit maps your entire supply chain and ERP environment in days. Our team processes documentation, transactions, and system data — surfacing cost, risk, and compliance failures across every corridor you operate.'},
-            {tag:'Step 02',t:'Redesign',d:'Our consultants — augmented by AI — produce a transformation blueprint: new process flows, ERP optimisation plans, system architectures, compliance frameworks. Built for your operation, your markets, your complexity.'},
-            {tag:'Step 03',t:'Deploy',d:'We deploy. Agents activate inside your operation — monitoring shipments, generating documentation, flagging FX windows, alerting on customs holds, managing ERP exceptions around the clock.'},
-            {tag:'Step 04',t:'Optimise',d:'The agents keep learning. Each cycle generates better predictions, tighter execution, fewer manual interventions. Your supply chain compounds continuously across every corridor.'},
+            {tag:'Step 01',t:'Diagnose',d:'Three weeks of structured assessment across your corridor: trade flows, compliance posture, payment routing, logistics cost. Surfaces the specific frictions costing you money or delaying delivery.'},
+            {tag:'Step 02',t:'Redesign',d:'A corridor-specific blueprint: new payment routes, consolidation plans, customs and NAFDAC workflows, partner introductions. Built for your goods, your counterparties, your timelines.'},
+            {tag:'Step 03',t:'Deploy',d:'We execute alongside you. Container moves, payment legs, customs filings — coordinated and tracked. Founder-led on Deep engagements; analyst-supported on Standard.'},
+            {tag:'Step 04',t:'Compound',d:'Each engagement feeds back into our corridor playbook. Cycle by cycle, your operation gets faster, cheaper, and more defensible against the corridor\'s recurring shocks.'},
           ].map((s,i)=>(
             <div className="meth-step" key={i}>
               <div className="meth-n">0{i+1}</div>
@@ -1588,8 +1597,9 @@ export default function XaeccoXWebsite(){
 
       <section id="solutions">
         <div className="fu" ref={r}>
-          <div className="stag">Solutions</div>
-          <h2 className="sh">Six practice areas.<br/><span className="acc">One agentic platform.</span></h2>
+          <div className="stag">Corridor Capabilities</div>
+          <h2 className="sh">Six things the<br/>corridor actually <span className="acc">needs to work.</span></h2>
+          <p className="sdesc">Not "supply chain transformation" abstractions. Specific operational fronts where US ↔ Nigeria flows succeed or fail.</p>
         </div>
         <div className="sol-grid">
           {SOLUTIONS.map((s,i)=>(
@@ -1603,57 +1613,19 @@ export default function XaeccoXWebsite(){
         </div>
       </section>
 
-      <section className="erp-section alt" id="erp">
-        <div className="erp-intro fu" ref={r}>
-          <div>
-            <div className="stag">ERP Diagnostics & Solutions</div>
-            <h2 className="sh">Your ERP is the backbone.<br/><span className="acc">We diagnose it.</span></h2>
-          </div>
-          <div className="erp-desc">
-            Most supply chain failures start inside the ERP — in <strong>misconfigured workflows</strong>, <strong>degraded master data</strong>, <strong>broken integration flows</strong>, and <strong>compliance gaps</strong> that accumulate silently over years. XaeccoX brings AI agents to bear on the full SAP and integration stack, diagnosing problems before they cascade into operational failures, and deploying fixes that persist.
-          </div>
-        </div>
-        <div className="erp-systems fu" ref={r}>
-          {ERP_SYSTEMS.map((sys)=>(
-            <div key={sys.name} className="erp-sys" style={{'--sys-color':`linear-gradient(90deg,${sys.color},${sys.color}88)`}}>
-              <div className="erp-sys-logo" style={{color:sys.color}}>{sys.name}</div>
-              <div className="erp-sys-type">{sys.type}</div>
-              <div className="erp-sys-status sys-ready">
-                <span>●</span>Supported
-              </div>
-            </div>
-          ))}
-        </div>
-        <ERPFlowDiagram/>
-        <div className="erp-diag-grid">
-          {ERP_DIAGS.map((d,i)=>(
-            <div key={d.title} className="erp-diag fu" ref={r} style={{transitionDelay:`${i*.08}s`,'--dc':d.c}}>
-              <div className="erp-diag-icon">{d.icon}</div>
-              <div className="erp-diag-title">{d.title}</div>
-              <div className="erp-diag-desc">{d.desc}</div>
-              <div className="erp-diag-tags">
-                {d.tags.map(t=>(
-                  <span className="erp-tag" key={t} style={{'--tc':d.tc,'--tbc':d.tbc,'--tbg':d.tbg}}>{t}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="platform">
         <div className="plat-intro fu" ref={r}>
           <div>
-            <div className="stag">The XaeccoPS Platform</div>
-            <h2 className="sh">Built from real<br/><span className="acc">supply chain failures.</span></h2>
-            <p className="sdesc">Every XaeccoPS feature was born because a real supply chain broke without it. Consulting intelligence productised into enterprise-grade software.</p>
+            <div className="stag">XaePro · Operations Layer</div>
+            <h2 className="sh">The operations<br/><span className="acc">control room.</span></h2>
+            <p className="sdesc">Sourcing, container consolidation, customs clearing, and last-mile — unified into a single corridor operations view. Launching Fall 2026; design preview below.</p>
           </div>
           <div className="plat-feats">
             {[
-              {ic:'🌐',t:'Global Shipment Intelligence',d:'Live visibility across all corridors — port status, ETA predictions, congestion alerts, customs pipeline.'},
-              {ic:'🤖',t:'Agent Activity Dashboard',d:'See every autonomous action in real time. Every flag, execution, and escalation fully logged and auditable.'},
-              {ic:'📋',t:'Multi-Jurisdiction Document Engine',d:'Jurisdiction-correct document sets for 40+ trade corridors — commercial invoices, customs declarations, SWIFT MT103, letters of credit, certificates of origin — generated automatically at scale.'},
-              {ic:'⚡',t:'ERP Diagnostics On-Demand',d:'Connect your SAP environment and run AI-assisted diagnostics without a consultant on-site.'},
+              {ic:'📦',t:'Container Consolidation',d:'US-side multi-supplier consolidation across Philadelphia, LA, Houston. LCL + FCL lanes purpose-built for diaspora and importer cargo.'},
+              {ic:'🛃',t:'Customs Clearing',d:'Apapa, Tin Can, MMIA. HS code review, duty pre-calculation, NAFDAC + SON pre-clearance, broker oversight.'},
+              {ic:'🚚',t:'Last-Mile to Lagos',d:'Deconsolidation and onward delivery across Lagos and to Abuja, Port Harcourt, Ibadan. Track-to-door visibility.'},
+              {ic:'📋',t:'Trade Documentation',d:'CBN, NAFDAC, Nigerian Customs document sets generated against real consignment data — invoices, SONCAP, Form M, PAAR.'},
             ].map(f=>(
               <div className="pfeat" key={f.t}>
                 <div className="pfeat-ic">{f.ic}</div>
@@ -1667,11 +1639,11 @@ export default function XaeccoXWebsite(){
           <div className="dash">
             <div className="dash-bar">
               <div className="db r"/><div className="db y"/><div className="db g"/>
-              <div className="dash-url">app.xaeccox.io / operations-preview</div>
+              <div className="dash-url">xaepro.xaeccox.io / corridor-ops</div>
             </div>
             <div className="dash-body">
               <div className="d-side">
-                <div className="d-side-logo">Xaecco<span>PS</span></div>
+                <div className="d-side-logo">Xae<span>Pro</span></div>
                 {[{ic:'📊',l:'Dashboard'},{ic:'🚢',l:'Shipments'},{ic:'🤖',l:'Agents'},{ic:'📋',l:'Documents'},{ic:'💱',l:'Payments'},{ic:'⬡',l:'ERP Diagnostics'},{ic:'⚙️',l:'Settings'}].map(it=>(
                   <div key={it.l} className={`d-nav-item${dashView===it.l?' on':''}`} onClick={()=>setDashView(it.l)}><span>{it.ic}</span>{it.l}</div>
                 ))}
@@ -1776,156 +1748,159 @@ export default function XaeccoXWebsite(){
       </section>
 
       <section className="alt" id="pricing">
-        <div className="section-head-split fu" ref={r}>
-          <div>
-            <div className="stag">Transparent Pricing</div>
-            <h2 className="sh">Start with a diagnostic.<br/><span className="acc">Scale with intelligence.</span></h2>
-            <p className="sdesc">Pricing for ongoing platform tiers shown as guidance for design partners. Diagnostic engagements are open today.</p>
-          </div>
-          <div>
-            <div style={{display:'flex',gap:12,marginBottom:24}}>
-              {['platform','consulting','diagnostic'].map(tab=>(
-                <button key={tab} onClick={()=>setPricingTab(tab)} style={{
-                  fontFamily:'var(--fm)',fontSize:'9px',letterSpacing:'.14em',
-                  textTransform:'uppercase',padding:'8px 16px',borderRadius:'var(--r4)',
-                  cursor:'pointer',transition:'all .25s',
-                  background:pricingTab===tab?'linear-gradient(135deg,var(--blu),var(--vio))':'rgba(255,255,255,.04)',
-                  color:pricingTab===tab?'var(--void)':'var(--w3)',
-                  border:pricingTab===tab?'none':'1px solid var(--b1)',
-                }}>
-                  {tab==='platform'?'Platform SaaS':tab==='consulting'?'Consulting':'Diagnostics'}
-                </button>
-              ))}
-            </div>
-            {pricingTab==='platform'&&(
-              <div className="pricing-toggle">
-                Monthly
-                <div className={`toggle-track${annual?' on':''}`} onClick={()=>setAnnual(!annual)}>
-                  <div className="toggle-thumb"/>
-                </div>
-                Annual <span className="toggle-save">Save 20%</span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {pricingTab==='platform'&&(
-          <div className="pricing-grid">
-            {PLATFORM_TIERS.map(t=><PriceCard key={t.name} tier={t} isAnnual={annual} onBook={openBook}/>)}
-          </div>
-        )}
-
-        {pricingTab==='consulting'&&(
-          <div className="pricing-grid">
-            {[
-              {name:'Essential Advisory',badge:'Monthly',monthly:5000,color:'var(--teal)',featured:false,diagId:'snapshot',
-               desc:'Ongoing AI agent monitoring, compliance support, and optimisation for active operations.',
-               cta:'Enquire Now',
-               features:[
-                 {label:'2× monthly strategic reviews',included:true},
-                 {label:'Agent monitoring & alerts',included:true},
-                 {label:'Compliance update briefings',included:true},
-                 {label:'Email & Slack support',included:true},
-                 {label:'FX window notifications',included:true},
-                 {label:'Dedicated agent manager',included:false},
-                 {label:'ERP integration management',included:false},
-                 {label:'SLA guarantee',included:false},
-               ]},
-              {name:'Professional Advisory',badge:'Recommended',monthly:12500,color:'var(--blu)',featured:true,diagId:'full',
-               desc:'Full operational coverage — weekly reviews, FX alerts, documentation support, and proactive agent management.',
-               cta:'Book Discovery Call',
-               features:[
-                 {label:'Weekly strategic reviews',included:true},
-                 {label:'Proactive agent management',included:true},
-                 {label:'FX window alerts & execution support',included:true},
-                 {label:'Full documentation compliance',included:true},
-                 {label:'ERP diagnostic (monthly)',included:true},
-                 {label:'Priority response (4hr SLA)',included:true},
-                 {label:'Dedicated agent manager',included:false},
-                 {label:'Custom agent training',included:false},
-               ]},
-              {name:'Enterprise Advisory',badge:'Enterprise',monthly:25000,color:'var(--vio)',featured:false,diagId:'enterprise',
-               desc:'Dedicated agent manager, daily monitoring, full compliance management and executive reporting.',
-               cta:'Contact Sales',
-               features:[
-                 {label:'Dedicated agent manager',included:true},
-                 {label:'Daily monitoring & reporting',included:true},
-                 {label:'Full multi-corridor compliance',included:true},
-                 {label:'ERP management on-demand',included:true},
-                 {label:'Custom agent training on your data',included:true},
-                 {label:'Executive dashboards + reporting',included:true},
-                 {label:'2-hour SLA guarantee',included:true},
-                 {label:'On-site support (quarterly)',included:true},
-               ]},
-            ].map(t=><PriceCard key={t.name} tier={t} isAnnual={false} onBook={openBook}/>)}
-          </div>
-        )}
-
-        {pricingTab==='diagnostic'&&(
-          <div className="diag-pricing">
-            <div className="dp-head">
-              <div>
-                <div className="dp-title">Diagnostic & Assessment Pricing</div>
-                <div className="dp-sub">One-time engagements. Fixed scope. Confirmed delivery timeline.</div>
-              </div>
-              <button className="btn-nav-cta" onClick={()=>openBook()}>Book a Diagnostic</button>
-            </div>
-            <div className="dp-grid">
-              {[
-                {scope:'Entry',name:'AI Snapshot',price:'$3,500',time:'5–7 business days',desc:'Single domain audit — customs, procurement or payments. AI-processed gap analysis. 10-page report.',c:'var(--teal)',id:'snapshot'},
-                {scope:'Standard',name:'Full Diagnostic',price:'$15,000',time:'3–4 weeks',desc:'End-to-end supply chain + ERP audit. Full diagnostic report with agent deployment roadmap.',c:'var(--blu)',id:'full'},
-                {scope:'Enterprise',name:'Multi-Corridor',price:'$45,000',time:'6–8 weeks',desc:'Cross-continent, multi-jurisdiction diagnostic. Full ERP landscape, compliance, and agent architecture.',c:'var(--vio)',id:'enterprise'},
-                {scope:'Compliance',name:'Regulatory Assessment',price:'$11,000',time:'2–3 weeks',desc:'Focused audit of trade documentation, SWIFT flows, and compliance frameworks. Ideal for companies facing bank rejections.',c:'var(--gold)',id:'snapshot'},
-              ].map(d=>(
-                <div className="dp-item" key={d.name}>
-                  <div className="dp-scope" style={{color:d.c}}>{d.scope}</div>
-                  <div className="dp-name">{d.name}</div>
-                  <div className="dp-price" style={{background:`linear-gradient(135deg,${d.c},var(--w))`,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>{d.price}</div>
-                  <div className="dp-timeline">{d.time}</div>
-                  <div className="dp-desc">{d.desc}</div>
-                  <button className="dp-cta" onClick={()=>openBook(d.id)} style={{marginTop:12,fontFamily:'var(--fm)',fontSize:9,letterSpacing:'.14em',textTransform:'uppercase',color:'var(--blu)',background:'var(--blub)',border:'1px solid var(--ba)',padding:'6px 13px',borderRadius:4,cursor:'pointer',transition:'all .25s',display:'block',width:'100%'}}>Book This →</button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </section>
-
-      <section id="ecosystem">
         <div className="fu" ref={r}>
-          <div className="stag">Product Ecosystem</div>
-          <h2 className="sh">Consulting → Software → <span className="acc">Platform.</span></h2>
-          <p className="sdesc">Each layer is built from intelligence generated at the layer above it. Every consulting engagement makes the platform smarter.</p>
+          <div className="stag">Diagnostics</div>
+          <h2 className="sh">Start with a<br/><span className="acc">corridor diagnostic.</span></h2>
+          <p className="sdesc">A structured assessment of your trade flows, compliance posture, payment routing, and logistics cost — delivered in three or six weeks. The commercial heart of every engagement.</p>
         </div>
-        <div className="eco-grid">
-          {[
-            {name:'XaeccoX',role:'AI Agentic Consulting',desc:'The front door. Human + AI transformation advisory. Live today.',c:'var(--blu)',ec:'linear-gradient(90deg,var(--blu),var(--vio))'},
-            {name:'XaeccoPS',role:'Supply Chain SaaS Platform',desc:'Professional Suite. Design-partner beta.',c:'var(--vio)',ec:'linear-gradient(90deg,var(--vio),var(--teal))'},
-            {name:'Traxo',role:'Shipment Tracking',desc:'Lightweight freight + customs visibility. Coming.',c:'var(--teal)',ec:'linear-gradient(90deg,var(--teal),var(--jade))'},
-            {name:'Traxora',role:'AI Engine & API',desc:'The agentic core. B2B API. In development.',c:'var(--gold)',ec:'linear-gradient(90deg,var(--gold),var(--rose))'},
-          ].map((e,i)=>(
-            <div key={e.name} className="eco-card fu" ref={r} style={{transitionDelay:`${i*.09}s`,'--ec':e.ec}}>
-              <div className="eco-name" style={{color:e.c}}>{e.name}</div>
-              <div className="eco-role">{e.role}</div>
-              <div className="eco-desc">{e.desc}</div>
+
+        <div className="pricing-grid fu" ref={r} style={{gridTemplateColumns:'1fr 1fr',maxWidth:980,margin:'60px auto 0'}}>
+          <div className="price-card edge-lit" style={{'--pc':'var(--blu)'}}>
+            <span className="pc-badge std">Standard</span>
+            <div className="pc-name">Standard Corridor Diagnostic</div>
+            <div className="pc-desc">A structured 3-week assessment of your corridor — flows, compliance, payment routing, logistics cost.</div>
+            <div className="pc-price" style={{color:'var(--w)'}}>
+              <span className="pc-cur">$</span>12,500<span className="pc-per"> / 3 weeks</span>
             </div>
-          ))}
+            <div className="pc-sub">single fixed-fee engagement</div>
+            <div className="pc-divider"/>
+            <div className="pc-features">
+              {[
+                'Trade flow analysis (volume, frequency, counterparties)',
+                'Compliance gap review (CBN, NAFDAC, US Customs)',
+                'Payment routing audit (FX exposure, settlement, fees)',
+                'Logistics cost benchmarking (freight, customs, last-mile)',
+                'Partner and vendor mapping',
+                'Prioritised 90-day action plan',
+                'Written report (20–30 pages)',
+                '60-minute review session with founder',
+                '30-day async follow-up access',
+              ].map(f=>(
+                <div className="pcf" key={f}><span className="pcf-ic">✓</span><span>{f}</span></div>
+              ))}
+            </div>
+            <button className="pc-cta outline" onClick={()=>openBook('standard')}>Book Standard Diagnostic →</button>
+          </div>
+
+          <div className="price-card edge-lit featured" style={{'--pc':'var(--vio)'}}>
+            <span className="pc-badge pop">Deep · Hands-On</span>
+            <div className="pc-name">Deep Corridor Diagnostic</div>
+            <div className="pc-desc">Everything in Standard, plus weekly working sessions, partner introductions, and an implementation-ready deliverable.</div>
+            <div className="pc-price grad">
+              <span className="pc-cur">$</span>25,000<span className="pc-per"> / 6 weeks</span>
+            </div>
+            <div className="pc-sub">single fixed-fee engagement</div>
+            <div className="pc-divider"/>
+            <div className="pc-features">
+              {[
+                'Everything in Standard',
+                'Weekly working sessions with founder',
+                'Hands-on partner introductions across the corridor',
+                'Implementation-readiness deliverable',
+                '90-day async follow-up access',
+              ].map(f=>(
+                <div className="pcf" key={f}><span className="pcf-ic">✓</span><span>{f}</span></div>
+              ))}
+            </div>
+            <button className="pc-cta main" onClick={()=>openBook('deep')}>Book Deep Diagnostic →</button>
+          </div>
+        </div>
+
+        <p style={{textAlign:'center',color:'var(--w3)',fontSize:13,marginTop:36,fontFamily:'var(--fd)',maxWidth:680,marginLeft:'auto',marginRight:'auto'}}>
+          For enterprise engagements, custom scopes, or media inquiries — <a href="mailto:founder@xaeccox.io?subject=XaeccoX%20enterprise%20inquiry" style={{color:'var(--blu)',textDecoration:'underline'}}>contact the founder directly.</a>
+        </p>
+      </section>
+
+      <section id="products">
+        <div className="fu" ref={r}>
+          <div className="stag">Products</div>
+          <h2 className="sh">Three layers,<br/><span className="acc">one corridor.</span></h2>
+          <p className="sdesc">XaeccoX is the parent platform. Three product layers operate underneath, sequenced for corridor depth — payments first, operations second, commerce last.</p>
+        </div>
+
+        <div className="fu" ref={r} style={{marginTop:60,display:'flex',flexDirection:'column',gap:20}}>
+          <div className="market-card" style={{padding:'48px 52px','--accent':'linear-gradient(90deg,#5282FF,#A259FF)','--ghost-c':'#5282FF'}} data-ghost="PAY">
+            <div style={{display:'inline-flex',alignItems:'center',gap:10,marginBottom:20}}>
+              <span style={{fontFamily:'var(--fm)',fontSize:8.5,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--gold)',background:'rgba(245,166,35,.08)',border:'1px solid rgba(245,166,35,.25)',padding:'4px 10px',borderRadius:'var(--rpill)'}}>Launching June 2026</span>
+            </div>
+            <div className="mc-title" style={{fontSize:34,marginBottom:10,background:'linear-gradient(90deg,var(--blu),var(--vio))',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaePay</div>
+            <div style={{fontFamily:'var(--fb)',fontStyle:'italic',fontWeight:300,fontSize:18,color:'var(--w2)',marginBottom:18,letterSpacing:'-.01em'}}>The AI compliance and routing layer for cross-border payments.</div>
+            <div className="mc-desc" style={{fontSize:15,maxWidth:720,lineHeight:1.7,marginBottom:28}}>Built for BDCs, IMTOs, payment agents, and businesses moving funds between USD, NGN, and stablecoin rails. Routes intelligently across licensed partners, generates compliance documentation, and defends every transaction with audit-grade logging.</div>
+            <a href="mailto:founder@xaeccox.io?subject=XaePay%20early%20access%20list&body=Add%20me%20to%20the%20XaePay%20early%20access%20list.%0A%0AName%3A%20%0ACompany%3A%20%0AUse%20case%3A%20" className="btn-nav-cta" style={{display:'inline-block',textDecoration:'none',padding:'12px 26px',fontSize:13}}>Join the early access list →</a>
+          </div>
+
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
+            <div className="market-card" style={{padding:'36px 40px','--accent':'linear-gradient(90deg,#00E5C8,#5282FF)','--ghost-c':'#00E5C8'}} data-ghost="PRO">
+              <div style={{display:'inline-flex',alignItems:'center',gap:10,marginBottom:18}}>
+                <span style={{fontFamily:'var(--fm)',fontSize:8.5,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--gold)',background:'rgba(245,166,35,.08)',border:'1px solid rgba(245,166,35,.25)',padding:'4px 10px',borderRadius:'var(--rpill)'}}>Launching Fall 2026</span>
+              </div>
+              <div className="mc-title" style={{fontSize:26,marginBottom:8,background:'linear-gradient(90deg,#00E5C8,#5282FF)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaePro</div>
+              <div style={{fontFamily:'var(--fb)',fontStyle:'italic',fontWeight:300,fontSize:15,color:'var(--w2)',marginBottom:14,letterSpacing:'-.01em'}}>Operations, sourcing, and logistics across the corridor.</div>
+              <div className="mc-desc" style={{marginBottom:22}}>Container consolidation, procurement, customs clearing, and last-mile delivery — US to Nigeria, Nigeria to US.</div>
+              <a href="mailto:founder@xaeccox.io?subject=XaePro%20notify%20list&body=Notify%20me%20when%20XaePro%20launches.%0A%0AName%3A%20%0ACompany%3A%20" className="btn-nav-ghost" style={{display:'inline-block',textDecoration:'none'}}>Get notified →</a>
+            </div>
+
+            <div className="market-card" style={{padding:'36px 40px','--accent':'linear-gradient(90deg,#F5A623,#A259FF)','--ghost-c':'#F5A623'}} data-ghost="TRADE">
+              <div style={{display:'inline-flex',alignItems:'center',gap:10,marginBottom:18}}>
+                <span style={{fontFamily:'var(--fm)',fontSize:8.5,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--gold)',background:'rgba(245,166,35,.08)',border:'1px solid rgba(245,166,35,.25)',padding:'4px 10px',borderRadius:'var(--rpill)'}}>Launching January 2027</span>
+              </div>
+              <div className="mc-title" style={{fontSize:26,marginBottom:8,background:'linear-gradient(90deg,#F5A623,#A259FF)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaeTrade</div>
+              <div style={{fontFamily:'var(--fb)',fontStyle:'italic',fontWeight:300,fontSize:15,color:'var(--w2)',marginBottom:14,letterSpacing:'-.01em'}}>Curated cross-border commerce.</div>
+              <div className="mc-desc" style={{marginBottom:22}}>A commerce platform connecting US and Nigerian markets — built on top of XaePay and XaePro.</div>
+              <a href="mailto:founder@xaeccox.io?subject=XaeTrade%20notify%20list&body=Notify%20me%20when%20XaeTrade%20launches.%0A%0AName%3A%20%0ACompany%3A%20" className="btn-nav-ghost" style={{display:'inline-block',textDecoration:'none'}}>Get notified →</a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="cta-section alt" id="cta">
+      <section id="founder">
+        <div className="fu" ref={r}>
+          <div className="stag">Founder</div>
+        </div>
+        <div className="agent-split fu" ref={r} style={{marginTop:24,alignItems:'center'}}>
+          <div style={{display:'flex',justifyContent:'center'}}>
+            <div style={{width:280,height:280,borderRadius:'var(--r16)',background:'linear-gradient(135deg,rgba(82,130,255,.18),rgba(162,89,255,.18))',border:'1px solid var(--b2)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--fd)',fontWeight:900,fontSize:96,letterSpacing:'-.04em',background:'linear-gradient(135deg,rgba(82,130,255,.12),rgba(162,89,255,.12))',position:'relative',overflow:'hidden'}}>
+              <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 30% 30%,rgba(82,130,255,.25),transparent 60%)'}}/>
+              <span style={{background:'linear-gradient(135deg,var(--blu),var(--vio))',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',position:'relative',zIndex:1}}>CO</span>
+            </div>
+          </div>
+          <div>
+            <h2 className="sh" style={{fontSize:'clamp(26px,3vw,38px)',marginBottom:8}}>Chukwura Okoli</h2>
+            <div style={{fontFamily:'var(--fm)',fontSize:11,letterSpacing:'.16em',textTransform:'uppercase',color:'var(--blu)',marginBottom:20}}>Founder, XaeccoX</div>
+            <p className="agent-prose" style={{margin:'0 0 18px',fontSize:15}}>
+              Operator and architect across the US ↔ Nigeria trade corridor. Nearly a decade in global supply chain, AI solutions architecture, and ERP-grade process design — currently shipping containers and building infrastructure between Lagos, Philadelphia, Los Angeles, and Houston.
+            </p>
+            <p className="agent-prose" style={{margin:'0 0 22px',fontSize:15,color:'var(--w2)'}}>
+              XaeccoX is the platform he wishes existed when he started.
+            </p>
+            <a href="mailto:founder@xaeccox.io?subject=Hello%20from%20xaeccox.io" style={{fontFamily:'var(--fd)',fontWeight:600,fontSize:14,color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2}}>Talk to the founder →</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="alt" id="next">
+        <div className="fu" ref={r} style={{textAlign:'center',maxWidth:760,margin:'0 auto'}}>
+          <div className="stag" style={{justifyContent:'center'}}>What's Next</div>
+          <h2 className="sh">Beyond <span className="acc">the corridor.</span></h2>
+          <p className="sdesc" style={{margin:'18px auto 0',textAlign:'center'}}>
+            The US ↔ Nigeria corridor is the proof. The roadmap extends to UK ↔ Nigeria, EU ↔ Nigeria, and US ↔ Ghana within 24 months. Africa to the world — with the operational depth to back it.
+          </p>
+        </div>
+      </section>
+
+      <section className="cta-section" id="contact">
         <div className="cta-glow"/><div className="cta-grid-lines"/>
-        <div className="stag fu" ref={r} style={{justifyContent:'center'}}>Ready to start?</div>
+        <div className="stag fu" ref={r} style={{justifyContent:'center'}}>Start the conversation</div>
         <h2 className="cta-h fu" ref={r}>
-          Your supply chain generates<br/>problems faster than your<br/>team can <span className="acc">solve them.</span>
+          Move goods, money, and ideas across <span className="acc">the corridor.</span>
         </h2>
-        <p className="cta-sub">Start with a diagnostic. We'll map the gaps, design the agents, and walk you through deployment with a real human team.</p>
+        <p className="cta-sub">A corridor diagnostic is the entry point. Three weeks of structured work; a written assessment; a 90-day action plan you can run.</p>
         <div className="cta-actions">
-          <button className="btn-cta-p" onClick={()=>openBook()}>Book a Diagnostic from $3,500</button>
-          <button className="btn-cta-g" onClick={()=>go('platform')}>Explore the Platform →</button>
+          <button className="btn-cta-p" onClick={()=>openBook()}>Book a corridor diagnostic</button>
+          <a href="mailto:founder@xaeccox.io?subject=Hello%20from%20xaeccox.io" className="btn-cta-g" style={{textDecoration:'none',display:'inline-block'}}>Talk to the founder →</a>
         </div>
         <div className="cta-trust">
-          {['SWIFT MT103 Format','EU Customs Code','US CBP Documentation','GDPR-Compliant','Multi-Jurisdiction','Africa · Americas · Europe · Asia','By-Invitation Beta'].map(b=>(
+          {['US ↔ Nigeria · Active','UK · EU · Ghana · Roadmap','Founder-led','XaePay June 2026','XaePro Fall 2026','XaeTrade Jan 2027'].map(b=>(
             <span className="trust-badge" key={b}>{b}</span>
           ))}
         </div>
@@ -1935,26 +1910,29 @@ export default function XaeccoXWebsite(){
         <div className="ft-grid">
           <div>
             <div className="ft-logo">Xaecco<span>X</span></div>
-            <div className="ft-tagline">The global cross-border supply chain intelligence platform. Procurement, logistics, customs, payments and ERP — unified under one AI layer.</div>
+            <div className="ft-tagline">Cross-border commerce, defended. The US ↔ Nigeria corridor — intelligence, payments, and logistics.</div>
             <div className="ft-socials">
-              {['in','𝕏','gh','yt'].map(s=><div key={s} className="ft-soc">{s}</div>)}
+              <a href="https://www.linkedin.com/company/xaeccox" target="_blank" rel="noopener noreferrer" className="ft-soc" style={{textDecoration:'none',color:'inherit'}} title="LinkedIn">in</a>
+              <a href="mailto:founder@xaeccox.io" className="ft-soc" style={{textDecoration:'none',color:'inherit'}} title="Email founder">@</a>
             </div>
           </div>
           {[
-            {h:'Platform',links:['XaeccoPS','Traxo','Traxora','Pricing']},
-            {h:'Solutions',links:['SC Transformation','AI Automation','ERP Diagnostics','Trade Documentation','Cross-Border Payments','Systems Integration']},
-            {h:'Company',links:['About XaeccoX','Intelligence Hub','Contact']},
+            {h:'Products',links:[['XaePay','products'],['XaePro','products'],['XaeTrade','products']]},
+            {h:'Engage',links:[['Diagnostics','pricing'],['Corridor','corridor'],['Contact','contact']]},
+            {h:'Company',links:[['About the founder','founder'],['What\'s next','next']]},
           ].map(col=>(
             <div key={col.h}>
               <div className="ft-col-hd">{col.h}</div>
-              <ul className="ft-links">{col.links.map(l=><li key={l}><a href="#" onClick={e=>e.preventDefault()}>{l}</a></li>)}</ul>
+              <ul className="ft-links">{col.links.map(([l,id])=>(
+                <li key={l}><a href={`#${id}`} onClick={e=>{e.preventDefault();document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}}>{l}</a></li>
+              ))}</ul>
             </div>
           ))}
         </div>
         <div className="ft-bottom">
-          <span>© 2026 XaeccoX · All rights reserved · xaeccox.io</span>
+          <span>© 2026 XaeccoX · Built corridor-first · xaeccox.io · <a href="mailto:founder@xaeccox.io" style={{color:'inherit',textDecoration:'underline'}}>founder@xaeccox.io</a></span>
           <div className="ft-badges">
-            {['Privacy','Terms','Data Residency: EU/US/NG','GDPR Compliant'].map(b=>(
+            {['Founder-led','US ↔ NG · Active','Africa-broad · Roadmap'].map(b=>(
               <span className="ft-b" key={b}>{b}</span>
             ))}
           </div>

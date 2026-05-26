@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 /* ═══════════════════════════════════════════════════════════════════
    XAECCOX — GLOBAL SUPPLY CHAIN INTELLIGENCE PLATFORM
@@ -1448,9 +1449,9 @@ export default function XaeccoXWebsite(){
       {booking&&<BookingModal onClose={closeBook} preselect={bookPreselect}/>}
 
       <nav className={scrolled?'sc':''}>
-        <a className="logo" onClick={()=>go('hero')}>
+        <a className="logo" onClick={()=>go('hero')} style={{cursor:'pointer'}}>
           Xaecco<span className="logo-x">X</span>
-          <span className="logo-badge">Global Intelligence Platform</span>
+          <span className="logo-badge">Corridor-first</span>
         </a>
         <ul className="nav-links">
           {[['Products','products'],['Diagnostics','pricing'],['Corridor','corridor'],['About','founder']].map(([l,id])=>(
@@ -1572,6 +1573,31 @@ export default function XaeccoXWebsite(){
         </div>
       </section>
 
+      <section id="built-for">
+        <div className="fu" ref={r}>
+          <div className="stag">Built For</div>
+          <h2 className="sh">Four operators<br/><span className="acc">we build with.</span></h2>
+          <p className="sdesc">Cross-border commerce is not one buyer. Each of these has a different problem and a different XaeccoX surface that solves it.</p>
+        </div>
+        <div className="sol-grid" style={{gridTemplateColumns:'repeat(2,1fr)',marginTop:60}}>
+          {[
+            {ic:'🏦',t:'BDC Operators & IMTOs',d:'You move USD↔NGN at volume under a CBN licence. You need defensible audit trails, compliant routing, partner liquidity, and a fast way to prove every leg.',first:'XaePay'},
+            {ic:'🛒',t:'Diaspora Importers',d:'You ship containers from the US to Lagos for personal, family, or small-business use. You need consolidation across multiple US suppliers, predictable customs and NAFDAC, and reliable last-mile.',first:'XaePro'},
+            {ic:'🍲',t:'African Grocery & Restaurant Chains',d:'You source African goods into US storefronts. You need stable supplier relationships in Lagos, container economics that work, and US-side fulfillment that doesn\'t break.',first:'XaePro + XaeTrade'},
+            {ic:'📦',t:'Nigerian Importers',d:'You buy from US, UK, or Asia and clear into Apapa or Tin Can. You need FX-window timing, BDC routing, supplier vetting, and invoice-to-payment matching that holds up against CBN scrutiny.',first:'XaePay + XaePro'},
+          ].map((b,i)=>(
+            <div key={b.t} className="sol-card fu" ref={r} style={{transitionDelay:`${i*.07}s`}}>
+              <div style={{fontSize:28,marginBottom:14}}>{b.ic}</div>
+              <div className="sol-t" style={{marginBottom:10}}>{b.t}</div>
+              <div className="sol-d">{b.d}</div>
+              <div className="sol-tags" style={{marginTop:18}}>
+                <span className="sol-tag">Start with: {b.first}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="alt">
         <div className="fu" ref={r}>
           <div className="stag">How It Works</div>
@@ -1687,7 +1713,7 @@ export default function XaeccoXWebsite(){
       </section>
 
       <section className="alt">
-        <div className="stag fu" ref={r}>Agentic AI Explained</div>
+        <div className="stag fu" ref={r}>Agentic AI · Concept · In Development</div>
         <div className="agent-split fu" ref={r}>
           <div>
             <h2 className="sh">What does an<br/><span className="acc">AI agent actually do?</span></h2>
@@ -1700,7 +1726,10 @@ export default function XaeccoXWebsite(){
             </p>
           </div>
           <div className="agent-loop">
-            <div className="al-hd">⬡ Agentic Loop — Execution Pattern</div>
+            <div className="al-hd" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
+              <span>⬡ Agentic Loop — Execution Pattern</span>
+              <span style={{fontFamily:'var(--fm)',fontSize:8,letterSpacing:'.16em',color:'var(--gold)',background:'rgba(245,166,35,.07)',border:'1px solid rgba(245,166,35,.25)',padding:'3px 9px',borderRadius:'var(--rpill)'}}>Concept · In Dev</span>
+            </div>
             <div className="al-steps">
               {[
                 {tag:'Perception',t:'Monitor',d:'Agent reads live data from ports, customs authorities, freight forwarders, ERP systems, and payment banks across every active corridor — continuously, in every timezone.'},
@@ -1725,9 +1754,9 @@ export default function XaeccoXWebsite(){
 
       <section>
         <div className="fu" ref={r}>
-          <div className="stag">The Scale of the Problem</div>
-          <h2 className="sh">Built on a problem <span className="acc">big enough to matter.</span></h2>
-          <p className="sdesc">The data behind why XaeccoX exists — and the size of what it's solving across global trade.</p>
+          <div className="stag">Market Context · Industry Sources</div>
+          <h2 className="sh">The size of <span className="acc">what we're working on.</span></h2>
+          <p className="sdesc">These are <strong style={{color:'var(--w)'}}>industry-wide market figures</strong> from SWIFT and McKinsey — the addressable problem cross-border commerce platforms exist to chip at. They are not XaeccoX results; our own corridor numbers will appear here as engagements close.</p>
         </div>
         <div className="met-row fu" ref={r}>
           {[
@@ -1918,7 +1947,7 @@ export default function XaeccoXWebsite(){
           </div>
           {[
             {h:'Products',links:[['XaePay','products'],['XaePro','products'],['XaeTrade','products']]},
-            {h:'Engage',links:[['Diagnostics','pricing'],['Corridor','corridor'],['Contact','contact']]},
+            {h:'Engage',links:[['Diagnostics','pricing'],['Corridor','corridor'],['Built for','built-for'],['Contact','contact']]},
             {h:'Company',links:[['About the founder','founder'],['What\'s next','next']]},
           ].map(col=>(
             <div key={col.h}>
@@ -1929,12 +1958,24 @@ export default function XaeccoXWebsite(){
             </div>
           ))}
         </div>
+
+        <div style={{borderTop:'1px solid var(--b1)',padding:'24px 0 18px',marginTop:8,fontSize:12,color:'var(--w3)',lineHeight:1.75,fontFamily:'var(--fd)'}}>
+          <strong style={{color:'var(--w2)',fontWeight:600}}>XaeccoX</strong> is operated by Chukwura Okoli.
+          <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
+          Operating regions: Lagos, Philadelphia, Los Angeles, Houston.
+          <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
+          Email <a href="mailto:founder@xaeccox.io" style={{color:'var(--blu)',textDecoration:'none'}}>founder@xaeccox.io</a>
+          <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
+          Phone / WhatsApp <a href="tel:+12673618234" style={{color:'var(--blu)',textDecoration:'none'}}>+1 (267) 361-8234</a>
+        </div>
+
         <div className="ft-bottom">
-          <span>© 2026 XaeccoX · Built corridor-first · xaeccox.io · <a href="mailto:founder@xaeccox.io" style={{color:'inherit',textDecoration:'underline'}}>founder@xaeccox.io</a></span>
+          <span>© 2026 XaeccoX · Built corridor-first</span>
           <div className="ft-badges">
-            {['Founder-led','US ↔ NG · Active','Africa-broad · Roadmap'].map(b=>(
-              <span className="ft-b" key={b}>{b}</span>
-            ))}
+            <Link to="/privacy" style={{color:'inherit',textDecoration:'none'}}><span className="ft-b">Privacy</span></Link>
+            <Link to="/terms" style={{color:'inherit',textDecoration:'none'}}><span className="ft-b">Terms</span></Link>
+            <span className="ft-b">US ↔ NG · Active</span>
+            <span className="ft-b">Africa-broad · Roadmap</span>
           </div>
         </div>
       </footer>

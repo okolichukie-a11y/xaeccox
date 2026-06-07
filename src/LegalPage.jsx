@@ -57,7 +57,7 @@ export default function LegalPage({ eyebrow, title, titleAccent, subtitle, lastU
         © 2026 XaeccoX · Built corridor-first ·
         <Link to="/privacy">Privacy</Link>·
         <Link to="/terms">Terms</Link>·
-        <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a>
+        <a href="mailto:info@xaeccox.io">info@xaeccox.io</a>
       </footer>
     </>
   );

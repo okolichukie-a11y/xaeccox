@@ -1836,7 +1836,7 @@ export default function XaeccoXWebsite(){
         </div>
 
         <p style={{textAlign:'center',color:'var(--w3)',fontSize:13,marginTop:36,fontFamily:'var(--fd)',maxWidth:680,marginLeft:'auto',marginRight:'auto'}}>
-          For enterprise engagements, custom scopes, or media inquiries — <a href="mailto:founder@xaeccox.io?subject=XaeccoX%20enterprise%20inquiry" style={{color:'var(--blu)',textDecoration:'underline'}}>contact the founder directly.</a>
+          For enterprise engagements, custom scopes, or media inquiries — <a href="mailto:info@xaeccox.io?subject=XaeccoX%20enterprise%20inquiry" style={{color:'var(--blu)',textDecoration:'underline'}}>contact the founder directly.</a>
         </p>
       </section>
 
@@ -1855,7 +1855,7 @@ export default function XaeccoXWebsite(){
             <div className="mc-title" style={{fontSize:34,marginBottom:10,background:'linear-gradient(90deg,var(--blu),var(--vio))',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaePay</div>
             <div style={{fontFamily:'var(--fb)',fontStyle:'italic',fontWeight:300,fontSize:18,color:'var(--w2)',marginBottom:18,letterSpacing:'-.01em'}}>The AI compliance and routing layer for cross-border payments.</div>
             <div className="mc-desc" style={{fontSize:15,maxWidth:720,lineHeight:1.7,marginBottom:28}}>Built for BDCs, IMTOs, payment agents, and businesses moving funds between USD, NGN, and stablecoin rails. Routes intelligently across licensed partners, generates compliance documentation, and defends every transaction with audit-grade logging.</div>
-            <a href="mailto:founder@xaeccox.io?subject=XaePay%20early%20access%20list&body=Add%20me%20to%20the%20XaePay%20early%20access%20list.%0A%0AName%3A%20%0ACompany%3A%20%0AUse%20case%3A%20" className="btn-nav-cta" style={{display:'inline-block',textDecoration:'none',padding:'12px 26px',fontSize:13}}>Join the early access list →</a>
+            <a href="mailto:info@xaeccox.io?subject=XaePay%20early%20access%20list&body=Add%20me%20to%20the%20XaePay%20early%20access%20list.%0A%0AName%3A%20%0ACompany%3A%20%0AUse%20case%3A%20" className="btn-nav-cta" style={{display:'inline-block',textDecoration:'none',padding:'12px 26px',fontSize:13}}>Join the early access list →</a>
           </div>
 
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
@@ -1866,7 +1866,7 @@ export default function XaeccoXWebsite(){
               <div className="mc-title" style={{fontSize:26,marginBottom:8,background:'linear-gradient(90deg,#00E5C8,#5282FF)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaePro</div>
               <div style={{fontFamily:'var(--fb)',fontStyle:'italic',fontWeight:300,fontSize:15,color:'var(--w2)',marginBottom:14,letterSpacing:'-.01em'}}>Operations, sourcing, and logistics across the corridor.</div>
               <div className="mc-desc" style={{marginBottom:22}}>Container consolidation, procurement, customs clearing, and last-mile delivery — US to Nigeria, Nigeria to US.</div>
-              <a href="mailto:founder@xaeccox.io?subject=XaePro%20notify%20list&body=Notify%20me%20when%20XaePro%20launches.%0A%0AName%3A%20%0ACompany%3A%20" className="btn-nav-ghost" style={{display:'inline-block',textDecoration:'none'}}>Get notified →</a>
+              <a href="mailto:info@xaeccox.io?subject=XaePro%20notify%20list&body=Notify%20me%20when%20XaePro%20launches.%0A%0AName%3A%20%0ACompany%3A%20" className="btn-nav-ghost" style={{display:'inline-block',textDecoration:'none'}}>Get notified →</a>
             </div>
 
             <div className="market-card" style={{padding:'36px 40px','--accent':'linear-gradient(90deg,#F5A623,#A259FF)','--ghost-c':'#F5A623'}} data-ghost="TRADE">
@@ -1876,7 +1876,7 @@ export default function XaeccoXWebsite(){
               <div className="mc-title" style={{fontSize:26,marginBottom:8,background:'linear-gradient(90deg,#F5A623,#A259FF)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaeTrade</div>
               <div style={{fontFamily:'var(--fb)',fontStyle:'italic',fontWeight:300,fontSize:15,color:'var(--w2)',marginBottom:14,letterSpacing:'-.01em'}}>Curated cross-border commerce.</div>
               <div className="mc-desc" style={{marginBottom:22}}>A commerce platform connecting US and Nigerian markets — built on top of XaePay and XaePro.</div>
-              <a href="mailto:founder@xaeccox.io?subject=XaeTrade%20notify%20list&body=Notify%20me%20when%20XaeTrade%20launches.%0A%0AName%3A%20%0ACompany%3A%20" className="btn-nav-ghost" style={{display:'inline-block',textDecoration:'none'}}>Get notified →</a>
+              <a href="mailto:info@xaeccox.io?subject=XaeTrade%20notify%20list&body=Notify%20me%20when%20XaeTrade%20launches.%0A%0AName%3A%20%0ACompany%3A%20" className="btn-nav-ghost" style={{display:'inline-block',textDecoration:'none'}}>Get notified →</a>
             </div>
           </div>
         </div>
@@ -1902,7 +1902,7 @@ export default function XaeccoXWebsite(){
             <p className="agent-prose" style={{margin:'0 0 22px',fontSize:15,color:'var(--w2)'}}>
               XaeccoX is the platform he wishes existed when he started.
             </p>
-            <a href="mailto:founder@xaeccox.io?subject=Hello%20from%20xaeccox.io" style={{fontFamily:'var(--fd)',fontWeight:600,fontSize:14,color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2}}>Talk to the founder →</a>
+            <a href="mailto:info@xaeccox.io?subject=Hello%20from%20xaeccox.io" style={{fontFamily:'var(--fd)',fontWeight:600,fontSize:14,color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2}}>Talk to the founder →</a>
           </div>
         </div>
       </section>
@@ -1926,7 +1926,7 @@ export default function XaeccoXWebsite(){
         <p className="cta-sub">A corridor diagnostic is the entry point. Three weeks of structured work; a written assessment; a 90-day action plan you can run.</p>
         <div className="cta-actions">
           <button className="btn-cta-p" onClick={()=>openBook()}>Book a corridor diagnostic</button>
-          <a href="mailto:founder@xaeccox.io?subject=Hello%20from%20xaeccox.io" className="btn-cta-g" style={{textDecoration:'none',display:'inline-block'}}>Talk to the founder →</a>
+          <a href="mailto:info@xaeccox.io?subject=Hello%20from%20xaeccox.io" className="btn-cta-g" style={{textDecoration:'none',display:'inline-block'}}>Talk to the founder →</a>
         </div>
         <div className="cta-trust">
           {['US ↔ Nigeria · Active','UK · EU · Ghana · Roadmap','Founder-led','XaePay June 2026','XaePro Fall 2026','XaeTrade Jan 2027'].map(b=>(
@@ -1942,7 +1942,7 @@ export default function XaeccoXWebsite(){
             <div className="ft-tagline">Cross-border commerce, defended. The US ↔ Nigeria corridor — intelligence, payments, and logistics.</div>
             <div className="ft-socials">
               <a href="https://www.linkedin.com/company/xaeccox" target="_blank" rel="noopener noreferrer" className="ft-soc" style={{textDecoration:'none',color:'inherit'}} title="LinkedIn">in</a>
-              <a href="mailto:founder@xaeccox.io" className="ft-soc" style={{textDecoration:'none',color:'inherit'}} title="Email founder">@</a>
+              <a href="mailto:info@xaeccox.io" className="ft-soc" style={{textDecoration:'none',color:'inherit'}} title="Email founder">@</a>
             </div>
           </div>
           {[
@@ -1964,7 +1964,7 @@ export default function XaeccoXWebsite(){
           <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
           Operating regions: Lagos, Philadelphia, Los Angeles, Houston.
           <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
-          Email <a href="mailto:founder@xaeccox.io" style={{color:'var(--blu)',textDecoration:'none'}}>founder@xaeccox.io</a>
+          Email <a href="mailto:info@xaeccox.io" style={{color:'var(--blu)',textDecoration:'none'}}>info@xaeccox.io</a>
           <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
           Phone / WhatsApp <a href="tel:+12673618234" style={{color:'var(--blu)',textDecoration:'none'}}>+1 (267) 361-8234</a>
         </div>

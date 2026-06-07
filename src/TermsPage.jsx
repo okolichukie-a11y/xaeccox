@@ -11,7 +11,7 @@ export default function TermsPage() {
     >
       <div className="legal-callout">
         <strong>Plain summary</strong>
-        By using the XaeccoX website or buying a diagnostic engagement, you agree to these terms. We deliver what we promise; you pay the agreed fee; both sides keep things confidential; nothing on the website is a guarantee of future product launches. If anything is unclear, email <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a> before you commit.
+        By using the XaeccoX website or buying a diagnostic engagement, you agree to these terms. We deliver what we promise; you pay the agreed fee; both sides keep things confidential; nothing on the website is a guarantee of future product launches. If anything is unclear, email <a href="mailto:info@xaeccox.io">info@xaeccox.io</a> before you commit.
       </div>
 
       <h2>1. Acceptance of these terms</h2>
@@ -105,7 +105,7 @@ export default function TermsPage() {
       <h2>14. Contact</h2>
       <p>Questions about these Terms or an engagement:</p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@xaeccox.io">info@xaeccox.io</a></li>
         <li><strong>Phone / WhatsApp:</strong> +1 (267) 361-8234</li>
         <li><strong>Operating regions:</strong> Lagos · Philadelphia · Los Angeles · Houston</li>
       </ul>

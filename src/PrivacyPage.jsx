@@ -11,11 +11,11 @@ export default function PrivacyPage() {
     >
       <div className="legal-callout">
         <strong>Plain summary</strong>
-        XaeccoX collects only the information you give us directly through forms and email. We never sell your data. We use a small number of standard third-party tools (Formspree for forms, Vercel for hosting and analytics) and tell you exactly what they see. You can ask us to delete your data at any time by emailing <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a>.
+        XaeccoX collects only the information you give us directly through forms and email. We never sell your data. We use a small number of standard third-party tools (Formspree for forms, Vercel for hosting and analytics) and tell you exactly what they see. You can ask us to delete your data at any time by emailing <a href="mailto:info@xaeccox.io">info@xaeccox.io</a>.
       </div>
 
       <h2>1. Who we are</h2>
-      <p>This Privacy Policy explains how <strong>XaeccoX</strong> (the "Site," "we," "us," or "our") handles information collected through <code>xaeccox.io</code> and any subdomains operated by us. XaeccoX is operated by Chukwura Okoli. Our primary business contact is <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a>.</p>
+      <p>This Privacy Policy explains how <strong>XaeccoX</strong> (the "Site," "we," "us," or "our") handles information collected through <code>xaeccox.io</code> and any subdomains operated by us. XaeccoX is operated by Chukwura Okoli. Our primary business contact is <a href="mailto:info@xaeccox.io">info@xaeccox.io</a>.</p>
       <p>XaeccoX operates across the United States and Nigeria. References to "Services" include the XaeccoX website, our diagnostic engagements, and any of our products — including XaePay, XaePro, and XaeTrade — once made available.</p>
 
       <h2>2. Information we collect</h2>
@@ -97,10 +97,10 @@ export default function PrivacyPage() {
         <li><strong>Withdraw consent</strong> where processing is based on consent (for example, early-access lists)</li>
         <li><strong>Lodge a complaint</strong> with your local data protection authority — for example, the UK Information Commissioner's Office, the Nigerian Data Protection Commission, or your relevant state authority in the United States</li>
       </ul>
-      <p>To exercise any of these rights, email us at <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a>. We will respond within 30 days.</p>
+      <p>To exercise any of these rights, email us at <a href="mailto:info@xaeccox.io">info@xaeccox.io</a>. We will respond within 30 days.</p>
 
       <h2>9. Children</h2>
-      <p>The Site and our Services are not directed to children under 16. We do not knowingly collect personal data from children. If you believe a child has provided personal data to us, contact <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a> and we will delete it promptly.</p>
+      <p>The Site and our Services are not directed to children under 16. We do not knowingly collect personal data from children. If you believe a child has provided personal data to us, contact <a href="mailto:info@xaeccox.io">info@xaeccox.io</a> and we will delete it promptly.</p>
 
       <h2>10. Security</h2>
       <p>We rely on industry-standard security practices, including HTTPS for all traffic, encrypted-at-rest storage with our processors, and access controls limited to the founder and authorised collaborators. No transmission over the internet is fully secure, and we cannot guarantee absolute security; however, we take reasonable measures to protect the information you share with us.</p>
@@ -111,7 +111,7 @@ export default function PrivacyPage() {
       <h2>12. Contact</h2>
       <p>For privacy questions, requests, or complaints, contact:</p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:founder@xaeccox.io">founder@xaeccox.io</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@xaeccox.io">info@xaeccox.io</a></li>
         <li><strong>Phone / WhatsApp:</strong> +1 (267) 361-8234</li>
         <li><strong>Operating regions:</strong> Lagos · Philadelphia · Los Angeles · Houston</li>
       </ul>

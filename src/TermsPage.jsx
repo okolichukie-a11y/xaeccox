@@ -15,7 +15,7 @@ export default function TermsPage() {
       </div>
 
       <h2>1. Acceptance of these terms</h2>
-      <p>These Terms of Service (the "Terms") form a binding agreement between you (the "Client," "you," or "your") and <strong>XaeccoX</strong> (the "Company," "we," "us," or "our"), operated by Chukwura Okoli. By accessing <code>xaeccox.io</code>, booking a diagnostic engagement, joining an early-access list, or otherwise using our services, you agree to be bound by these Terms and by our <a href="/privacy">Privacy Policy</a>.</p>
+      <p>These Terms of Service (the "Terms") form a binding agreement between you (the "Client," "you," or "your") and <strong>XAECCOX LLC</strong>, a limited liability company organised under the laws of the State of Delaware, United States, doing business as XaeccoX (the "Company," "we," "us," or "our"). The Company's registered office is 651 N Broad St, Middletown, Delaware 19709, United States, and it is operated by Chukwura Okoli. By accessing <code>xaeccox.io</code>, booking a diagnostic engagement, joining an early-access list, or otherwise using our services, you agree to be bound by these Terms and by our <a href="/privacy">Privacy Policy</a>.</p>
       <p>If you do not agree, do not use the Site or our services.</p>
 
       <h2>2. About the services</h2>
@@ -97,7 +97,7 @@ export default function TermsPage() {
       <p>Either party may terminate an engagement for material breach by the other party, on 14 days' written notice, if the breach has not been cured within that period. We may also terminate an engagement immediately if we reasonably believe continued performance would expose either party to legal, regulatory, or reputational risk. On termination, fees for work performed up to the termination date remain payable.</p>
 
       <h2>12. Governing law</h2>
-      <p>These Terms and any non-contractual obligations arising in connection with them are governed by the laws of the jurisdiction in which XaeccoX is principally established. Any dispute arising from these Terms or an engagement will be resolved by the competent courts of that jurisdiction, unless the parties agree to an alternative dispute resolution mechanism in writing in the scope document.</p>
+      <p>These Terms, and any non-contractual obligations arising in connection with them, are governed by the laws of the <strong>State of Delaware, United States of America</strong>, without regard to its conflict-of-laws principles. Any dispute arising from these Terms or an engagement will be subject to the exclusive jurisdiction of the federal and state courts located in New Castle County, Delaware, unless the parties agree to an alternative dispute resolution mechanism in writing in the scope document.</p>
 
       <h2>13. Changes to these Terms</h2>
       <p>We may update these Terms from time to time. The current version is always posted at <a href="/terms">xaeccox.io/terms</a> and dated at the top. Changes apply to engagements entered into after the change is posted; in-flight engagements remain governed by the Terms in force when the scope was signed.</p>
@@ -105,6 +105,8 @@ export default function TermsPage() {
       <h2>14. Contact</h2>
       <p>Questions about these Terms or an engagement:</p>
       <ul>
+        <li><strong>Legal entity:</strong> XAECCOX LLC (Delaware, United States)</li>
+        <li><strong>Registered office:</strong> 651 N Broad St, Middletown, Delaware 19709, United States</li>
         <li><strong>Email:</strong> <a href="mailto:info@xaeccox.io">info@xaeccox.io</a></li>
         <li><strong>Phone / WhatsApp:</strong> +1 (267) 361-8234</li>
         <li><strong>Operating regions:</strong> Lagos · Philadelphia · Los Angeles · Houston</li>

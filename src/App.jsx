@@ -1960,9 +1960,13 @@ export default function XaeccoXWebsite(){
         </div>
 
         <div style={{borderTop:'1px solid var(--b1)',padding:'24px 0 18px',marginTop:8,fontSize:12,color:'var(--w3)',lineHeight:1.75,fontFamily:'var(--fd)'}}>
-          <strong style={{color:'var(--w2)',fontWeight:600}}>XaeccoX</strong> is operated by Chukwura Okoli.
+          <strong style={{color:'var(--w2)',fontWeight:600}}>XAECCOX LLC</strong> · Delaware limited liability company · doing business as XaeccoX
+          <br/>
+          Registered office: 651 N Broad St, Middletown, Delaware 19709, United States
           <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
-          Operating regions: Lagos, Philadelphia, Los Angeles, Houston.
+          Operated by Chukwura Okoli
+          <br/>
+          Operating regions: Lagos · Philadelphia · Los Angeles · Houston
           <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>
           Email <a href="mailto:info@xaeccox.io" style={{color:'var(--blu)',textDecoration:'none'}}>info@xaeccox.io</a>
           <span style={{margin:'0 8px',color:'var(--w4)'}}>·</span>

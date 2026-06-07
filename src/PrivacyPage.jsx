@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       </div>
 
       <h2>1. Who we are</h2>
-      <p>This Privacy Policy explains how <strong>XaeccoX</strong> (the "Site," "we," "us," or "our") handles information collected through <code>xaeccox.io</code> and any subdomains operated by us. XaeccoX is operated by Chukwura Okoli. Our primary business contact is <a href="mailto:info@xaeccox.io">info@xaeccox.io</a>.</p>
+      <p>This Privacy Policy explains how <strong>XaeccoX</strong> (the "Site," "we," "us," or "our") handles information collected through <code>xaeccox.io</code> and any subdomains operated by us. XaeccoX is a trading name of <strong>XAECCOX LLC</strong>, a limited liability company organised under the laws of the State of Delaware, United States, with registered office at 651 N Broad St, Middletown, Delaware 19709, United States. The Company is operated by Chukwura Okoli. Our primary business contact is <a href="mailto:info@xaeccox.io">info@xaeccox.io</a>.</p>
       <p>XaeccoX operates across the United States and Nigeria. References to "Services" include the XaeccoX website, our diagnostic engagements, and any of our products — including XaePay, XaePro, and XaeTrade — once made available.</p>
 
       <h2>2. Information we collect</h2>
@@ -111,6 +111,8 @@ export default function PrivacyPage() {
       <h2>12. Contact</h2>
       <p>For privacy questions, requests, or complaints, contact:</p>
       <ul>
+        <li><strong>Legal entity:</strong> XAECCOX LLC (Delaware, United States)</li>
+        <li><strong>Registered office:</strong> 651 N Broad St, Middletown, Delaware 19709, United States</li>
         <li><strong>Email:</strong> <a href="mailto:info@xaeccox.io">info@xaeccox.io</a></li>
         <li><strong>Phone / WhatsApp:</strong> +1 (267) 361-8234</li>
         <li><strong>Operating regions:</strong> Lagos · Philadelphia · Los Angeles · Houston</li>

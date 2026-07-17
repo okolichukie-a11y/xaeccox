@@ -920,7 +920,7 @@ export default function XaeccoXWebsite(){
           <li><a onClick={()=>go('services')} style={{cursor:'pointer'}}>Services</a></li>
           <li><a onClick={()=>go('xaetrade')} style={{cursor:'pointer'}}>XaeTrade</a></li>
           <li><a onClick={()=>go('corridor')} style={{cursor:'pointer'}}>Corridor</a></li>
-          <li><a onClick={()=>go('faq')} style={{cursor:'pointer'}}>FAQ</a></li>
+          <li><Link to="/partners" style={{color:'var(--w3)',textDecoration:'none',fontSize:13,fontWeight:500}}>Partners ↗</Link></li>
           <li><Link to="/tech" style={{color:'var(--w3)',textDecoration:'none',fontSize:13,fontWeight:500}}>Tech ↗</Link></li>
         </ul>
         <div className="nav-right">
@@ -1025,6 +1025,23 @@ export default function XaeccoXWebsite(){
             </div>
           ))}
         </div>
+        <div className="met-row fu" ref={r} style={{gridTemplateColumns:'repeat(2,1fr)',marginTop:52}}>
+          {[
+            {target:72,suffix:'%',label:'Of payment exceptions on the SWIFT network are caused by formatting errors, account issues, and invalid data',note:'SWIFT · cross-border payments research'},
+            {target:20,suffix:'%',label:'Cost reduction achievable through AI-enabled customs clearance',note:'McKinsey · trade digitisation analysis'},
+          ].map(m=>(
+            <div className="mb" key={m.label}>
+              <div className="mb-val">
+                <Counter target={m.target} suffix={m.suffix}/>
+              </div>
+              <div className="mb-label">{m.label}</div>
+              <div className="mb-note">{m.note}</div>
+            </div>
+          ))}
+        </div>
+        <p style={{textAlign:'center',color:'var(--w4)',fontSize:11,marginTop:16,fontFamily:'var(--fm)',letterSpacing:'.05em'}}>
+          Industry-wide figures from SWIFT + McKinsey — the market context, not XaeccoX results.
+        </p>
       </section>
 
       <section id="corridor">
@@ -1255,69 +1272,13 @@ export default function XaeccoXWebsite(){
         </div>
       </section>
 
-      <section>
-        <div className="fu" ref={r}>
-          <div className="stag">Market Context · Industry Sources</div>
-          <h2 className="sh">The size of <span className="acc">what we're working on.</span></h2>
-          <p className="sdesc">These are <strong style={{color:'var(--w)'}}>industry-wide market figures</strong> from SWIFT and McKinsey — the addressable problem cross-border commerce platforms exist to chip at. They are not XaeccoX results; our own corridor numbers will appear here as engagements close.</p>
+      <section className="alt" id="tech-pointer" style={{padding:'72px 72px'}}>
+        <div className="fu" ref={r} style={{maxWidth:820,margin:'0 auto',textAlign:'center'}}>
+          <div className="stag" style={{justifyContent:'center'}}>Software Backbone</div>
+          <h2 className="sh" style={{fontSize:'clamp(24px,3vw,36px)'}}>Software, AI, and integration<br/><span className="acc">powered by XaeTech.</span></h2>
+          <p className="sdesc" style={{margin:'18px auto 26px',textAlign:'center'}}>XaePay powers our multi-currency settlement. XaePro (in dev) and XaeOps (roadmap) build the AI and trade-ops layers we license to other operators and enterprises.</p>
+          <Link to="/tech" className="btn-nav-cta" style={{textDecoration:'none',display:'inline-block',padding:'11px 26px',fontSize:13}}>Explore XaeTech →</Link>
         </div>
-        <div className="met-row fu" ref={r}>
-          {[
-            {target:72,suffix:'%',static:null,label:'Of payment exceptions on the SWIFT network are caused by formatting errors, account issues, and invalid data',note:'SWIFT · cross-border payments research'},
-            {target:null,suffix:'',static:'$6.5B',label:'Annual industry savings unlocked by digitising paper bills of lading',note:'McKinsey · "The multi-billion-dollar paper jam"'},
-            {target:20,suffix:'%',static:null,label:'Cost reduction achievable through AI-enabled customs clearance',note:'McKinsey · trade digitisation analysis'},
-            {target:null,suffix:'',static:'$1.6B',label:'Spent each year by financial institutions investigating delayed cross-border payments',note:'SWIFT · global payments investigations'},
-          ].map(m=>(
-            <div className="mb" key={m.label}>
-              <div className="mb-val">
-                {m.static ? m.static : <Counter target={m.target} suffix={m.suffix}/>}
-              </div>
-              <div className="mb-label">{m.label}</div>
-              <div className="mb-note">{m.note}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="alt" id="tech-pointer">
-        <div className="fu" ref={r}>
-          <div className="stag">Software Backbone</div>
-          <h2 className="sh">Powered by <span className="acc">XaeTech.</span></h2>
-          <p className="sdesc">XaeccoX runs on infrastructure our sister company builds: XaePay for cross-border payments, XaePro for AI agent tooling, XaeOps for trade operations. Same team, same corridor DNA, sold separately to other operators and enterprises.</p>
-        </div>
-
-        <div className="fu" ref={r} style={{marginTop:52,display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20}}>
-          <div className="market-card" style={{padding:'32px 32px','--accent':'linear-gradient(90deg,#5282FF,#A259FF)','--ghost-c':'#5282FF'}} data-ghost="PAY">
-            <div style={{display:'inline-flex',alignItems:'center',gap:8,marginBottom:14}}>
-              <span style={{fontFamily:'var(--fm)',fontSize:8,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--jade)',background:'rgba(0,214,143,.08)',border:'1px solid rgba(0,214,143,.25)',padding:'3px 9px',borderRadius:'var(--rpill)'}}>Live</span>
-            </div>
-            <div className="mc-title" style={{fontSize:22,marginBottom:6,background:'linear-gradient(90deg,var(--blu),var(--vio))',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaePay</div>
-            <div className="mc-desc" style={{marginBottom:16,fontSize:13}}>Cross-border payments — the operating layer above licensed rails. What powers XaeccoX's multi-currency settlement.</div>
-            <a href="https://xaepay.com" target="_blank" rel="noopener noreferrer" style={{fontFamily:'var(--fm)',fontSize:10,letterSpacing:'.12em',textTransform:'uppercase',color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2}}>xaepay.com →</a>
-          </div>
-
-          <div className="market-card" style={{padding:'32px 32px','--accent':'linear-gradient(90deg,#00E5C8,#5282FF)','--ghost-c':'#00E5C8'}} data-ghost="PRO">
-            <div style={{display:'inline-flex',alignItems:'center',gap:8,marginBottom:14}}>
-              <span style={{fontFamily:'var(--fm)',fontSize:8,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--gold)',background:'rgba(245,166,35,.08)',border:'1px solid rgba(245,166,35,.25)',padding:'3px 9px',borderRadius:'var(--rpill)'}}>In Dev</span>
-            </div>
-            <div className="mc-title" style={{fontSize:22,marginBottom:6,background:'linear-gradient(90deg,#00E5C8,#5282FF)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaePro</div>
-            <div className="mc-desc" style={{marginBottom:16,fontSize:13}}>AI agent tools for workflow and supply-chain automation. Autonomous agents monitoring, deciding, and executing across your ops.</div>
-            <Link to="/tech" style={{fontFamily:'var(--fm)',fontSize:10,letterSpacing:'.12em',textTransform:'uppercase',color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2}}>Learn more →</Link>
-          </div>
-
-          <div className="market-card" style={{padding:'32px 32px','--accent':'linear-gradient(90deg,#F5A623,#A259FF)','--ghost-c':'#F5A623'}} data-ghost="OPS">
-            <div style={{display:'inline-flex',alignItems:'center',gap:8,marginBottom:14}}>
-              <span style={{fontFamily:'var(--fm)',fontSize:8,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--gold)',background:'rgba(245,166,35,.08)',border:'1px solid rgba(245,166,35,.25)',padding:'3px 9px',borderRadius:'var(--rpill)'}}>Roadmap</span>
-            </div>
-            <div className="mc-title" style={{fontSize:22,marginBottom:6,background:'linear-gradient(90deg,#F5A623,#A259FF)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>XaeOps</div>
-            <div className="mc-desc" style={{marginBottom:16,fontSize:13}}>Trade-ops platform for third-party operators — freight forwarders, sourcing agents, diaspora commerce operators.</div>
-            <Link to="/tech" style={{fontFamily:'var(--fm)',fontSize:10,letterSpacing:'.12em',textTransform:'uppercase',color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2}}>Learn more →</Link>
-          </div>
-        </div>
-
-        <p style={{textAlign:'center',color:'var(--w3)',fontSize:13,marginTop:36,fontFamily:'var(--fd)',maxWidth:680,marginLeft:'auto',marginRight:'auto'}}>
-          Need software, integration, AI agents, or consulting for your own operation? <Link to="/tech" style={{color:'var(--blu)',textDecoration:'underline'}}>Visit XaeTech →</Link>
-        </p>
       </section>
 
       <section id="trust">
@@ -1358,20 +1319,10 @@ export default function XaeccoXWebsite(){
 
       </section>
 
-      <section className="alt" id="next">
-        <div className="fu" ref={r} style={{textAlign:'center',maxWidth:760,margin:'0 auto'}}>
-          <div className="stag" style={{justifyContent:'center'}}>What's Next</div>
-          <h2 className="sh">Beyond <span className="acc">the corridor.</span></h2>
-          <p className="sdesc" style={{margin:'18px auto 0',textAlign:'center'}}>
-            The US ↔ Nigeria corridor is the proof. The roadmap extends to UK ↔ Nigeria, EU ↔ Nigeria, and US ↔ Ghana within 24 months. Africa to the world — with the operational depth to back it.
-          </p>
-        </div>
-      </section>
-
       <section id="faq">
         <div className="fu" ref={r}>
           <div className="stag">FAQ</div>
-          <h2 className="sh">Straight answers to<br/><span className="acc">what people actually ask.</span></h2>
+          <h2 className="sh">The questions <span className="acc">people ask.</span></h2>
         </div>
         <div className="fu" ref={r} style={{marginTop:52,maxWidth:820,margin:'52px auto 0',display:'flex',flexDirection:'column',gap:10}}>
           {[
@@ -1430,12 +1381,15 @@ export default function XaeccoXWebsite(){
           {[
             {h:'Services',links:[['Sourcing & Procurement','services'],['Container Consolidation','services'],['International Freight','services'],['Customs Clearing','services'],['Last-Mile Delivery','services'],['Payments & Settlement','services']]},
             {h:'Engage',links:[['Request quote','contact'],['XaeTrade marketplace','xaetrade'],['Corridor','corridor'],['Built for','built-for'],['FAQ','faq'],['Contact','contact']]},
-            {h:'Company',links:[['Why now','why-now'],['Trust & Compliance','trust'],['What\'s next','next']]},
+            {h:'Company',links:[['Why now','why-now'],['Trust & Compliance','trust'],['Partners','/partners'],['XaeTech','/tech']]},
           ].map(col=>(
             <div key={col.h}>
               <div className="ft-col-hd">{col.h}</div>
               <ul className="ft-links">{col.links.map(([l,id])=>(
-                <li key={l}><a href={`#${id}`} onClick={e=>{e.preventDefault();document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}}>{l}</a></li>
+                <li key={l}>{id.startsWith('/')
+                  ? <Link to={id} style={{color:'var(--w3)',textDecoration:'none'}}>{l}</Link>
+                  : <a href={`#${id}`} onClick={e=>{e.preventDefault();document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}}>{l}</a>
+                }</li>
               ))}</ul>
             </div>
           ))}

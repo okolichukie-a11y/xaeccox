@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { G } from './styles';
 import QuoteModal from './QuoteModal';
+import PortalAccessModal from './PortalAccessModal';
 
 /* ═══════════════════════════════════════════════════════════════════
    XAECCOX — GLOBAL SUPPLY CHAIN INTELLIGENCE PLATFORM
@@ -829,12 +830,17 @@ export default function XaeccoXWebsite(){
   const [bookPreselect,setBookPreselect]=useState('');
   const [dashView,setDashView]=useState('Dashboard');
   const [quote,setQuote]=useState(false);
+  const [portal,setPortal]=useState(false);
+  const [portalMode,setPortalMode]=useState('signin');
+  const [openFaq,setOpenFaq]=useState(null);
   const refs=useRef([]);
 
   const openBook=(id='')=>{setBookPreselect(id);setBooking(true);};
   const closeBook=()=>setBooking(false);
   const openQuote=()=>setQuote(true);
   const closeQuote=()=>setQuote(false);
+  const openPortal=(mode='signin')=>{setPortalMode(mode);setPortal(true);};
+  const closePortal=()=>setPortal(false);
 
   useEffect(()=>{
     const onS=()=>setScrolled(window.scrollY>50);
@@ -903,6 +909,7 @@ export default function XaeccoXWebsite(){
 
       {booking&&<BookingModal onClose={closeBook} preselect={bookPreselect}/>}
       {quote&&<QuoteModal onClose={closeQuote}/>}
+      {portal&&<PortalAccessModal onClose={closePortal} mode={portalMode}/>}
 
       <nav className={scrolled?'sc':''}>
         <a className="logo" onClick={()=>go('hero')} style={{cursor:'pointer'}}>
@@ -917,7 +924,7 @@ export default function XaeccoXWebsite(){
           <li><Link to="/tech" style={{color:'var(--w3)',textDecoration:'none',fontSize:13,fontWeight:500}}>Tech ↗</Link></li>
         </ul>
         <div className="nav-right">
-          <a href="mailto:info@xaeccox.io" className="btn-nav-ghost" style={{textDecoration:'none',display:'inline-block'}}>Talk to us</a>
+          <button className="btn-nav-ghost" onClick={()=>openPortal('signin')}>Sign in</button>
           <button className="btn-nav-cta" onClick={openQuote}>Request quote</button>
         </div>
       </nav>
@@ -994,6 +1001,27 @@ export default function XaeccoXWebsite(){
                 </div>
               ))}
               <span className="rf-badge">{col.badge}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="why-now">
+        <div className="fu" ref={r}>
+          <div className="stag">Why Now</div>
+          <h2 className="sh">The corridor is at<br/><span className="acc">an inflection point.</span></h2>
+        </div>
+        <div className="fu" ref={r} style={{marginTop:52,display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:20,maxWidth:1080}}>
+          {[
+            {n:'01',t:'CBN FX reforms restructured the naira market',d:'The 2024 unification and float of the naira reshaped how importers, exporters, and diaspora businesses access foreign exchange. Old broker relationships broke; new licensed rails opened. Corridor operators who understand both regimes have the advantage.'},
+            {n:'02',t:'Nigerian diaspora is $20B+ and growing',d:'Roughly 905K Nigerians live in the US, sending $20 billion+ home annually — and increasingly buying, sourcing, and building businesses across the corridor. Diaspora commerce is the largest under-served customer segment in African trade.'},
+            {n:'03',t:'AfCFTA is rolling out live tariff-free lanes',d:'The African Continental Free Trade Area is moving from framework to enforcement in 2025-2027. Cross-corridor trade with proper documentation gets progressively cheaper and faster. Businesses that build corridor muscle now will lead the intra-African expansion later.'},
+            {n:'04',t:'Nigerian customs is digitising fast',d:'Form M is now digital. PAAR issuance has been streamlined. NAFDAC clearance workflows are moving online. The last three years have made corridor operations more programmable — but only if you know where the friction still lives.'},
+          ].map(w=>(
+            <div key={w.n} className="glass-card" style={{padding:'32px 28px',borderRadius:'var(--r12)'}}>
+              <div style={{fontFamily:'var(--fm)',fontSize:11,letterSpacing:'.16em',color:'var(--blu)',marginBottom:14}}>{w.n}</div>
+              <div style={{fontFamily:'var(--fd)',fontWeight:700,fontSize:18,letterSpacing:'-.01em',marginBottom:10,color:'var(--w)'}}>{w.t}</div>
+              <div style={{fontSize:13,color:'var(--w3)',lineHeight:1.7}}>{w.d}</div>
             </div>
           ))}
         </div>
@@ -1170,6 +1198,15 @@ export default function XaeccoXWebsite(){
             </div>
           </div>
         </div>
+        <div className="fu" ref={r} style={{marginTop:32,display:'flex',flexDirection:'column',alignItems:'center',gap:14,textAlign:'center'}}>
+          <p style={{fontSize:14,color:'var(--w3)',maxWidth:520,margin:0,lineHeight:1.65}}>
+            Portal launches alongside our first paying orders. Existing customers get invited automatically; new customers can request access now.
+          </p>
+          <div style={{display:'flex',gap:12,flexWrap:'wrap',justifyContent:'center'}}>
+            <button className="btn-nav-cta" onClick={()=>openPortal('signup')} style={{padding:'11px 24px',fontSize:13}}>Request portal access</button>
+            <button className="btn-nav-ghost" onClick={()=>openPortal('signin')} style={{padding:'11px 24px',fontSize:13}}>Existing customer? Sign in</button>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -1237,6 +1274,44 @@ export default function XaeccoXWebsite(){
         </p>
       </section>
 
+      <section id="trust">
+        <div className="fu" ref={r}>
+          <div className="stag">Trust & Compliance</div>
+          <h2 className="sh">How we handle<br/><span className="acc">your trade, your data, your money.</span></h2>
+          <p className="sdesc">A trade operator earns trust by being explicit about what it does, what it doesn't do, and who's actually holding what. Here's ours.</p>
+        </div>
+
+        <div className="fu" ref={r} style={{marginTop:52,display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20}}>
+          <div className="glass-card" style={{padding:'28px 26px',borderRadius:'var(--r12)'}}>
+            <div style={{fontFamily:'var(--fm)',fontSize:9,letterSpacing:'.16em',textTransform:'uppercase',color:'var(--jade)',marginBottom:14}}>What We Handle</div>
+            <div style={{fontFamily:'var(--fd)',fontWeight:700,fontSize:16,marginBottom:14,color:'var(--w)'}}>Trade documentation, corridor-side</div>
+            <div style={{fontSize:13,color:'var(--w3)',lineHeight:1.7,marginBottom:16}}>Every order routes through the correct entity as principal — <strong style={{color:'var(--w2)'}}>XaeccoX LLC</strong> in the US, <strong style={{color:'var(--w2)'}}>XaeccoX Solution Enterprise</strong> in Nigeria — with proper commercial paperwork.</div>
+            <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
+              {['CBN','NAFDAC','SONCAP','Form M','PAAR','US CBP','Nigerian Customs','Incoterms 2020'].map(x=><span key={x} className="sol-tag">{x}</span>)}
+            </div>
+          </div>
+
+          <div className="glass-card" style={{padding:'28px 26px',borderRadius:'var(--r12)'}}>
+            <div style={{fontFamily:'var(--fm)',fontSize:9,letterSpacing:'.16em',textTransform:'uppercase',color:'var(--blu)',marginBottom:14}}>Payments</div>
+            <div style={{fontFamily:'var(--fd)',fontWeight:700,fontSize:16,marginBottom:14,color:'var(--w)'}}>NGN or USD, for services rendered</div>
+            <div style={{fontSize:13,color:'var(--w3)',lineHeight:1.7,marginBottom:16}}>Standard commercial invoicing per trade order. Pay <strong style={{color:'var(--w2)'}}>USD</strong> to XaeccoX LLC or <strong style={{color:'var(--w2)'}}>NGN</strong> to XaeccoX Solution Enterprise, whichever fits your side of the corridor.</div>
+            <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
+              {['USD to XaeccoX LLC','NGN to XaeccoX Solution Enterprise','Per-trade invoicing'].map(x=><span key={x} className="sol-tag">{x}</span>)}
+            </div>
+          </div>
+
+          <div className="glass-card" style={{padding:'28px 26px',borderRadius:'var(--r12)'}}>
+            <div style={{fontFamily:'var(--fm)',fontSize:9,letterSpacing:'.16em',textTransform:'uppercase',color:'var(--vio)',marginBottom:14}}>Your Data</div>
+            <div style={{fontFamily:'var(--fd)',fontWeight:700,fontSize:16,marginBottom:14,color:'var(--w)'}}>Minimal collection, no sharing</div>
+            <div style={{fontSize:13,color:'var(--w3)',lineHeight:1.7,marginBottom:16}}>We collect only what a trade requires — contact, shipping details, KYC where needed. Never sold, never shared with advertisers. Full policy at <Link to="/privacy" style={{color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)'}}>/privacy</Link> and <Link to="/terms" style={{color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)'}}>/terms</Link>.</div>
+            <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
+              {['GDPR-Aware','NDPR-Aware','No Trackers','No Ad Pixels','Formspree-Encrypted'].map(x=><span key={x} className="sol-tag">{x}</span>)}
+            </div>
+          </div>
+        </div>
+
+      </section>
+
       <section id="founder">
         <div className="fu" ref={r}>
           <div className="stag">Founder</div>
@@ -1270,6 +1345,38 @@ export default function XaeccoXWebsite(){
             The US ↔ Nigeria corridor is the proof. The roadmap extends to UK ↔ Nigeria, EU ↔ Nigeria, and US ↔ Ghana within 24 months. Africa to the world — with the operational depth to back it.
           </p>
         </div>
+      </section>
+
+      <section id="faq">
+        <div className="fu" ref={r}>
+          <div className="stag">FAQ</div>
+          <h2 className="sh">Straight answers to<br/><span className="acc">what people actually ask.</span></h2>
+        </div>
+        <div className="fu" ref={r} style={{marginTop:52,maxWidth:820,margin:'52px auto 0',display:'flex',flexDirection:'column',gap:10}}>
+          {[
+            {q:'How does an order work, start to finish?',a:'You send a trade quote request. Within one business day we come back with a scoped quote — freight, customs, clearing, delivery, payment terms. If you accept, we open a proper commercial order under the correct XaeccoX entity, invoice you, and start execution. You track status through the customer portal (once live) or by email. On arrival, final invoice + receipts close the order.'},
+            {q:'How long does a container from the US to Nigeria take?',a:'Ocean freight from Houston to Tin Can Island runs 25–35 days door-to-door on typical lanes. Air freight from major US airports to Lagos runs 3–5 business days. Both timelines assume clean paperwork; customs holds can add 3–10 days if HS coding, NAFDAC, or SONCAP paperwork is incomplete. We surface those risks in the quote so you can plan around them.'},
+            {q:'What order sizes do you handle?',a:'Anything from a single barrel of foodstuffs to a 40ft full container of vehicles or commercial goods. We consolidate multiple small shippers into shared containers (LCL) when volumes are individually small — that\'s what makes it economical for diaspora shipments and small businesses. There\'s no minimum-order threshold on the quote request; if it doesn\'t make economic sense, we\'ll tell you and suggest an alternative.'},
+            {q:'Do you handle NAFDAC, SONCAP, Form M, PAAR paperwork?',a:'Yes, on any shipment that requires them. Our team pre-checks NAFDAC registration and product clearance requirements against your goods, coordinates SONCAP where the SON regime applies, opens Form M against the correct authorised dealer bank, and ensures PAAR is issued cleanly before goods arrive. This is baked into standard fulfillment on regulated shipments — not an add-on.'},
+            {q:'Can I track my order in real time?',a:'The customer portal launches alongside our first paying orders — it shows order status, shipment position, uploaded documents, and payment ledger. Until then, every customer gets a WhatsApp or email thread that\'s updated at each stage (booking confirmed, container loaded, in transit, cleared customs, out for delivery). No opaque black boxes.'},
+            {q:'What happens if my goods get held at customs?',a:'We work through it and communicate immediately. Most holds are documentation — wrong HS code, missing pre-clearance, mismatched invoice. We fix the paperwork and re-present. Genuine issues (prohibited goods, valuation disputes) get escalated with options — pay, dispute, or re-export — and we quote you the cost of each path. You\'re never in the dark on a held container.'},
+            {q:'How do payments work on my order?',a:'Standard commercial invoicing. You pay in USD to XaeccoX LLC (US-side) or in NGN to XaeccoX Solution Enterprise (Nigeria-side), whichever fits your side of the corridor. Typically 50% on order confirmation and 50% on delivery, but bigger or repeat orders can move to net-15 or net-30 credit terms once we\'ve worked together.'},
+            {q:'Do you offer credit or trade finance?',a:'For established customers, yes — after two or three successful trades we can extend structured credit terms (net-15, net-30, or partial deferred payment on specific milestones). For new customers, orders start with the standard 50/50 payment schedule. We don\'t currently offer stand-alone trade credit or receivables financing as a product.'},
+          ].map((f,i)=>(
+            <div key={i} className="glass-card" style={{padding:'0',borderRadius:'var(--r12)',cursor:'pointer'}} onClick={()=>setOpenFaq(openFaq===i?null:i)}>
+              <div style={{padding:'22px 26px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:16}}>
+                <div style={{fontFamily:'var(--fd)',fontWeight:600,fontSize:15,color:'var(--w)',lineHeight:1.4}}>{f.q}</div>
+                <div style={{fontFamily:'var(--fm)',fontSize:18,color:'var(--blu)',transition:'transform .2s',transform:openFaq===i?'rotate(45deg)':'rotate(0)'}}>＋</div>
+              </div>
+              {openFaq===i&&(
+                <div style={{padding:'0 26px 22px',fontSize:14,color:'var(--w3)',lineHeight:1.7}}>{f.a}</div>
+              )}
+            </div>
+          ))}
+        </div>
+        <p style={{textAlign:'center',color:'var(--w3)',fontSize:13,marginTop:36,fontFamily:'var(--fd)'}}>
+          Something else on your mind? <a href="mailto:info@xaeccox.io?subject=Question%20from%20xaeccox.io" style={{color:'var(--blu)',textDecoration:'underline'}}>Email us directly.</a>
+        </p>
       </section>
 
       <section className="cta-section" id="contact">

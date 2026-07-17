@@ -6,6 +6,7 @@ import './index.css'
 import App from './App.jsx'
 import TechPage from './TechPage.jsx'
 import PartnersPage from './PartnersPage.jsx'
+import XaePayPage from './XaePayPage.jsx'
 import PrivacyPage from './PrivacyPage.jsx'
 import TermsPage from './TermsPage.jsx'
 
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/tech" element={<TechPage />} />
         <Route path="/partners" element={<PartnersPage />} />
+        <Route path="/xaepay" element={<XaePayPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="*" element={<App />} />

@@ -453,8 +453,8 @@ function BookingModal({onClose,preselect=''}){
     } catch (err) {
       setSubmitError(
         err.message === 'NOT_CONFIGURED'
-          ? 'Bookings will open shortly. Please email okoli.chukie@gmail.com to reserve a slot.'
-          : 'Something went wrong on submit. Please try again, or email okoli.chukie@gmail.com directly.'
+          ? 'Bookings will open shortly. Please email info@xaeccox.io to reserve a slot.'
+          : 'Something went wrong on submit. Please try again, or email info@xaeccox.io directly.'
       );
     } finally {
       setSubmitting(false);
@@ -1287,7 +1287,10 @@ export default function XaeccoXWebsite(){
           <div className="stag" style={{justifyContent:'center'}}>Software Backbone</div>
           <h2 className="sh" style={{fontSize:'clamp(24px,3vw,36px)'}}>Software, AI, and integration<br/><span className="acc">powered by XaeTech.</span></h2>
           <p className="sdesc" style={{margin:'18px auto 26px',textAlign:'center'}}>XaePay powers our multi-currency settlement. XaePro (in dev) and XaeOps (roadmap) build the AI and trade-ops layers we license to other operators and enterprises.</p>
-          <Link to="/tech" className="btn-nav-cta" style={{textDecoration:'none',display:'inline-block',padding:'11px 26px',fontSize:13}}>Explore XaeTech →</Link>
+          <div style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
+            <Link to="/tech" className="btn-nav-cta" style={{textDecoration:'none',display:'inline-block',padding:'11px 26px',fontSize:13}}>Explore XaeTech →</Link>
+            <Link to="/xaepay" className="btn-nav-ghost" style={{textDecoration:'none',display:'inline-block'}}>Meet XaePay →</Link>
+          </div>
         </div>
       </section>
 
@@ -1391,7 +1394,7 @@ export default function XaeccoXWebsite(){
           {[
             {h:'Services',links:[['Sourcing & Procurement','services'],['Container Consolidation','services'],['International Freight','services'],['Customs Clearing','services'],['Last-Mile Delivery','services'],['Payments & Settlement','services']]},
             {h:'Engage',links:[['Request quote','contact'],['XaeTrade marketplace','xaetrade'],['Corridor','corridor'],['Built for','built-for'],['FAQ','faq'],['Contact','contact']]},
-            {h:'Company',links:[['Why now','why-now'],['Trust & Compliance','trust'],['Partners','/partners'],['XaeTech','/tech']]},
+            {h:'Company',links:[['Why now','why-now'],['Trust & Compliance','trust'],['Partners','/partners'],['XaeTech','/tech'],['XaePay','/xaepay']]},
           ].map(col=>(
             <div key={col.h}>
               <div className="ft-col-hd">{col.h}</div>

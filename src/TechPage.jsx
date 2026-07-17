@@ -82,7 +82,10 @@ export default function TechPage() {
             <div className="mc-title" style={{ fontSize: 32, marginBottom: 8, background: 'linear-gradient(90deg,var(--blu),var(--vio))', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>XaePay</div>
             <div style={{ fontFamily: 'var(--fb)', fontStyle: 'italic', fontWeight: 300, fontSize: 17, color: 'var(--w2)', marginBottom: 16 }}>The operating layer for cross-border payments.</div>
             <div className="mc-desc" style={{ fontSize: 14.5, maxWidth: 720, lineHeight: 1.7, marginBottom: 24 }}>Rail-agnostic router built on licensed payment infrastructure (Cedar, Triple-A, more). Serves licensed operators (BDCs, IMTOs) and businesses moving funds across USD, NGN, and stablecoin rails. Compliance automation, audit-grade logging, cross-rail intelligence.</div>
-            <a href="https://xaepay.com" target="_blank" rel="noopener noreferrer" className="btn-nav-cta" style={{ display: 'inline-block', textDecoration: 'none', padding: '11px 24px', fontSize: 13 }}>Visit xaepay.com →</a>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <Link to="/xaepay" className="btn-nav-cta" style={{ display: 'inline-block', textDecoration: 'none', padding: '11px 24px', fontSize: 13 }}>Learn about XaePay →</Link>
+              <a href="https://xaepay.com" target="_blank" rel="noopener noreferrer" className="btn-nav-ghost" style={{ display: 'inline-block', textDecoration: 'none' }}>Visit xaepay.com ↗</a>
+            </div>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
@@ -257,7 +260,7 @@ export default function TechPage() {
           <div>
             <div className="ft-col-hd">Products</div>
             <ul className="ft-links">
-              <li><a onClick={() => go('products')} style={{ cursor: 'pointer' }}>XaePay</a></li>
+              <li><Link to="/xaepay">XaePay ↗</Link></li>
               <li><a onClick={() => go('products')} style={{ cursor: 'pointer' }}>XaePro</a></li>
               <li><a onClick={() => go('products')} style={{ cursor: 'pointer' }}>XaeOps</a></li>
             </ul>

@@ -115,11 +115,34 @@ export default function TechPage() {
       <section className="alt" id="consulting">
         <div className="fu" ref={r}>
           <div className="stag">Consulting</div>
-          <h2 className="sh">Two ways to<br /><span className="acc">start working with us.</span></h2>
-          <p className="sdesc">Corridor diagnostics for businesses navigating US ↔ Nigeria trade complexity. Fixed scope, confirmed timeline, founder-led.</p>
+          <h2 className="sh">Five ways to<br /><span className="acc">start working with us.</span></h2>
+          <p className="sdesc">Corridor advisory for businesses navigating US ↔ Nigeria trade complexity. Founder-led. Pick the shape that fits — from a 30-minute discovery call to a full six-week engagement or ongoing advisor retainer.</p>
         </div>
 
         <div className="pricing-grid fu" ref={r} style={{ gridTemplateColumns: '1fr 1fr', maxWidth: 980, margin: '60px auto 0' }}>
+          <div className="price-card edge-lit featured" style={{ '--pc': 'var(--vio)' }}>
+            <span className="pc-badge pop">Deep · Hands-On</span>
+            <div className="pc-name">Deep Corridor Diagnostic</div>
+            <div className="pc-desc">Everything in Standard, plus weekly working sessions, partner introductions, and an implementation-ready deliverable.</div>
+            <div className="pc-price grad">
+              <span className="pc-cur">$</span>25,000<span className="pc-per"> / 6 weeks</span>
+            </div>
+            <div className="pc-sub">single fixed-fee engagement</div>
+            <div className="pc-divider" />
+            <div className="pc-features">
+              {[
+                'Everything in Standard',
+                'Weekly working sessions with founder',
+                'Hands-on partner introductions across the corridor',
+                'Implementation-readiness deliverable',
+                '90-day async follow-up access',
+              ].map(f => (
+                <div className="pcf" key={f}><span className="pcf-ic">✓</span><span>{f}</span></div>
+              ))}
+            </div>
+            <a href="mailto:info@xaeccox.io?subject=Deep%20Corridor%20Diagnostic%20-%20booking%20request&body=I%27d%20like%20to%20book%20a%20Deep%20Corridor%20Diagnostic.%0A%0AName%3A%20%0ACompany%3A%20%0ATrade%20corridor%3A%20%0AContext%3A%20" className="pc-cta main" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>Book Deep Diagnostic →</a>
+          </div>
+
           <div className="price-card edge-lit" style={{ '--pc': 'var(--blu)' }}>
             <span className="pc-badge std">Standard</span>
             <div className="pc-name">Standard Corridor Diagnostic</div>
@@ -146,33 +169,51 @@ export default function TechPage() {
             </div>
             <a href="mailto:info@xaeccox.io?subject=Standard%20Corridor%20Diagnostic%20-%20booking%20request&body=I%27d%20like%20to%20book%20a%20Standard%20Corridor%20Diagnostic.%0A%0AName%3A%20%0ACompany%3A%20%0ATrade%20corridor%3A%20%0AContext%3A%20" className="pc-cta outline" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>Book Standard Diagnostic →</a>
           </div>
+        </div>
 
-          <div className="price-card edge-lit featured" style={{ '--pc': 'var(--vio)' }}>
-            <span className="pc-badge pop">Deep · Hands-On</span>
-            <div className="pc-name">Deep Corridor Diagnostic</div>
-            <div className="pc-desc">Everything in Standard, plus weekly working sessions, partner introductions, and an implementation-ready deliverable.</div>
-            <div className="pc-price grad">
-              <span className="pc-cur">$</span>25,000<span className="pc-per"> / 6 weeks</span>
+        <div className="fu" ref={r} style={{ marginTop: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
+          <div className="glass-card" style={{ padding: '28px 30px', borderRadius: 'var(--r12)', display: 'flex', flexDirection: 'column' }}>
+            <span className="pc-badge std" style={{ alignSelf: 'flex-start', marginBottom: 14 }}>Scoping</span>
+            <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: 20, letterSpacing: '-.01em', marginBottom: 8, color: 'var(--w)' }}>Working Session</div>
+            <div style={{ fontSize: 13, color: 'var(--w3)', marginBottom: 18, lineHeight: 1.6 }}>90-minute focused workshop on one specific corridor question — customs pathway, payment routing, supplier vetting, Form M structure. Deliverable: 3–5 page written summary + follow-up email access.</div>
+            <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 30, letterSpacing: '-.02em', color: 'var(--w)', marginBottom: 4, lineHeight: 1 }}>
+              <span style={{ fontSize: 16, fontWeight: 600, verticalAlign: 'top', marginRight: 4 }}>$</span>2,500<span style={{ fontFamily: 'var(--fm)', fontSize: 11, fontWeight: 400, color: 'var(--w3)', marginLeft: 6 }}>/ 90-min</span>
             </div>
-            <div className="pc-sub">single fixed-fee engagement</div>
-            <div className="pc-divider" />
-            <div className="pc-features">
-              {[
-                'Everything in Standard',
-                'Weekly working sessions with founder',
-                'Hands-on partner introductions across the corridor',
-                'Implementation-readiness deliverable',
-                '90-day async follow-up access',
-              ].map(f => (
-                <div className="pcf" key={f}><span className="pcf-ic">✓</span><span>{f}</span></div>
-              ))}
+            <div style={{ fontFamily: 'var(--fm)', fontSize: 9, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--w3)', marginBottom: 18 }}>single scoped session</div>
+            <a href="mailto:info@xaeccox.io?subject=XaeTech%20Working%20Session%20request&body=I%27d%20like%20to%20book%20a%2090-minute%20Working%20Session.%0A%0AName%3A%20%0ACompany%3A%20%0AThe%20specific%20corridor%20question%20I%20want%20to%20work%20through%3A%20%0APreferred%20week%3A%20" className="pc-cta outline" style={{ display: 'block', textAlign: 'center', textDecoration: 'none', marginTop: 'auto' }}>Book Working Session →</a>
+          </div>
+
+          <div className="glass-card" style={{ padding: '28px 30px', borderRadius: 'var(--r12)', display: 'flex', flexDirection: 'column' }}>
+            <span className="pc-badge std" style={{ alignSelf: 'flex-start', marginBottom: 14, color: 'var(--jade)', borderColor: 'rgba(0,214,143,.3)' }}>Free</span>
+            <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: 20, letterSpacing: '-.01em', marginBottom: 8, color: 'var(--w)' }}>Discovery Call</div>
+            <div style={{ fontSize: 13, color: 'var(--w3)', marginBottom: 18, lineHeight: 1.6 }}>30-minute virtual call to talk through your corridor situation and see if we're a fit. No prep required, no commitment, no deck. Founder-run.</div>
+            <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 30, letterSpacing: '-.02em', color: 'var(--w)', marginBottom: 4, lineHeight: 1 }}>
+              Free<span style={{ fontFamily: 'var(--fm)', fontSize: 11, fontWeight: 400, color: 'var(--w3)', marginLeft: 8 }}>/ 30-min</span>
             </div>
-            <a href="mailto:info@xaeccox.io?subject=Deep%20Corridor%20Diagnostic%20-%20booking%20request&body=I%27d%20like%20to%20book%20a%20Deep%20Corridor%20Diagnostic.%0A%0AName%3A%20%0ACompany%3A%20%0ATrade%20corridor%3A%20%0AContext%3A%20" className="pc-cta main" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>Book Deep Diagnostic →</a>
+            <div style={{ fontFamily: 'var(--fm)', fontSize: 9, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--w3)', marginBottom: 18 }}>zero commitment</div>
+            <a href="mailto:info@xaeccox.io?subject=XaeTech%20Discovery%20Call%20request&body=I%27d%20like%20to%20schedule%20a%20Discovery%20Call.%0A%0AName%3A%20%0ACompany%3A%20%0AWhat%20I%27m%20exploring%3A%20%0APreferred%20times%3A%20" className="pc-cta outline" style={{ display: 'block', textAlign: 'center', textDecoration: 'none', marginTop: 'auto' }}>Book Discovery Call →</a>
+          </div>
+        </div>
+
+        <div className="fu" ref={r} style={{ marginTop: 40, maxWidth: 980, marginLeft: 'auto', marginRight: 'auto', background: 'rgba(82,130,255,.05)', border: '1px solid rgba(82,130,255,.2)', borderRadius: 'var(--r16)', padding: '28px 32px', display: 'grid', gridTemplateColumns: '1fr auto', gap: 32, alignItems: 'center' }}>
+          <div>
+            <div style={{ fontFamily: 'var(--fm)', fontSize: 9, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--blu)', marginBottom: 10 }}>After the Diagnostic · Ongoing</div>
+            <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, fontSize: 22, letterSpacing: '-.01em', marginBottom: 8, color: 'var(--w)' }}>Corridor Advisor Retainer</div>
+            <div style={{ fontSize: 14, color: 'var(--w3)', lineHeight: 1.65, maxWidth: 620 }}>
+              For businesses that ran a diagnostic and want us in their corridor month-over-month. Weekly touchpoint, on-call escalation for corridor issues, quarterly review sessions, monthly written update. Perfect for post-diagnostic clients scaling their trade volume.
+            </div>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <div style={{ fontFamily: 'var(--fd)', fontWeight: 800, fontSize: 34, letterSpacing: '-.02em', background: 'linear-gradient(135deg,var(--w),var(--blu2))', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', lineHeight: 1, marginBottom: 4 }}>
+              <span style={{ fontSize: 18, verticalAlign: 'top', marginRight: 4 }}>$</span>6,500
+            </div>
+            <div style={{ fontFamily: 'var(--fm)', fontSize: 10, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--w3)', marginBottom: 16 }}>per month · 3-month minimum</div>
+            <a href="mailto:info@xaeccox.io?subject=XaeTech%20Corridor%20Advisor%20Retainer%20enquiry&body=I%27d%20like%20to%20explore%20the%20Corridor%20Advisor%20Retainer.%0A%0AName%3A%20%0ACompany%3A%20%0ATrade%20context%3A%20%0AWhat%20I%27m%20looking%20for%20ongoing%20support%20on%3A%20" className="btn-nav-cta" style={{ display: 'inline-block', textDecoration: 'none', fontSize: 13, padding: '11px 24px' }}>Enquire about Retainer →</a>
           </div>
         </div>
 
         <p style={{ textAlign: 'center', color: 'var(--w3)', fontSize: 13, marginTop: 36, fontFamily: 'var(--fd)', maxWidth: 680, marginLeft: 'auto', marginRight: 'auto' }}>
-          Enterprise engagements, custom scopes, and integration/software builds — <a href="mailto:info@xaeccox.io?subject=XaeTech%20enterprise%20inquiry" style={{ color: 'var(--blu)', textDecoration: 'underline' }}>contact the founder directly.</a>
+          Custom enterprise engagements, integration builds, or something bigger — <a href="mailto:info@xaeccox.io?subject=XaeTech%20enterprise%20inquiry" style={{ color: 'var(--blu)', textDecoration: 'underline' }}>contact the founder directly.</a>
         </p>
       </section>
 

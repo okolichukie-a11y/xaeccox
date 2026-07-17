@@ -213,6 +213,24 @@ export default function TechPage() {
         </div>
       </section>
 
+      <section id="founder" style={{ padding: '100px 72px 40px' }}>
+        <div className="fu" ref={r} style={{ maxWidth: 780 }}>
+          <div className="stag">Built By</div>
+          <h2 className="sh" style={{ fontSize: 'clamp(26px,3vw,38px)', marginBottom: 12 }}>Chukwura Okoli</h2>
+          <div style={{ fontFamily: 'var(--fm)', fontSize: 11, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--blu)', marginBottom: 22 }}>Founder · XAECCOX LLC</div>
+          <p className="agent-prose" style={{ margin: '0 0 18px', fontSize: 15, maxWidth: 720 }}>
+            Operator and architect across the US ↔ Nigeria trade corridor. Nearly a decade in global supply chain, AI solutions architecture, and ERP-grade process design — currently shipping containers and building infrastructure between Lagos, Philadelphia, Los Angeles, and Houston.
+          </p>
+          <p className="agent-prose" style={{ margin: '0 0 24px', fontSize: 15, color: 'var(--w2)', maxWidth: 720 }}>
+            XaeTech products are built to fix the pain points he keeps hitting inside XaeccoX's own trade operations. Every product ships because the corridor needed it first.
+          </p>
+          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+            <a href="https://www.linkedin.com/in/chukwuraokoli" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--fd)', fontWeight: 600, fontSize: 14, color: 'var(--blu)', textDecoration: 'none', borderBottom: '1px solid var(--ba)', paddingBottom: 2 }}>LinkedIn →</a>
+            <a href="mailto:info@xaeccox.io?subject=XaeTech%20-%20founder%20conversation" style={{ fontFamily: 'var(--fd)', fontWeight: 600, fontSize: 14, color: 'var(--blu)', textDecoration: 'none', borderBottom: '1px solid var(--ba)', paddingBottom: 2 }}>Email →</a>
+          </div>
+        </div>
+      </section>
+
       <section className="cta-section alt">
         <div className="cta-glow" /><div className="cta-grid-lines" />
         <div className="stag fu" ref={r} style={{ justifyContent: 'center' }}>Start the conversation</div>
@@ -231,6 +249,10 @@ export default function TechPage() {
           <div>
             <div className="ft-logo">Xaecco<span>X</span> Tech</div>
             <div className="ft-tagline">The software + AI products arm of XAECCOX LLC. Cross-border commerce infrastructure, corridor-native.</div>
+            <div className="ft-socials" style={{ marginTop: 20 }}>
+              <a href="https://www.linkedin.com/in/chukwuraokoli" target="_blank" rel="noopener noreferrer" className="ft-soc" style={{ textDecoration: 'none', color: 'inherit' }} title="LinkedIn">in</a>
+              <a href="mailto:info@xaeccox.io" className="ft-soc" style={{ textDecoration: 'none', color: 'inherit' }} title="Email">@</a>
+            </div>
           </div>
           <div>
             <div className="ft-col-hd">Products</div>

@@ -90,7 +90,7 @@ const MARKETS=[
 const SOLUTIONS=[
   {n:'01',t:'Sourcing & Procurement',d:'We find, vet, and buy on your behalf. US B2B suppliers, Nigerian producers, factory-direct sourcing. XaeccoX is the principal buyer on the invoice — you get one clean commercial relationship instead of managing five.',tags:['Supplier Vetting','Procurement','Factory-Direct','Multi-Supplier']},
   {n:'02',t:'Container Consolidation',d:'US-side consolidation warehouses in Philadelphia, Los Angeles, and Houston. Mix diaspora cargo, grocery supply, e-commerce imports, and individual shipments into shared FCL / LCL lanes to Lagos.',tags:['LCL','FCL','US Warehousing','Mixed Cargo']},
-  {n:'03',t:'International Freight',d:'Ocean freight (25–35 days Houston → Tin Can) and air freight (3–5 days) between US ports and Lagos. Roll-on / roll-off for vehicles. Booked with carriers we work with weekly — Maersk, MSC, CMA CGM, Delta Cargo.',tags:['Ocean','Air','RoRo','Weekly Sailings']},
+  {n:'03',t:'International Freight',d:'Ocean freight (45–60 days US → Nigeria; 60–90 days Nigeria → US) and air freight (10–15 days US → Nigeria) between US ports and Lagos. Roll-on / roll-off for vehicles. Booked with carriers we work with weekly — Maersk, MSC, CMA CGM, Delta Cargo.',tags:['Ocean','Air','RoRo','Weekly Sailings']},
   {n:'04',t:'Customs Clearing',d:'Apapa, Tin Can, MMIA on the Nigerian side. US CBP on the American side. HS code review, duty pre-calculation, Form M, SONCAP, PAAR, NAFDAC pre-clearance. Broker oversight to reduce demurrage exposure.',tags:['Apapa','Tin Can','US CBP','NAFDAC','SONCAP','Form M']},
   {n:'05',t:'Last-Mile Delivery',d:'Container drop, deconsolidation, and door delivery. Lagos, Abuja, Port Harcourt, Ibadan on the Nigerian side. Philadelphia, LA, Houston, and interstate on the US side. Track-to-door signature confirmation.',tags:['Door Delivery','Deconsolidation','Nigeria Wide','US Domestic']},
   {n:'06',t:'Payments & Settlement',d:'Multi-currency payment collection — USD to XaeccoX LLC in Delaware, NGN to XaeccoX Solution Enterprise in Lagos. Multi-rail settlement powered by XaePay and licensed rail partners. Settle how the trade requires.',tags:['USD','NGN','Multi-Rail','XaePay-Powered']},
@@ -918,9 +918,9 @@ export default function XaeccoXWebsite(){
         </a>
         <ul className="nav-links">
           <li><a onClick={()=>go('services')} style={{cursor:'pointer'}}>Services</a></li>
+          <li><a onClick={()=>go('xaetrade')} style={{cursor:'pointer'}}>XaeTrade</a></li>
           <li><a onClick={()=>go('corridor')} style={{cursor:'pointer'}}>Corridor</a></li>
-          <li><a onClick={()=>go('built-for')} style={{cursor:'pointer'}}>Built for</a></li>
-          <li><a onClick={()=>go('founder')} style={{cursor:'pointer'}}>About</a></li>
+          <li><a onClick={()=>go('faq')} style={{cursor:'pointer'}}>FAQ</a></li>
           <li><Link to="/tech" style={{color:'var(--w3)',textDecoration:'none',fontSize:13,fontWeight:500}}>Tech ↗</Link></li>
         </ul>
         <div className="nav-right">
@@ -1127,6 +1127,52 @@ export default function XaeccoXWebsite(){
         </div>
       </section>
 
+      <section className="alt" id="xaetrade">
+        <div className="fu" ref={r}>
+          <div className="stag">XaeTrade · Curated Marketplace</div>
+          <h2 className="sh">Not just services —<br/><span className="acc">pre-sourced goods, too.</span></h2>
+          <p className="sdesc">Beyond the trade services above, XaeccoX curates and sources selected goods for direct purchase across the corridor. Enquire on a category; we quote you fully-landed price and ship within corridor timelines below.</p>
+        </div>
+
+        <div className="fu" ref={r} style={{marginTop:52,display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:16}}>
+          {[
+            {icon:'🥘',name:'Nigerian Foodstuffs',desc:'Palm oil, stockfish, dried hibiscus, egusi, plantain flour, and more — sourced from vetted Lagos suppliers.',subject:'XaeTrade — Nigerian foodstuffs enquiry',fit:'NG → US'},
+            {icon:'💊',name:'US Medical Equipment',desc:'Diagnostic devices, hospital consumables, biomedical equipment — sourced from FDA-registered US suppliers.',subject:'XaeTrade — US medical equipment enquiry',fit:'US → NG'},
+            {icon:'🚗',name:'Vehicles',desc:'Cars, SUVs, commercial vehicles, motorcycles. US-sourced with pre-shipment inspection, delivered ready to clear NG customs.',subject:'XaeTrade — Vehicle enquiry',fit:'US → NG'},
+            {icon:'🎨',name:'Artisanal & Specialty',desc:'Handcrafted goods, textiles, art, specialty commodities. Bespoke sourcing across the corridor on request.',subject:'XaeTrade — Artisanal / specialty enquiry',fit:'Both directions'},
+          ].map((cat,i)=>(
+            <div key={cat.name} className="sol-card fu" ref={r} style={{transitionDelay:`${i*.07}s`,display:'flex',flexDirection:'column'}}>
+              <div style={{fontSize:28,marginBottom:14}}>{cat.icon}</div>
+              <div className="sol-t" style={{marginBottom:10}}>{cat.name}</div>
+              <div className="sol-d" style={{flex:1}}>{cat.desc}</div>
+              <div className="sol-tags" style={{marginTop:18,marginBottom:20}}>
+                <span className="sol-tag">Route: {cat.fit}</span>
+              </div>
+              <a href={`mailto:info@xaeccox.io?subject=${encodeURIComponent(cat.subject)}&body=${encodeURIComponent("I'm interested in " + cat.name.toLowerCase() + " via XaeTrade.\n\nName: \nWhat I need: \nQuantity: \nDestination: \nTimeline: \n")}`} style={{fontFamily:'var(--fd)',fontWeight:600,fontSize:13,color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2,alignSelf:'flex-start'}}>Enquire →</a>
+            </div>
+          ))}
+        </div>
+
+        <div className="fu" ref={r} style={{marginTop:32,padding:'22px 28px',background:'rgba(82,130,255,.05)',border:'1px solid rgba(82,130,255,.18)',borderRadius:'var(--r12)',display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:32}}>
+          <div>
+            <div style={{fontFamily:'var(--fm)',fontSize:9,letterSpacing:'.18em',textTransform:'uppercase',color:'var(--blu)',marginBottom:8}}>Air · US → Nigeria</div>
+            <div style={{fontSize:22,fontWeight:800,color:'var(--w)',fontFamily:'var(--fd)',letterSpacing:'-.02em'}}>10 – 15 days</div>
+          </div>
+          <div>
+            <div style={{fontFamily:'var(--fm)',fontSize:9,letterSpacing:'.18em',textTransform:'uppercase',color:'var(--blu)',marginBottom:8}}>Sea · US → Nigeria</div>
+            <div style={{fontSize:22,fontWeight:800,color:'var(--w)',fontFamily:'var(--fd)',letterSpacing:'-.02em'}}>45 – 60 days</div>
+          </div>
+          <div>
+            <div style={{fontFamily:'var(--fm)',fontSize:9,letterSpacing:'.18em',textTransform:'uppercase',color:'var(--blu)',marginBottom:8}}>Sea · Nigeria → US</div>
+            <div style={{fontSize:22,fontWeight:800,color:'var(--w)',fontFamily:'var(--fd)',letterSpacing:'-.02em'}}>60 – 90 days</div>
+          </div>
+        </div>
+
+        <p style={{textAlign:'center',color:'var(--w3)',fontSize:13,marginTop:24,fontFamily:'var(--fd)'}}>
+          Something specific in mind that isn't listed? <button onClick={openQuote} style={{background:'none',border:'none',color:'var(--blu)',textDecoration:'underline',cursor:'pointer',font:'inherit',padding:0}}>Request a custom trade quote →</button>
+        </p>
+      </section>
+
       <section id="platform">
         <div className="plat-intro fu" ref={r}>
           <div>
@@ -1312,31 +1358,6 @@ export default function XaeccoXWebsite(){
 
       </section>
 
-      <section id="founder">
-        <div className="fu" ref={r}>
-          <div className="stag">Founder</div>
-        </div>
-        <div className="agent-split fu" ref={r} style={{marginTop:24,alignItems:'center'}}>
-          <div style={{display:'flex',justifyContent:'center'}}>
-            <div style={{width:280,height:280,borderRadius:'var(--r16)',background:'linear-gradient(135deg,rgba(82,130,255,.18),rgba(162,89,255,.18))',border:'1px solid var(--b2)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--fd)',fontWeight:900,fontSize:96,letterSpacing:'-.04em',background:'linear-gradient(135deg,rgba(82,130,255,.12),rgba(162,89,255,.12))',position:'relative',overflow:'hidden'}}>
-              <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 30% 30%,rgba(82,130,255,.25),transparent 60%)'}}/>
-              <span style={{background:'linear-gradient(135deg,var(--blu),var(--vio))',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',position:'relative',zIndex:1}}>CO</span>
-            </div>
-          </div>
-          <div>
-            <h2 className="sh" style={{fontSize:'clamp(26px,3vw,38px)',marginBottom:8}}>Chukwura Okoli</h2>
-            <div style={{fontFamily:'var(--fm)',fontSize:11,letterSpacing:'.16em',textTransform:'uppercase',color:'var(--blu)',marginBottom:20}}>Founder, XaeccoX</div>
-            <p className="agent-prose" style={{margin:'0 0 18px',fontSize:15}}>
-              Operator and architect across the US ↔ Nigeria trade corridor. Nearly a decade in global supply chain, AI solutions architecture, and ERP-grade process design — currently shipping containers and building infrastructure between Lagos, Philadelphia, Los Angeles, and Houston.
-            </p>
-            <p className="agent-prose" style={{margin:'0 0 22px',fontSize:15,color:'var(--w2)'}}>
-              XaeccoX is the platform he wishes existed when he started.
-            </p>
-            <a href="mailto:info@xaeccox.io?subject=Hello%20from%20xaeccox.io" style={{fontFamily:'var(--fd)',fontWeight:600,fontSize:14,color:'var(--blu)',textDecoration:'none',borderBottom:'1px solid var(--ba)',paddingBottom:2}}>Talk to the founder →</a>
-          </div>
-        </div>
-      </section>
-
       <section className="alt" id="next">
         <div className="fu" ref={r} style={{textAlign:'center',maxWidth:760,margin:'0 auto'}}>
           <div className="stag" style={{justifyContent:'center'}}>What's Next</div>
@@ -1355,7 +1376,7 @@ export default function XaeccoXWebsite(){
         <div className="fu" ref={r} style={{marginTop:52,maxWidth:820,margin:'52px auto 0',display:'flex',flexDirection:'column',gap:10}}>
           {[
             {q:'How does an order work, start to finish?',a:'You send a trade quote request. Within one business day we come back with a scoped quote — freight, customs, clearing, delivery, payment terms. If you accept, we open a proper commercial order under the correct XaeccoX entity, invoice you, and start execution. You track status through the customer portal (once live) or by email. On arrival, final invoice + receipts close the order.'},
-            {q:'How long does a container from the US to Nigeria take?',a:'Ocean freight from Houston to Tin Can Island runs 25–35 days door-to-door on typical lanes. Air freight from major US airports to Lagos runs 3–5 business days. Both timelines assume clean paperwork; customs holds can add 3–10 days if HS coding, NAFDAC, or SONCAP paperwork is incomplete. We surface those risks in the quote so you can plan around them.'},
+            {q:'How long does a shipment take between the US and Nigeria?',a:'Sea freight from the US to Nigeria runs 45–60 days door-to-door on typical lanes. Sea freight from Nigeria back to the US runs 60–90 days (outbound West Africa lanes are slower). Air freight from the US to Nigeria runs 10–15 business days. All timelines assume clean paperwork; customs holds can add 3–10 days if HS coding, NAFDAC, or SONCAP is incomplete. We surface those risks in the quote so you can plan around them.'},
             {q:'What order sizes do you handle?',a:'Anything from a single barrel of foodstuffs to a 40ft full container of vehicles or commercial goods. We consolidate multiple small shippers into shared containers (LCL) when volumes are individually small — that\'s what makes it economical for diaspora shipments and small businesses. There\'s no minimum-order threshold on the quote request; if it doesn\'t make economic sense, we\'ll tell you and suggest an alternative.'},
             {q:'Do you handle NAFDAC, SONCAP, Form M, PAAR paperwork?',a:'Yes, on any shipment that requires them. Our team pre-checks NAFDAC registration and product clearance requirements against your goods, coordinates SONCAP where the SON regime applies, opens Form M against the correct authorised dealer bank, and ensures PAAR is issued cleanly before goods arrive. This is baked into standard fulfillment on regulated shipments — not an add-on.'},
             {q:'Can I track my order in real time?',a:'The customer portal launches alongside our first paying orders — it shows order status, shipment position, uploaded documents, and payment ledger. Until then, every customer gets a WhatsApp or email thread that\'s updated at each stage (booking confirmed, container loaded, in transit, cleared customs, out for delivery). No opaque black boxes.'},
@@ -1403,14 +1424,13 @@ export default function XaeccoXWebsite(){
             <div className="ft-logo">Xaecco<span>X</span></div>
             <div className="ft-tagline">Cross-border trade commerce for the US ↔ Nigeria corridor. Sourcing, logistics, customs, delivery — operated end-to-end.</div>
             <div className="ft-socials">
-              <a href="https://www.linkedin.com/company/xaeccox" target="_blank" rel="noopener noreferrer" className="ft-soc" style={{textDecoration:'none',color:'inherit'}} title="LinkedIn">in</a>
               <a href="mailto:info@xaeccox.io" className="ft-soc" style={{textDecoration:'none',color:'inherit'}} title="Email">@</a>
             </div>
           </div>
           {[
             {h:'Services',links:[['Sourcing & Procurement','services'],['Container Consolidation','services'],['International Freight','services'],['Customs Clearing','services'],['Last-Mile Delivery','services'],['Payments & Settlement','services']]},
-            {h:'Engage',links:[['Request quote','contact'],['Corridor','corridor'],['Built for','built-for'],['Contact','contact']]},
-            {h:'Company',links:[['About the founder','founder'],['What\'s next','next']]},
+            {h:'Engage',links:[['Request quote','contact'],['XaeTrade marketplace','xaetrade'],['Corridor','corridor'],['Built for','built-for'],['FAQ','faq'],['Contact','contact']]},
+            {h:'Company',links:[['Why now','why-now'],['Trust & Compliance','trust'],['What\'s next','next']]},
           ].map(col=>(
             <div key={col.h}>
               <div className="ft-col-hd">{col.h}</div>

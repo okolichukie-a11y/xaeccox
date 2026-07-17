@@ -80,9 +80,9 @@ nav.sc{background:rgba(1,3,10,.88);backdrop-filter:blur(28px);-webkit-backdrop-f
 @keyframes hsDot{0%,100%{opacity:1;box-shadow:0 0 8px var(--teal)}50%{opacity:.6;box-shadow:0 0 4px var(--teal)}}
 .hs-txt{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
 
-h1.hero-h{font-family:var(--fd);font-weight:900;font-size:clamp(42px,5.5vw,86px);line-height:.94;letter-spacing:-.035em;margin-bottom:24px}
+h1.hero-h{font-family:var(--fd);font-weight:700;font-size:clamp(34px,3.8vw,56px);line-height:1.08;letter-spacing:-.02em;margin-bottom:24px}
 h1.hero-h .arc{background:linear-gradient(90deg,var(--blu),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
-h1.hero-h .serif{font-family:var(--fb);font-weight:300;font-style:italic;color:var(--w2);font-size:.85em;display:block;margin-top:6px;letter-spacing:-.01em}
+h1.hero-h .serif{font-family:var(--fb);font-weight:400;font-style:italic;color:var(--w2);font-size:.5em;display:block;margin-top:20px;letter-spacing:-.005em;line-height:1.45}
 
 .hero-desc{font-size:16px;color:var(--w3);max-width:480px;line-height:1.75;margin-bottom:40px}
 

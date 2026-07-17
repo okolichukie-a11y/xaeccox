@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { G } from './styles';
 import QuoteModal from './QuoteModal';
 import PortalAccessModal from './PortalAccessModal';
+import {
+  Package, UtensilsCrossed, Car, Factory, Wheat, Wrench,
+  ClipboardList, PackageSearch, FileText, CreditCard,
+  Pill, Palette, LayoutDashboard, Ship, Bot, ArrowLeftRight,
+  Hexagon, Settings, Circle,
+} from 'lucide-react';
 
 /* ═══════════════════════════════════════════════════════════════════
    XAECCOX — GLOBAL SUPPLY CHAIN INTELLIGENCE PLATFORM
@@ -69,19 +75,19 @@ const LOGS=[
 ];
 
 const MARKETS=[
-  {cls:'depth', icon:'🟢', reg:'Active · The Proof', title:'US ↔ Nigeria', ghost:'NOW',
+  {cls:'depth', status:'active', reg:'Active · The Proof', title:'US ↔ Nigeria', ghost:'NOW',
    accent:'linear-gradient(90deg,#F5A623,#FF9500)', ghostC:'#F5A623',
    desc:'Where we go deep. Lagos, Philadelphia, Los Angeles, Houston. CBN compliance, NAFDAC clearance, BDC routing, container consolidation, customs clearing, last-mile to Lagos. Live engagements running.',
    hubs:['Lagos','Philadelphia','Los Angeles','Houston','Abuja']},
-  {cls:'roadmap1', icon:'🟡', reg:'12-Month Roadmap', title:'UK ↔ Nigeria', ghost:'12M',
+  {cls:'roadmap1', status:'roadmap', reg:'12-Month Roadmap', title:'UK ↔ Nigeria', ghost:'12M',
    accent:'linear-gradient(90deg,#5282FF,#7BA3FF)', ghostC:'#5282FF',
    desc:'London ↔ Lagos. Diaspora trade depth, FCA-aligned payment rails, EU customs interoperability for Anglo-Nigerian flows. Sequencing after US–NG operational maturity.',
    hubs:['London','Manchester','Lagos','Abuja']},
-  {cls:'roadmap2', icon:'🟡', reg:'18-Month Roadmap', title:'EU ↔ Nigeria', ghost:'18M',
+  {cls:'roadmap2', status:'roadmap', reg:'18-Month Roadmap', title:'EU ↔ Nigeria', ghost:'18M',
    accent:'linear-gradient(90deg,#A259FF,#C084FC)', ghostC:'#A259FF',
    desc:'Frankfurt, Rotterdam, Antwerp ↔ Lagos. EU Customs Code, EORI registration, SEPA payment rails, REACH compliance for goods crossing Schengen into West Africa.',
    hubs:['Frankfurt','Rotterdam','Antwerp','Lagos']},
-  {cls:'roadmap3', icon:'🟡', reg:'24-Month Roadmap', title:'US ↔ Ghana', ghost:'24M',
+  {cls:'roadmap3', status:'roadmap', reg:'24-Month Roadmap', title:'US ↔ Ghana', ghost:'24M',
    accent:'linear-gradient(90deg,#00E5C8,#00B8A3)', ghostC:'#00E5C8',
    desc:'Accra, Tema ↔ US. West Africa expansion via the second-largest English-speaking market on the continent. BoG payment compliance, AfCFTA-enabled cross-border lanes.',
    hubs:['Accra','Tema','New York','Houston']},
@@ -1066,7 +1072,11 @@ export default function XaeccoXWebsite(){
             <div key={m.cls} className="market-card fu" ref={r}
               data-ghost={m.ghost}
               style={{transitionDelay:`${i*.09}s`,'--accent':m.accent,'--ghost-c':m.ghostC}}>
-              <div className="mc-icon">{m.icon}</div>
+              <div className="mc-icon" style={{color:m.status==='active'?'var(--jade)':'var(--gold)'}}>
+                {m.status==='active'
+                  ? <Circle size={22} strokeWidth={0} fill="currentColor"/>
+                  : <Circle size={22} strokeWidth={1.5}/>}
+              </div>
               <div className="mc-reg" style={{background:m.accent,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>{m.reg}</div>
               <div className="mc-title">{m.title}</div>
               <div className="mc-desc">{m.desc}</div>
@@ -1084,15 +1094,15 @@ export default function XaeccoXWebsite(){
         </div>
         <div className="sol-grid" style={{gridTemplateColumns:'repeat(3,1fr)',marginTop:60}}>
           {[
-            {ic:'📦',t:'Diaspora Shippers',d:'You send containers, barrels, or packages from the US to family or your own business in Nigeria. You need consolidation, honest customs quotes, and delivery that arrives.',fit:'Container + Last-Mile'},
-            {ic:'🍲',t:'African Grocery & Restaurant Chains',d:'You source African foodstuffs into US storefronts. You need reliable Nigerian suppliers, container economics that work, and US-side warehousing.',fit:'Sourcing + Consolidation'},
-            {ic:'🚗',t:'Auto Importers',d:'You buy US vehicles for personal use, resale, or fleet in Nigeria. You need clean US procurement, roll-on-roll-off shipping, and hassle-free Nigerian clearance.',fit:'Auto Import + Clearing'},
-            {ic:'🏭',t:'Nigerian Importers (US-B2B)',d:'You buy from US B2B suppliers — electronics, medical, industrial goods — and clear into Apapa or Tin Can. You need supplier vetting, freight, and Form M / SONCAP support.',fit:'Sourcing + Customs'},
-            {ic:'🌾',t:'Commodity Traders',d:'You export sesame, cocoa, palm oil, hibiscus from Nigeria to US or global markets. You need export documentation, quality assurance, and predictable outbound logistics.',fit:'Commodity + Export'},
-            {ic:'🛠️',t:'US SMEs Sourcing from Nigeria',d:'You need African goods sourced, verified, and delivered into your US business. Textiles, agricultural products, artisanal goods — you want one operator to run it.',fit:'Sourcing + Import'},
+            {Icon:Package,t:'Diaspora Shippers',d:'You send containers, barrels, or packages from the US to family or your own business in Nigeria. You need consolidation, honest customs quotes, and delivery that arrives.',fit:'Container + Last-Mile'},
+            {Icon:UtensilsCrossed,t:'African Grocery & Restaurant Chains',d:'You source African foodstuffs into US storefronts. You need reliable Nigerian suppliers, container economics that work, and US-side warehousing.',fit:'Sourcing + Consolidation'},
+            {Icon:Car,t:'Auto Importers',d:'You buy US vehicles for personal use, resale, or fleet in Nigeria. You need clean US procurement, roll-on-roll-off shipping, and hassle-free Nigerian clearance.',fit:'Auto Import + Clearing'},
+            {Icon:Factory,t:'Nigerian Importers (US-B2B)',d:'You buy from US B2B suppliers — electronics, medical, industrial goods — and clear into Apapa or Tin Can. You need supplier vetting, freight, and Form M / SONCAP support.',fit:'Sourcing + Customs'},
+            {Icon:Wheat,t:'Commodity Traders',d:'You export sesame, cocoa, palm oil, hibiscus from Nigeria to US or global markets. You need export documentation, quality assurance, and predictable outbound logistics.',fit:'Commodity + Export'},
+            {Icon:Wrench,t:'US SMEs Sourcing from Nigeria',d:'You need African goods sourced, verified, and delivered into your US business. Textiles, agricultural products, artisanal goods — you want one operator to run it.',fit:'Sourcing + Import'},
           ].map((b,i)=>(
             <div key={b.t} className="sol-card fu" ref={r} style={{transitionDelay:`${i*.06}s`}}>
-              <div style={{fontSize:26,marginBottom:14}}>{b.ic}</div>
+              <div style={{marginBottom:16,color:'var(--blu)'}}><b.Icon size={26} strokeWidth={1.5}/></div>
               <div className="sol-t" style={{marginBottom:10}}>{b.t}</div>
               <div className="sol-d">{b.d}</div>
               <div className="sol-tags" style={{marginTop:18}}>
@@ -1153,13 +1163,13 @@ export default function XaeccoXWebsite(){
 
         <div className="fu" ref={r} style={{marginTop:52,display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:16}}>
           {[
-            {icon:'🥘',name:'Nigerian Foodstuffs',desc:'Palm oil, stockfish, dried hibiscus, egusi, plantain flour, and more — sourced from vetted Lagos suppliers.',subject:'XaeTrade — Nigerian foodstuffs enquiry',fit:'NG → US'},
-            {icon:'💊',name:'US Medical Equipment',desc:'Diagnostic devices, hospital consumables, biomedical equipment — sourced from FDA-registered US suppliers.',subject:'XaeTrade — US medical equipment enquiry',fit:'US → NG'},
-            {icon:'🚗',name:'Vehicles',desc:'Cars, SUVs, commercial vehicles, motorcycles. US-sourced with pre-shipment inspection, delivered ready to clear NG customs.',subject:'XaeTrade — Vehicle enquiry',fit:'US → NG'},
-            {icon:'🎨',name:'Artisanal & Specialty',desc:'Handcrafted goods, textiles, art, specialty commodities. Bespoke sourcing across the corridor on request.',subject:'XaeTrade — Artisanal / specialty enquiry',fit:'Both directions'},
+            {Icon:UtensilsCrossed,name:'Nigerian Foodstuffs',desc:'Palm oil, stockfish, dried hibiscus, egusi, plantain flour, and more — sourced from vetted Lagos suppliers.',subject:'XaeTrade — Nigerian foodstuffs enquiry',fit:'NG → US'},
+            {Icon:Pill,name:'US Medical Equipment',desc:'Diagnostic devices, hospital consumables, biomedical equipment — sourced from FDA-registered US suppliers.',subject:'XaeTrade — US medical equipment enquiry',fit:'US → NG'},
+            {Icon:Car,name:'Vehicles',desc:'Cars, SUVs, commercial vehicles, motorcycles. US-sourced with pre-shipment inspection, delivered ready to clear NG customs.',subject:'XaeTrade — Vehicle enquiry',fit:'US → NG'},
+            {Icon:Palette,name:'Artisanal & Specialty',desc:'Handcrafted goods, textiles, art, specialty commodities. Bespoke sourcing across the corridor on request.',subject:'XaeTrade — Artisanal / specialty enquiry',fit:'Both directions'},
           ].map((cat,i)=>(
             <div key={cat.name} className="sol-card fu" ref={r} style={{transitionDelay:`${i*.07}s`,display:'flex',flexDirection:'column'}}>
-              <div style={{fontSize:28,marginBottom:14}}>{cat.icon}</div>
+              <div style={{marginBottom:16,color:'var(--blu)'}}><cat.Icon size={28} strokeWidth={1.5}/></div>
               <div className="sol-t" style={{marginBottom:10}}>{cat.name}</div>
               <div className="sol-d" style={{flex:1}}>{cat.desc}</div>
               <div className="sol-tags" style={{marginTop:18,marginBottom:20}}>
@@ -1199,13 +1209,13 @@ export default function XaeccoXWebsite(){
           </div>
           <div className="plat-feats">
             {[
-              {ic:'📋',t:'Order Status',d:'From quote to delivery, every stage tracked. See what stage each order is in, who is handling it, and when the next update lands.'},
-              {ic:'📦',t:'Shipment Tracking',d:'Container position, port status, customs progress, last-mile handoff. All the pieces that usually live in five WhatsApp threads, in one place.'},
-              {ic:'📄',t:'Trade Documents',d:'Commercial invoices, bills of lading, Form M, SONCAP, PAAR, NAFDAC certificates — filed under each order, downloadable when you need them.'},
-              {ic:'💳',t:'Payments & Receipts',d:'Every payment leg — deposit, balance, refunds — with receipts against the order. Multi-currency ledger across USD and NGN.'},
+              {Icon:ClipboardList,t:'Order Status',d:'From quote to delivery, every stage tracked. See what stage each order is in, who is handling it, and when the next update lands.'},
+              {Icon:PackageSearch,t:'Shipment Tracking',d:'Container position, port status, customs progress, last-mile handoff. All the pieces that usually live in five WhatsApp threads, in one place.'},
+              {Icon:FileText,t:'Trade Documents',d:'Commercial invoices, bills of lading, Form M, SONCAP, PAAR, NAFDAC certificates — filed under each order, downloadable when you need them.'},
+              {Icon:CreditCard,t:'Payments & Receipts',d:'Every payment leg — deposit, balance, refunds — with receipts against the order. Multi-currency ledger across USD and NGN.'},
             ].map(f=>(
               <div className="pfeat" key={f.t}>
-                <div className="pfeat-ic">{f.ic}</div>
+                <div className="pfeat-ic" style={{color:'var(--blu)'}}><f.Icon size={18} strokeWidth={1.5}/></div>
                 <div><div className="pfeat-t">{f.t}</div><div className="pfeat-d">{f.d}</div></div>
               </div>
             ))}
@@ -1221,8 +1231,8 @@ export default function XaeccoXWebsite(){
             <div className="dash-body">
               <div className="d-side">
                 <div className="d-side-logo">Xaecco<span>X</span></div>
-                {[{ic:'📊',l:'Dashboard'},{ic:'🚢',l:'Shipments'},{ic:'🤖',l:'Agents'},{ic:'📋',l:'Documents'},{ic:'💱',l:'Payments'},{ic:'⬡',l:'ERP Diagnostics'},{ic:'⚙️',l:'Settings'}].map(it=>(
-                  <div key={it.l} className={`d-nav-item${dashView===it.l?' on':''}`} onClick={()=>setDashView(it.l)}><span>{it.ic}</span>{it.l}</div>
+                {[{Icon:LayoutDashboard,l:'Dashboard'},{Icon:Ship,l:'Shipments'},{Icon:Bot,l:'Agents'},{Icon:FileText,l:'Documents'},{Icon:ArrowLeftRight,l:'Payments'},{Icon:Hexagon,l:'ERP Diagnostics'},{Icon:Settings,l:'Settings'}].map(it=>(
+                  <div key={it.l} className={`d-nav-item${dashView===it.l?' on':''}`} onClick={()=>setDashView(it.l)}><it.Icon size={14} strokeWidth={1.7}/>{it.l}</div>
                 ))}
               </div>
               <div className="d-main">

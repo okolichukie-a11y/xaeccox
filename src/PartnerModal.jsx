@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
+import {
+  Ship, Warehouse, ShieldCheck, Store, Megaphone, CreditCard,
+} from 'lucide-react';
 
 const PARTNER_TYPES = [
-  { id: 'freight', icon: '🚢', name: 'Freight Carrier', desc: 'Ocean, air, or land carrier serving US ↔ NG' },
-  { id: 'warehouse', icon: '🏭', name: 'Warehouse Operator', desc: 'Consolidation, storage, deconsolidation' },
-  { id: 'customs', icon: '🛃', name: 'Customs Broker', desc: 'Licensed on either side of the corridor' },
-  { id: 'supplier', icon: '🏬', name: 'Supplier / Producer', desc: 'US or Nigerian goods for corridor demand' },
-  { id: 'referral', icon: '📣', name: 'Referral / Community', desc: 'Diaspora networks, chambers, WhatsApp groups' },
-  { id: 'financial', icon: '💳', name: 'Financial / Insurance', desc: 'Payment, FX, cargo insurance partners' },
+  { id: 'freight', Icon: Ship, name: 'Freight Carrier', desc: 'Ocean, air, or land carrier serving US ↔ NG' },
+  { id: 'warehouse', Icon: Warehouse, name: 'Warehouse Operator', desc: 'Consolidation, storage, deconsolidation' },
+  { id: 'customs', Icon: ShieldCheck, name: 'Customs Broker', desc: 'Licensed on either side of the corridor' },
+  { id: 'supplier', Icon: Store, name: 'Supplier / Producer', desc: 'US or Nigerian goods for corridor demand' },
+  { id: 'referral', Icon: Megaphone, name: 'Referral / Community', desc: 'Diaspora networks, chambers, WhatsApp groups' },
+  { id: 'financial', Icon: CreditCard, name: 'Financial / Insurance', desc: 'Payment, FX, cargo insurance partners' },
 ];
 
 function partnerRef() {
@@ -110,7 +113,7 @@ export default function PartnerModal({ onClose }) {
                 {PARTNER_TYPES.map(p => (
                   <div key={p.id} className={`dtype-card${partnerType === p.id ? ' selected' : ''}`} onClick={() => setPartnerType(p.id)} style={{ padding: '14px 14px' }}>
                     <div className="dtype-check">✓</div>
-                    <div className="dtype-ic" style={{ fontSize: 20, marginBottom: 6 }}>{p.icon}</div>
+                    <div className="dtype-ic" style={{ marginBottom: 8, color: 'var(--blu)' }}><p.Icon size={20} strokeWidth={1.6}/></div>
                     <div className="dtype-name" style={{ fontSize: 13 }}>{p.name}</div>
                     <div className="dtype-desc" style={{ fontSize: 11 }}>{p.desc}</div>
                   </div>

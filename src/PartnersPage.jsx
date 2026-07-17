@@ -2,10 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { G } from './styles';
 import PartnerModal from './PartnerModal';
+import {
+  Ship, Warehouse, ShieldCheck, Store, Megaphone, CreditCard,
+  Link2, Briefcase, Handshake,
+} from 'lucide-react';
 
 const PARTNER_TYPES = [
   {
-    icon: '🚢',
+    Icon: Ship,
     name: 'Freight Carriers',
     desc: 'Ocean lines, air cargo carriers, RoRo operators serving US ↔ Nigeria. We book weekly volume across multiple lanes and are actively growing route redundancy.',
     what: 'Weekly booked volume, joint marketing on your best lanes, predictable ops team on our side.',
@@ -13,7 +17,7 @@ const PARTNER_TYPES = [
     accent: 'linear-gradient(90deg,#5282FF,#7BA3FF)',
   },
   {
-    icon: '🏭',
+    Icon: Warehouse,
     name: 'Warehouse Operators',
     desc: 'US-side consolidation warehouses in Philadelphia, LA, Houston. Lagos-side deconsolidation and short-term storage. We drop full and mixed containers weekly.',
     what: 'Recurring container drops, cross-docking volume, transparent per-CBM pricing.',
@@ -21,7 +25,7 @@ const PARTNER_TYPES = [
     accent: 'linear-gradient(90deg,#00E5C8,#00B8A3)',
   },
   {
-    icon: '🛃',
+    Icon: ShieldCheck,
     name: 'Customs Brokers',
     desc: 'US CBP-licensed brokers and Nigerian licensed customs agents (CRFFN-registered). We move regular volume with clean paperwork and want brokers who match that discipline.',
     what: 'Steady weekly filings, HS-code review partnership, direct broker-to-ops-lead comms.',
@@ -29,7 +33,7 @@ const PARTNER_TYPES = [
     accent: 'linear-gradient(90deg,#A259FF,#C084FC)',
   },
   {
-    icon: '🏬',
+    Icon: Store,
     name: 'Suppliers & Producers',
     desc: 'Nigerian producers of foodstuffs, agri-commodities, textiles, artisanal goods. US suppliers of medical, industrial, automotive, and consumer goods with corridor demand.',
     what: 'Preferred-vendor pipeline, guaranteed offtake on selected SKUs, corridor-side logistics handled.',
@@ -37,7 +41,7 @@ const PARTNER_TYPES = [
     accent: 'linear-gradient(90deg,#F5A623,#FF9500)',
   },
   {
-    icon: '📣',
+    Icon: Megaphone,
     name: 'Referral & Community Partners',
     desc: 'Diaspora networks, professional associations, chambers of commerce, community leaders, WhatsApp groups. If your community moves goods across the corridor, we should talk.',
     what: 'Referral commission on closed trades, co-branded events, community-specific service tiers.',
@@ -45,7 +49,7 @@ const PARTNER_TYPES = [
     accent: 'linear-gradient(90deg,#FF4D6D,#FF6B8A)',
   },
   {
-    icon: '💳',
+    Icon: CreditCard,
     name: 'Financial & Insurance',
     desc: 'Payment providers, FX partners, cargo insurance underwriters, trade credit providers. We route real corridor volume and want partners who understand corridor risk.',
     what: 'Predictable transaction flow, direct integration where sensible, real-world corridor risk data.',
@@ -64,19 +68,19 @@ const HOW_STEPS = [
 const ENGAGEMENT_MODELS = [
   {
     name: 'Preferred Vendor',
-    icon: '🔗',
+    Icon: Link2,
     desc: 'You become a first-call vendor for a specific service (freight lane, warehouse, brokerage, supply). Non-exclusive, volume-committed. Best for carriers, warehouses, brokers, established suppliers.',
     fit: 'Freight · Warehouse · Customs · Suppliers',
   },
   {
     name: 'Revenue Share / Referral',
-    icon: '💼',
+    Icon: Briefcase,
     desc: 'You send corridor trade our way; we pay a defined commission on every closed order for the referred customer\'s lifetime. Best for referral, community, and diaspora network partners.',
     fit: 'Referral · Community · Diaspora',
   },
   {
     name: 'Joint Venture',
-    icon: '🤝',
+    Icon: Handshake,
     desc: 'Deeper commercial or capital partnership — new lane build-out, exclusive supply arrangement, equity in a specific vertical. Reserved for partners we\'re running significant volume with.',
     fit: 'Established partners · Strategic capital · Vertical specialists',
   },
@@ -170,7 +174,7 @@ export default function PartnersPage() {
         <div className="fu" ref={r} style={{ marginTop: 60, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
           {PARTNER_TYPES.map((p, i) => (
             <div key={p.name} className="market-card" style={{ padding: '32px 30px', transitionDelay: `${i * 0.05}s`, '--accent': p.accent }} data-ghost={p.name.split(' ')[0].toUpperCase()}>
-              <div style={{ fontSize: 26, marginBottom: 14 }}>{p.icon}</div>
+              <div style={{ marginBottom: 16, color: 'var(--blu)' }}><p.Icon size={26} strokeWidth={1.5}/></div>
               <div className="mc-title" style={{ fontSize: 20, marginBottom: 10 }}>{p.name}</div>
               <div className="mc-desc" style={{ marginBottom: 20 }}>{p.desc}</div>
               <div style={{ fontFamily: 'var(--fm)', fontSize: 9, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--blu)', marginBottom: 6 }}>What you get</div>
@@ -209,7 +213,7 @@ export default function PartnersPage() {
         <div className="fu" ref={r} style={{ marginTop: 60, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
           {ENGAGEMENT_MODELS.map((m, i) => (
             <div key={m.name} className="sol-card fu" ref={r} style={{ transitionDelay: `${i * 0.08}s` }}>
-              <div style={{ fontSize: 26, marginBottom: 14 }}>{m.icon}</div>
+              <div style={{ marginBottom: 16, color: 'var(--blu)' }}><m.Icon size={26} strokeWidth={1.5}/></div>
               <div className="sol-t" style={{ marginBottom: 12 }}>{m.name}</div>
               <div className="sol-d">{m.desc}</div>
               <div className="sol-tags" style={{ marginTop: 18 }}>

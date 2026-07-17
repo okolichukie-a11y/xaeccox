@@ -1,14 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
+import {
+  Package, ShoppingBag, ShieldCheck, Warehouse, Car, Wheat, Truck, Compass,
+} from 'lucide-react';
 
 const SERVICE_CATEGORIES = [
-  { id: 'container', icon: '📦', name: 'Container Shipping', desc: 'FCL / LCL between US and NG' },
-  { id: 'sourcing', icon: '🛒', name: 'Sourcing & Procurement', desc: 'Find suppliers, negotiate, procure' },
-  { id: 'customs', icon: '🛃', name: 'Customs Clearing', desc: 'Apapa, Tin Can, MMIA, US ports' },
-  { id: 'consolidation', icon: '🏭', name: 'Consolidation', desc: 'Multi-supplier US-side consolidation' },
-  { id: 'auto', icon: '🚗', name: 'Auto / Vehicle Import', desc: 'US ↔ NG vehicle shipping + clearing' },
-  { id: 'commodity', icon: '🌾', name: 'Commodity Trade', desc: 'Cocoa, sesame, palm oil, and more' },
-  { id: 'lastmile', icon: '🚚', name: 'Last-Mile Delivery', desc: 'Door delivery across Nigeria' },
-  { id: 'other', icon: '🧭', name: 'Something Else', desc: 'Tell us what you need' },
+  { id: 'container', Icon: Package, name: 'Container Shipping', desc: 'FCL / LCL between US and NG' },
+  { id: 'sourcing', Icon: ShoppingBag, name: 'Sourcing & Procurement', desc: 'Find suppliers, negotiate, procure' },
+  { id: 'customs', Icon: ShieldCheck, name: 'Customs Clearing', desc: 'Apapa, Tin Can, MMIA, US ports' },
+  { id: 'consolidation', Icon: Warehouse, name: 'Consolidation', desc: 'Multi-supplier US-side consolidation' },
+  { id: 'auto', Icon: Car, name: 'Auto / Vehicle Import', desc: 'US ↔ NG vehicle shipping + clearing' },
+  { id: 'commodity', Icon: Wheat, name: 'Commodity Trade', desc: 'Cocoa, sesame, palm oil, and more' },
+  { id: 'lastmile', Icon: Truck, name: 'Last-Mile Delivery', desc: 'Door delivery across Nigeria' },
+  { id: 'other', Icon: Compass, name: 'Something Else', desc: 'Tell us what you need' },
 ];
 
 const TIMELINES = [
@@ -120,7 +123,7 @@ export default function QuoteModal({ onClose }) {
                 {SERVICE_CATEGORIES.map(s => (
                   <div key={s.id} className={`dtype-card${service === s.id ? ' selected' : ''}`} onClick={() => setService(s.id)} style={{ padding: '14px 14px' }}>
                     <div className="dtype-check">✓</div>
-                    <div className="dtype-ic" style={{ fontSize: 20, marginBottom: 6 }}>{s.icon}</div>
+                    <div className="dtype-ic" style={{ marginBottom: 8, color: 'var(--blu)' }}><s.Icon size={20} strokeWidth={1.6}/></div>
                     <div className="dtype-name" style={{ fontSize: 13 }}>{s.name}</div>
                     <div className="dtype-desc" style={{ fontSize: 11 }}>{s.desc}</div>
                   </div>

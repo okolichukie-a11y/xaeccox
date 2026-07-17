@@ -6,8 +6,8 @@ import PortalAccessModal from './PortalAccessModal';
 import {
   Package, UtensilsCrossed, Car, Factory, Wheat, Wrench,
   ClipboardList, PackageSearch, FileText, CreditCard,
-  Pill, Palette, LayoutDashboard, Ship, Bot, ArrowLeftRight,
-  Hexagon, Settings, Circle,
+  Pill, Palette, LayoutDashboard, Ship, PackageOpen, ArrowLeftRight,
+  MessageCircle, Settings, Circle, Plus, Minus,
 } from 'lucide-react';
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -64,14 +64,14 @@ const TICKS=[
 ];
 
 const LOGS=[
-  {t:'09:41:03',msg:'PO-8821 Shanghai→Rotterdam · ETA recalculated · 2-day delay flagged',type:'ex'},
-  {t:'09:41:47',msg:'Invoice mismatch detected · PO-8815 · Customs hold risk · Document queued',type:'fl'},
-  {t:'09:42:11',msg:'Letter of credit validated · PO-8820 · Singapore→New York · Approved',type:'ok'},
-  {t:'09:42:55',msg:'FX window open · EUR/USD spread optimal · Payment execution queued',type:'fl'},
-  {t:'09:43:14',msg:'SWIFT MT103 dispatched · ACK received · Supplier notified · T+1',type:'ok'},
-  {t:'09:43:52',msg:'Customs hold · PO-8800 · Hamburg port · HS code query · Escalated',type:'es'},
-  {t:'09:44:20',msg:'Port congestion alert · LA Long Beach · Alt routing via Seattle identified',type:'fl'},
-  {t:'09:44:51',msg:'PO-8791 cleared customs · London Heathrow · Final mile updated',type:'ok'},
+  {t:'09:41:03',msg:'ORD-2401 · Container loaded at Philadelphia warehouse · Sailing 14th',type:'ok'},
+  {t:'09:41:47',msg:'USD/NGN spread favourable · Payment window open until 18:00 WAT',type:'fl'},
+  {t:'09:42:11',msg:'ORD-2398 · Cleared Apapa Customs · Out for last-mile to Ikeja',type:'ok'},
+  {t:'09:42:55',msg:'Form M approved · ORD-2395 · Authorised dealer bank confirmed',type:'ok'},
+  {t:'09:43:14',msg:'NAFDAC pre-clearance issued · ORD-2404 · Pharma consignment',type:'ok'},
+  {t:'09:43:52',msg:'ORD-2391 · Delivered · Signature captured at Lekki drop-off',type:'ok'},
+  {t:'09:44:20',msg:'SONCAP certificate uploaded · ORD-2398 · Ready for release',type:'fl'},
+  {t:'09:44:51',msg:'ETA update · ORD-2401 · Tin Can arrival window 45-48 days',type:'ex'},
 ];
 
 const MARKETS=[
@@ -746,84 +746,82 @@ function BookingModal({onClose,preselect=''}){
 
 const DASH_VIEWS = {
   'Dashboard': {
-    title: 'Corridor Operations Centre',
-    kpis: [{v:'147',l:'Active Shipments'},{v:'$4.2M',l:'In-Transit Value'},{v:'6',l:'Agents Running'}],
+    title: 'My Trade Overview',
+    kpis: [{v:'4',l:'Active Orders'},{v:'$28,500',l:'In-Transit Value'},{v:'12',l:'Delivered YTD'}],
     list: [
-      {id:'PO-9104',r:'Shanghai → Rotterdam',s:'ss-tr',sl:'In Transit'},
-      {id:'PO-9098',r:'Singapore → Los Angeles',s:'ss-ok',sl:'Cleared'},
-      {id:'PO-9091',r:'Dubai → Frankfurt',s:'ss-ho',sl:'On Hold'},
-      {id:'PO-9088',r:'Mumbai → London',s:'ss-ok',sl:'Cleared'},
-      {id:'PO-9082',r:'São Paulo → Antwerp',s:'ss-tr',sl:'In Transit'},
+      {id:'ORD-2401',r:'Philadelphia → Lagos · Sea FCL',s:'ss-tr',sl:'In Transit'},
+      {id:'ORD-2398',r:'Houston → Lagos · Sea LCL',s:'ss-ok',sl:'Cleared'},
+      {id:'ORD-2395',r:'Lagos → Los Angeles · Sea FCL',s:'ss-ho',sl:'On Hold'},
+      {id:'ORD-2391',r:'Los Angeles → Abuja · Air',s:'ss-ok',sl:'Delivered'},
+      {id:'ORD-2388',r:'Lagos → Houston · Sea LCL',s:'ss-tr',sl:'In Transit'},
+    ],
+  },
+  'My Orders': {
+    title: 'My Orders',
+    kpis: [{v:'4',l:'Active'},{v:'2',l:'Pending Payment'},{v:'12',l:'Delivered (12mo)'}],
+    list: [
+      {id:'ORD-2404',r:'Philadelphia → Lagos · Pharma consignment',s:'ss-tr',sl:'Booked'},
+      {id:'ORD-2401',r:'Philadelphia → Lagos · Consumer goods · $8,400',s:'ss-tr',sl:'In Transit'},
+      {id:'ORD-2398',r:'Houston → Lagos · Foodstuffs · $3,200',s:'ss-ok',sl:'Cleared'},
+      {id:'ORD-2395',r:'Lagos → Los Angeles · Palm oil · $12,600',s:'ss-ho',sl:'On Hold'},
+      {id:'ORD-2391',r:'Los Angeles → Abuja · Auto parts · $4,300',s:'ss-ok',sl:'Delivered'},
+      {id:'ORD-2388',r:'Lagos → Houston · Stockfish · $2,800',s:'ss-tr',sl:'In Transit'},
     ],
   },
   'Shipments': {
-    title: 'Active Shipments',
-    kpis: [{v:'147',l:'In Transit'},{v:'82',l:'Cleared (7d)'},{v:'4',l:'On Hold'}],
+    title: 'Shipment Tracking',
+    kpis: [{v:'3',l:'In Transit'},{v:'1',l:'Clearing Customs'},{v:'2',l:'Delivered this week'}],
     list: [
-      {id:'PO-9104',r:'Shanghai → Rotterdam · Maersk',s:'ss-tr',sl:'In Transit'},
-      {id:'PO-9098',r:'Singapore → Los Angeles · COSCO',s:'ss-ok',sl:'Cleared'},
-      {id:'PO-9091',r:'Dubai → Frankfurt · DHL',s:'ss-ho',sl:'On Hold'},
-      {id:'PO-9088',r:'Mumbai → London · MSC',s:'ss-ok',sl:'Cleared'},
-      {id:'PO-9082',r:'São Paulo → Antwerp · Hapag-Lloyd',s:'ss-tr',sl:'In Transit'},
-      {id:'PO-9076',r:'Lagos → Hamburg · CMA CGM',s:'ss-tr',sl:'In Transit'},
-      {id:'PO-9069',r:'Tokyo → Seattle · ONE',s:'ss-ok',sl:'Cleared'},
-    ],
-  },
-  'Agents': {
-    title: 'Active Agents',
-    kpis: [{v:'6',l:'Running'},{v:'341',l:'Actions Today'},{v:'2',l:'Escalations'}],
-    list: [
-      {id:'AG-01',r:'Customs Watcher · 40+ jurisdictions',s:'ss-ok',sl:'Active'},
-      {id:'AG-02',r:'Payment Router · SWIFT compliance',s:'ss-ok',sl:'Active'},
-      {id:'AG-03',r:'FX Sentinel · live spread monitor',s:'ss-ok',sl:'Active'},
-      {id:'AG-04',r:'Document Generator · multi-jurisdiction',s:'ss-ok',sl:'Active'},
-      {id:'AG-05',r:'Port Congestion Monitor · global',s:'ss-tr',sl:'Scanning'},
-      {id:'AG-06',r:'Supplier Risk Scorer · daily refresh',s:'ss-ok',sl:'Active'},
+      {id:'ORD-2401',r:'MSC container · Philadelphia → Tin Can · ETA day 48',s:'ss-tr',sl:'On Water'},
+      {id:'ORD-2404',r:'Delta Cargo · JFK → Lagos MMIA · ETA day 12',s:'ss-tr',sl:'Booked'},
+      {id:'ORD-2388',r:'Maersk · Lagos → Houston · ETA day 62',s:'ss-tr',sl:'On Water'},
+      {id:'ORD-2395',r:'Hapag-Lloyd · Lagos → LA · Held at NG customs',s:'ss-ho',sl:'On Hold'},
+      {id:'ORD-2391',r:'Delivered · Abuja · Signature captured',s:'ss-ok',sl:'Complete'},
     ],
   },
   'Documents': {
-    title: 'Document Engine',
-    kpis: [{v:'24',l:'Generated Today'},{v:'3',l:'Pending Review'},{v:'1,247',l:'Filed (30d)'}],
+    title: 'My Documents',
+    kpis: [{v:'24',l:'Filed'},{v:'3',l:'Pending'},{v:'148',l:'Archive'}],
     list: [
-      {id:'DOC-3401',r:'Commercial Invoice · PO-9104 · EU',s:'ss-ok',sl:'Filed'},
-      {id:'DOC-3400',r:'SWIFT MT103 · PO-9098 · US',s:'ss-ok',sl:'Approved'},
-      {id:'DOC-3399',r:'Cert of Origin · PO-9091 · DE',s:'ss-ho',sl:'Review'},
-      {id:'DOC-3398',r:'Customs Declaration · PO-9088 · UK',s:'ss-ok',sl:'Filed'},
-      {id:'DOC-3397',r:'Letter of Credit · PO-9082 · BE',s:'ss-ok',sl:'Approved'},
-      {id:'DOC-3396',r:'Bill of Lading · PO-9076 · NG',s:'ss-tr',sl:'Drafting'},
+      {id:'DOC-201',r:'Commercial Invoice · ORD-2401',s:'ss-ok',sl:'Filed'},
+      {id:'DOC-200',r:'Form M · ORD-2395 · Access Bank',s:'ss-ok',sl:'Approved'},
+      {id:'DOC-199',r:'NAFDAC Pre-Clearance · ORD-2404',s:'ss-ok',sl:'Issued'},
+      {id:'DOC-198',r:'SONCAP Certificate · ORD-2398',s:'ss-ok',sl:'Uploaded'},
+      {id:'DOC-197',r:'Bill of Lading · ORD-2388',s:'ss-tr',sl:'In Process'},
+      {id:'DOC-196',r:'PAAR · ORD-2401 · Pending Nigerian Customs',s:'ss-ho',sl:'Waiting'},
     ],
   },
   'Payments': {
-    title: 'Payment Operations',
-    kpis: [{v:'$2.1M',l:'Pending Settle'},{v:'OPEN',l:'FX Window'},{v:'$18.4M',l:'This Month'}],
+    title: 'Payments & Invoicing',
+    kpis: [{v:'$18,500',l:'Paid MTD'},{v:'$4,200',l:'Outstanding'},{v:'2',l:'Invoices Due'}],
     list: [
-      {id:'PMT-921',r:'$840K · USD → EUR · Rotterdam supplier',s:'ss-tr',sl:'Queued'},
-      {id:'PMT-920',r:'$215K · USD → SGD · Singapore freight',s:'ss-ok',sl:'Settled'},
-      {id:'PMT-919',r:'$92K · USD → AED · Dubai broker',s:'ss-ok',sl:'Settled'},
-      {id:'PMT-918',r:'$1.4M · USD → CNY · Shanghai supplier',s:'ss-tr',sl:'In Flight'},
-      {id:'PMT-917',r:'$310K · USD → GBP · UK customs duty',s:'ss-ok',sl:'Settled'},
+      {id:'INV-141',r:'ORD-2404 · Deposit 50% · $2,100 · USD',s:'ss-ho',sl:'Due'},
+      {id:'INV-140',r:'ORD-2401 · Balance 50% · $4,200 · USD',s:'ss-tr',sl:'Scheduled'},
+      {id:'INV-139',r:'ORD-2398 · Full payment · $3,200 · USD',s:'ss-ok',sl:'Paid'},
+      {id:'INV-138',r:'ORD-2395 · Deposit 50% · ₦9.8M · NGN',s:'ss-ok',sl:'Paid'},
+      {id:'INV-137',r:'ORD-2391 · Balance 50% · $2,150 · USD',s:'ss-ok',sl:'Paid'},
     ],
   },
-  'ERP Diagnostics': {
-    title: 'ERP Health',
-    kpis: [{v:'4/4',l:'Systems Connected'},{v:'2',l:'Open Issues'},{v:'2h',l:'Last Scan'}],
+  'Support': {
+    title: 'Support & Messages',
+    kpis: [{v:'2',l:'Open Threads'},{v:'0',l:'Escalations'},{v:'24hr',l:'Avg Response'}],
     list: [
-      {id:'SAP',r:'SAP S/4HANA · Production tenant',s:'ss-ok',sl:'Healthy'},
-      {id:'ARIBA',r:'SAP Ariba · Procurement network',s:'ss-ho',sl:'2 Warnings'},
-      {id:'BTP',r:'SAP BTP · Integration layer',s:'ss-ok',sl:'Healthy'},
-      {id:'MULE',r:'MuleSoft · Anypoint API gateway',s:'ss-tr',sl:'1 Critical'},
+      {id:'MSG-42',r:'ORD-2395 · NG customs hold — awaiting response from broker',s:'ss-ho',sl:'Active'},
+      {id:'MSG-41',r:'ORD-2404 · Question about NAFDAC compliance for shipment',s:'ss-tr',sl:'Open'},
+      {id:'MSG-40',r:'ORD-2391 · Delivered receipt sent — thanks for shipping!',s:'ss-ok',sl:'Closed'},
+      {id:'MSG-39',r:'General · Corridor advisor call requested',s:'ss-ok',sl:'Scheduled'},
     ],
   },
   'Settings': {
     title: 'Account Settings',
     kpis: [],
     list: [
-      {id:'ORG',r:'Organisation · Acme Trade Co.',s:'ss-ok',sl:'Active'},
-      {id:'REG',r:'Active Regions · Africa + Asia-Pacific',s:'ss-ok',sl:'Set'},
-      {id:'TZ',r:'Default Timezone · WAT (Lagos)',s:'ss-ok',sl:'Set'},
-      {id:'API',r:'Traxora API Keys · 3 active',s:'ss-ok',sl:'Active'},
-      {id:'ALR',r:'Alert Channels · Email + WhatsApp',s:'ss-ok',sl:'On'},
-      {id:'BIL',r:'Billing · XaeccoPS Advisor tier',s:'ss-ok',sl:'Active'},
+      {id:'ACC',r:'Organisation · Sample Diaspora Trader Co.',s:'ss-ok',sl:'Active'},
+      {id:'CTY',r:'Primary Currency · USD (US-side billing)',s:'ss-ok',sl:'Set'},
+      {id:'TZ',r:'Timezone · EST (Philadelphia)',s:'ss-ok',sl:'Set'},
+      {id:'ALR',r:'Alerts · Email + WhatsApp',s:'ss-ok',sl:'On'},
+      {id:'PAY',r:'Payment Methods · Wire + ACH · USDC on request',s:'ss-ok',sl:'Verified'},
+      {id:'AUD',r:'Team Access · 1 admin · 0 collaborators',s:'ss-ok',sl:'Active'},
     ],
   },
 };
@@ -1231,7 +1229,7 @@ export default function XaeccoXWebsite(){
             <div className="dash-body">
               <div className="d-side">
                 <div className="d-side-logo">Xaecco<span>X</span></div>
-                {[{Icon:LayoutDashboard,l:'Dashboard'},{Icon:Ship,l:'Shipments'},{Icon:Bot,l:'Agents'},{Icon:FileText,l:'Documents'},{Icon:ArrowLeftRight,l:'Payments'},{Icon:Hexagon,l:'ERP Diagnostics'},{Icon:Settings,l:'Settings'}].map(it=>(
+                {[{Icon:LayoutDashboard,l:'Dashboard'},{Icon:PackageOpen,l:'My Orders'},{Icon:Ship,l:'Shipments'},{Icon:FileText,l:'Documents'},{Icon:CreditCard,l:'Payments'},{Icon:MessageCircle,l:'Support'},{Icon:Settings,l:'Settings'}].map(it=>(
                   <div key={it.l} className={`d-nav-item${dashView===it.l?' on':''}`} onClick={()=>setDashView(it.l)}><it.Icon size={14} strokeWidth={1.7}/>{it.l}</div>
                 ))}
               </div>
@@ -1332,35 +1330,35 @@ export default function XaeccoXWebsite(){
 
       </section>
 
-      <section id="faq">
-        <div className="fu" ref={r}>
-          <div className="stag">FAQ</div>
-          <h2 className="sh">The questions <span className="acc">people ask.</span></h2>
+      <section id="faq" style={{padding:'80px 72px'}}>
+        <div className="fu" ref={r} style={{maxWidth:720,margin:'0 auto',textAlign:'center'}}>
+          <div className="stag" style={{justifyContent:'center'}}>FAQ</div>
+          <h2 className="sh" style={{fontSize:'clamp(22px,2.6vw,34px)'}}>The questions <span className="acc">people ask.</span></h2>
         </div>
-        <div className="fu" ref={r} style={{marginTop:52,maxWidth:820,margin:'52px auto 0',display:'flex',flexDirection:'column',gap:10}}>
+        <div className="fu" ref={r} style={{marginTop:36,maxWidth:720,margin:'36px auto 0',display:'flex',flexDirection:'column',gap:6}}>
           {[
-            {q:'How does an order work, start to finish?',a:'You send a trade quote request. Within one business day we come back with a scoped quote — freight, customs, clearing, delivery, payment terms. If you accept, we open a proper commercial order under the correct XaeccoX entity, invoice you, and start execution. You track status through the customer portal (once live) or by email. On arrival, final invoice + receipts close the order.'},
-            {q:'How long does a shipment take between the US and Nigeria?',a:'Sea freight from the US to Nigeria runs 45–60 days door-to-door on typical lanes. Sea freight from Nigeria back to the US runs 60–90 days (outbound West Africa lanes are slower). Air freight from the US to Nigeria runs 10–15 business days. All timelines assume clean paperwork; customs holds can add 3–10 days if HS coding, NAFDAC, or SONCAP is incomplete. We surface those risks in the quote so you can plan around them.'},
-            {q:'What order sizes do you handle?',a:'Anything from a single barrel of foodstuffs to a 40ft full container of vehicles or commercial goods. We consolidate multiple small shippers into shared containers (LCL) when volumes are individually small — that\'s what makes it economical for diaspora shipments and small businesses. There\'s no minimum-order threshold on the quote request; if it doesn\'t make economic sense, we\'ll tell you and suggest an alternative.'},
-            {q:'Do you handle NAFDAC, SONCAP, Form M, PAAR paperwork?',a:'Yes, on any shipment that requires them. Our team pre-checks NAFDAC registration and product clearance requirements against your goods, coordinates SONCAP where the SON regime applies, opens Form M against the correct authorised dealer bank, and ensures PAAR is issued cleanly before goods arrive. This is baked into standard fulfillment on regulated shipments — not an add-on.'},
-            {q:'Can I track my order in real time?',a:'The customer portal launches alongside our first paying orders — it shows order status, shipment position, uploaded documents, and payment ledger. Until then, every customer gets a WhatsApp or email thread that\'s updated at each stage (booking confirmed, container loaded, in transit, cleared customs, out for delivery). No opaque black boxes.'},
-            {q:'What happens if my goods get held at customs?',a:'We work through it and communicate immediately. Most holds are documentation — wrong HS code, missing pre-clearance, mismatched invoice. We fix the paperwork and re-present. Genuine issues (prohibited goods, valuation disputes) get escalated with options — pay, dispute, or re-export — and we quote you the cost of each path. You\'re never in the dark on a held container.'},
-            {q:'How do payments work on my order?',a:'Standard commercial invoicing. You pay in USD to XaeccoX LLC (US-side) or in NGN to XaeccoX Solution Enterprise (Nigeria-side), whichever fits your side of the corridor. Typically 50% on order confirmation and 50% on delivery, but bigger or repeat orders can move to net-15 or net-30 credit terms once we\'ve worked together.'},
-            {q:'Do you offer credit or trade finance?',a:'For established customers, yes — after two or three successful trades we can extend structured credit terms (net-15, net-30, or partial deferred payment on specific milestones). For new customers, orders start with the standard 50/50 payment schedule. We don\'t currently offer stand-alone trade credit or receivables financing as a product.'},
-          ].map((f,i)=>(
-            <div key={i} className="glass-card" style={{padding:'0',borderRadius:'var(--r12)',cursor:'pointer'}} onClick={()=>setOpenFaq(openFaq===i?null:i)}>
-              <div style={{padding:'22px 26px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:16}}>
-                <div style={{fontFamily:'var(--fd)',fontWeight:600,fontSize:15,color:'var(--w)',lineHeight:1.4}}>{f.q}</div>
-                <div style={{fontFamily:'var(--fm)',fontSize:18,color:'var(--blu)',transition:'transform .2s',transform:openFaq===i?'rotate(45deg)':'rotate(0)'}}>＋</div>
+            {q:'How does an order work, start to finish?',a:'You send a trade quote request. Within one business day we come back with a scoped quote — freight, customs, clearing, delivery, payment terms. If you accept, we open a commercial order under the correct XaeccoX entity, invoice you, and start execution. On arrival, final invoice + receipts close the order.'},
+            {q:'How long does a shipment take between the US and Nigeria?',a:'Sea freight US → Nigeria runs 45–60 days door-to-door on typical lanes. Sea Nigeria → US runs 60–90 days (outbound West Africa is slower). Air US → Nigeria runs 10–15 business days. All timelines assume clean paperwork; customs holds can add 3–10 days.'},
+            {q:'What order sizes do you handle?',a:'Anything from a single barrel of foodstuffs to a 40ft full container of vehicles or commercial goods. We consolidate small shippers into shared containers (LCL) when volumes are individually small. No minimum threshold on the quote request.'},
+            {q:'Do you handle NAFDAC, SONCAP, Form M, PAAR paperwork?',a:'Yes, on any shipment that requires them. We pre-check NAFDAC registration, coordinate SONCAP where SON applies, open Form M against the correct authorised dealer bank, and ensure PAAR issues cleanly before arrival. Baked into standard fulfillment, not an add-on.'},
+            {q:'How do payments work on my order?',a:'Standard commercial invoicing. Pay in USD to XaeccoX LLC (US-side) or NGN to XaeccoX Solution Enterprise (NG-side). Typically 50% on order confirmation and 50% on delivery. Repeat customers move to net-15 or net-30 terms.'},
+          ].map((f,i)=>{
+            const open = openFaq === i;
+            return (
+              <div key={i} className="glass-card" style={{padding:0,borderRadius:'var(--r8)',cursor:'pointer'}} onClick={()=>setOpenFaq(open?null:i)}>
+                <div style={{padding:'14px 18px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
+                  <div style={{fontFamily:'var(--fd)',fontWeight:500,fontSize:14,color:'var(--w)',lineHeight:1.35}}>{f.q}</div>
+                  <div style={{color:'var(--blu)',display:'flex',alignItems:'center',flexShrink:0}}>{open ? <Minus size={16} strokeWidth={2}/> : <Plus size={16} strokeWidth={2}/>}</div>
+                </div>
+                {open && (
+                  <div style={{padding:'0 18px 16px',fontSize:13,color:'var(--w3)',lineHeight:1.65}}>{f.a}</div>
+                )}
               </div>
-              {openFaq===i&&(
-                <div style={{padding:'0 26px 22px',fontSize:14,color:'var(--w3)',lineHeight:1.7}}>{f.a}</div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
-        <p style={{textAlign:'center',color:'var(--w3)',fontSize:13,marginTop:36,fontFamily:'var(--fd)'}}>
-          Something else on your mind? <a href="mailto:info@xaeccox.io?subject=Question%20from%20xaeccox.io" style={{color:'var(--blu)',textDecoration:'underline'}}>Email us directly.</a>
+        <p style={{textAlign:'center',color:'var(--w3)',fontSize:12,marginTop:24,fontFamily:'var(--fd)'}}>
+          Something else? <a href="mailto:info@xaeccox.io?subject=Question%20from%20xaeccox.io" style={{color:'var(--blu)',textDecoration:'underline'}}>Email us directly.</a>
         </p>
       </section>
 

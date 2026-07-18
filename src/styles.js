@@ -380,25 +380,80 @@ footer{border-top:1px solid var(--b1);padding:64px 72px;background:rgba(6,14,28,
 .fu.v{opacity:1;transform:translateY(0)}
 
 @media(max-width:1100px){
-  nav,nav.sc{padding:16px 24px}
+  nav,nav.sc{padding:14px 20px}
   .nav-links{display:none}
-  section{padding:80px 24px}
+  section{padding:80px 20px !important}
   .hero-right{display:none}
   .rf-wrap,.meth-wrap{grid-template-columns:1fr}
   .market-grid,.sol-grid,.erp-diag-grid{grid-template-columns:1fr}
   .erp-systems,.eco-grid{grid-template-columns:repeat(2,1fr)}
-  .met-row{grid-template-columns:repeat(2,1fr)}
-  .pricing-grid,.dp-grid{grid-template-columns:1fr}
+  .met-row{grid-template-columns:repeat(2,1fr) !important}
+  .pricing-grid,.dp-grid{grid-template-columns:1fr !important}
   .plat-intro,.agent-split,.erp-intro,.section-head-split{grid-template-columns:1fr;gap:40px}
   .dash-body{grid-template-columns:1fr}.d-side,.d-right{display:none}
-  .ft-grid{grid-template-columns:1fr 1fr;gap:36px}
-  footer{padding:40px 24px}
+  .ft-grid{grid-template-columns:1fr 1fr !important;gap:36px}
+  footer{padding:40px 20px}
   .ft-bottom{flex-direction:column;align-items:flex-start}
+  .hero-ring,.hero-ring2,.hero-glow{display:none}
 }
+
+/* Tablet & mobile — force inline grid layouts to collapse, tighten heros, headings */
+@media(max-width:900px){
+  #hero{padding:120px 20px 60px !important;grid-template-columns:1fr !important;min-height:auto !important;gap:32px !important}
+  h1.hero-h{font-size:clamp(28px,7vw,42px) !important;line-height:1.1 !important}
+  h1.hero-h .serif{font-size:clamp(14px,4vw,18px) !important;margin-top:14px !important}
+  .hero-desc{font-size:14.5px !important;max-width:none !important}
+  .hero-status{padding:6px 12px 6px 9px !important}
+  .hs-txt{font-size:8.5px !important}
+  .hero-stats{gap:10px !important}
+  .hstat{min-width:0 !important;padding:11px 14px !important;flex:1 1 45% !important}
+  .hstat-n{font-size:22px !important}
+
+  section [style*="grid-template-columns"]{grid-template-columns:1fr !important;max-width:100% !important}
+
+  h2.sh{font-size:clamp(22px,5.5vw,32px) !important}
+  h2.cta-h{font-size:clamp(24px,6vw,40px) !important}
+  .cta-section{padding:100px 20px !important}
+  .cta-actions{flex-direction:column !important;align-items:stretch !important}
+  .cta-actions .btn-cta-p,.cta-actions .btn-cta-g{width:100% !important;text-align:center !important}
+
+  .sdesc{font-size:14.5px !important;line-height:1.65 !important}
+  .stag{font-size:8px !important}
+
+  .ft-grid{grid-template-columns:1fr !important;gap:32px !important}
+  .ticker-wrap{overflow:hidden}
+  .ti{padding:0 20px !important;font-size:9.5px !important}
+  .tick-label{padding:10px 14px !important;font-size:8px !important}
+
+  .dash-bar .dash-url{display:none}
+
+  .bk-modal{max-width:100% !important;border-radius:14px !important}
+  .bkh{padding:20px 20px 14px !important}
+  .bk-body{padding:20px !important}
+  .bk-footer{padding:16px 20px 22px !important;flex-direction:column !important;align-items:stretch !important;gap:12px !important}
+  .bk-footer-btns{width:100% !important}
+  .btn-bk-next{width:100% !important;justify-content:center !important}
+  .diag-type-grid{grid-template-columns:1fr !important}
+  .bk-form-row{grid-template-columns:1fr !important}
+  .date-grid{grid-template-columns:repeat(2,1fr) !important}
+  .time-grid{grid-template-columns:repeat(3,1fr) !important}
+  .review-grid{grid-template-columns:1fr !important}
+  .bks-cards{grid-template-columns:1fr !important}
+}
+
 @media(max-width:640px){
-  .erp-systems,.eco-grid,.met-row{grid-template-columns:1fr}
+  .erp-systems,.eco-grid,.met-row{grid-template-columns:1fr !important}
   .sol-grid{grid-template-columns:1fr}
   .ft-grid{grid-template-columns:1fr}
+  section{padding:64px 18px !important}
+  nav,nav.sc{padding:12px 16px !important}
+  .btn-nav-cta{padding:8px 14px !important;font-size:11px !important}
+  .btn-nav-ghost{padding:7px 12px !important;font-size:11px !important}
+  .logo{font-size:17px !important;gap:8px !important}
+  .logo-badge{display:none}
+  h1.hero-h{font-size:clamp(26px,8vw,36px) !important}
+  h2.sh{font-size:clamp(20px,6vw,28px) !important}
+  .hstat{flex:1 1 100% !important}
 }
 
 .bk-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(1,3,10,.92);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);animation:bkOvIn .3s ease}
